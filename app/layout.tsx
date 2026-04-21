@@ -6,6 +6,10 @@ export const metadata: Metadata = {
   title: "SoPC Insights Explorer — Courier Health 2026",
   description:
     "Explore findings from Courier Health's 2026 State of Patient-Centricity survey, filtered to your segment.",
+  robots: {
+    index: false,
+    follow: false,
+  },
 };
 
 export default function RootLayout({
