@@ -5,6 +5,7 @@ import type { CompanyType, TherapeuticArea, RoleFocus } from "@/data/types";
 import { RESPONSES } from "@/data/responses";
 import { OVERLAYS } from "@/data/overlays";
 import { QUESTIONS, OPENING } from "@/data/questions";
+import StatsShowcase from "@/components/StatsShowcase";
 
 // PostHog is accessed via window to keep import side-effect free in this component
 declare global {
@@ -326,6 +327,9 @@ export default function Explorer() {
           Select your profile to surface relevant findings from Courier Health&apos;s 2026 survey.
         </p>
       </div>
+
+      {/* Stats showcase */}
+      {view === "intake" && <StatsShowcase />}
 
       {/* Intake */}
       {view === "intake" && (
