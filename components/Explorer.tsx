@@ -15,12 +15,16 @@ declare global {
   }
 }
 
-const COMPANY_TYPES: CompanyType[] = [
-  "Emerging biotech",
-  "Small biotech",
-  "Mid-size pharma",
-  "Large pharma",
+const COMPANY_SIZE_OPTIONS: { label: string; value: CompanyType }[] = [
+  { label: "Small/Pre-commercial", value: "Emerging biotech" },
+  { label: "Emerging", value: "Small biotech" },
+  { label: "Mid-Sized", value: "Mid-size pharma" },
+  { label: "Large", value: "Large pharma" },
 ];
+
+function getCompanySizeLabel(value: CompanyType): string {
+  return COMPANY_SIZE_OPTIONS.find((o) => o.value === value)?.label ?? value;
+}
 
 const THERAPEUTIC_AREAS: TherapeuticArea[] = [
   "Oncology",
@@ -71,7 +75,7 @@ function getProfile(
   ta: TherapeuticArea | "",
   role: RoleFocus | ""
 ): string {
-  const parts: string[] = [companyType];
+  const parts: string[] = [getCompanySizeLabel(companyType)];
   if (ta && ta !== "All / Other") parts.push(ta);
   if (role) parts.push(role);
   return parts.join(" · ");
@@ -302,7 +306,7 @@ export default function Explorer() {
             marginBottom: 12,
           }}
         >
-          2026 State of Patient-Centricity · 162 biopharma leaders · 87 companies
+          2026 State of Patient-Centricity · 170+ biopharma leaders · 80+ companies
         </div>
         <h1
           style={{
@@ -349,22 +353,22 @@ export default function Explorer() {
                 1
               </div>
               <span style={{ fontSize: 13, fontWeight: 600, color: "rgba(255,255,255,0.8)" }}>
-                Company type
+                Company Size
               </span>
             </div>
             <div style={{ display: "flex", flexWrap: "wrap", gap: 8, paddingLeft: 32 }}>
-              {COMPANY_TYPES.map((ct) => (
+              {COMPANY_SIZE_OPTIONS.map(({ label, value }) => (
                 <button
-                  key={ct}
-                  onClick={() => setCompanyType(ct)}
+                  key={value}
+                  onClick={() => setCompanyType(value)}
                   style={{
                     padding: "7px 16px",
                     borderRadius: 100,
-                    border: companyType === ct
+                    border: companyType === value
                       ? "1.5px solid #00D4FF"
                       : "1.5px solid rgba(255,255,255,0.2)",
-                    background: companyType === ct ? "#00D4FF" : "transparent",
-                    color: companyType === ct ? "#0A1744" : "rgba(255,255,255,0.8)",
+                    background: companyType === value ? "#00D4FF" : "transparent",
+                    color: companyType === value ? "#0A1744" : "rgba(255,255,255,0.8)",
                     fontSize: 12,
                     fontWeight: 600,
                     cursor: "pointer",
@@ -372,7 +376,7 @@ export default function Explorer() {
                     transition: "all 0.15s",
                   }}
                 >
-                  {ct}
+                  {label}
                 </button>
               ))}
             </div>
