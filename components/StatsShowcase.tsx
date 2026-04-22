@@ -21,13 +21,6 @@ const PIE_DATA = [
   { label: "Other / not answered",                 pct: 6.8,  color: "#e5e7eb" },
 ];
 
-const ANSWERS = [
-  { label: "Less than 30%", correct: false },
-  { label: "Around 45%",    correct: false },
-  { label: "Nearly 60%",    correct: true  },
-  { label: "Over 75%",      correct: false },
-];
-
 const BAR_DATA = [
   { label: "Large pharma",     pct: 31   },
   { label: "Mid-size pharma",  pct: 16.3 },
@@ -67,10 +60,10 @@ function PieChart() {
 
   return (
     <div style={{ display: "flex", flexDirection: "column", gap: 10 }}>
-      <div style={{ fontSize: 13, fontWeight: 700, color: "#00145E", lineHeight: 1.4 }}>
+      <div style={{ fontSize: 15, fontWeight: 700, color: "#00145E", lineHeight: 1.4 }}>
         What&apos;s the top challenge to acting on data?
       </div>
-      <div style={{ display: "flex", gap: 14, alignItems: "flex-start" }}>
+      <div style={{ display: "flex", gap: 14, alignItems: "flex-start", flexWrap: "wrap" }}>
         <svg width={180} height={180} viewBox="0 0 180 180" style={{ flexShrink: 0 }}>
           {PIE_DATA.map((d, i) => {
             const { start, end, mid } = angles[i];
@@ -134,7 +127,7 @@ function PieChart() {
                   marginTop: 2,
                 }}
               />
-              <div style={{ fontSize: 9.5, color: "#555", lineHeight: 1.4 }}>
+              <div style={{ fontSize: 12, color: "#555", lineHeight: 1.4 }}>
                 <span style={{ fontWeight: 700, color: "#00145E" }}>{d.pct}%</span>{" "}
                 {d.label}
               </div>
@@ -142,139 +135,7 @@ function PieChart() {
           ))}
         </div>
       </div>
-      <div style={{ fontSize: 9.5, color: "#bbb" }}>
-        2026 SoPC · All Respondents (n=161)
-      </div>
-    </div>
-  );
-}
-
-// ─── Viz 2: Gauge Stat ────────────────────────────────────────────────────────
-
-const GAUGE_R       = 76;
-const GAUGE_CX      = 100;
-const GAUGE_CY      = 90;
-const GAUGE_ARC_LEN = Math.PI * GAUGE_R; // ≈ 238.76
-const GAUGE_VALUE   = 58;                // 46.6 + 12.4
-
-function GaugeStat() {
-  const [selected, setSelected]   = useState<number | null>(null);
-  const [revealed, setRevealed]   = useState(false);
-  const [shaking, setShaking]     = useState<number | null>(null);
-
-  const fillLen   = (GAUGE_VALUE / 100) * GAUGE_ARC_LEN;
-  const dashOffset = revealed ? GAUGE_ARC_LEN - fillLen : GAUGE_ARC_LEN;
-
-  // Counter-clockwise sweep (flag=0) → goes through the TOP of the semicircle
-  const trackPath = `M ${GAUGE_CX - GAUGE_R},${GAUGE_CY} A ${GAUGE_R},${GAUGE_R} 0 0 0 ${GAUGE_CX + GAUGE_R},${GAUGE_CY}`;
-
-  function handleAnswer(i: number) {
-    if (revealed) return;
-    setSelected(i);
-    window.posthog?.capture("stat_guess_answered", {
-      answer_selected: ANSWERS[i].label,
-      was_correct:     ANSWERS[i].correct,
-    });
-    if (ANSWERS[i].correct) {
-      setRevealed(true);
-    } else {
-      setShaking(i);
-      setTimeout(() => {
-        setShaking(null);
-        setRevealed(true);
-      }, 650);
-    }
-  }
-
-  return (
-    <div style={{ display: "flex", flexDirection: "column", gap: 10 }}>
-      <div style={{ fontSize: 13, fontWeight: 700, color: "#00145E", lineHeight: 1.4 }}>
-        What % of biopharma companies say their data is fragmented or doesn&apos;t inform
-        day-to-day operations?
-      </div>
-
-      {/* Gauge arc */}
-      <div style={{ display: "flex", justifyContent: "center" }}>
-        <svg width={200} height={100} viewBox="0 0 200 100">
-          <path
-            d={trackPath}
-            fill="none"
-            stroke="#EAF2FF"
-            strokeWidth={13}
-            strokeLinecap="round"
-          />
-          <path
-            d={trackPath}
-            fill="none"
-            stroke="#0F6DFD"
-            strokeWidth={13}
-            strokeLinecap="round"
-            strokeDasharray={`${GAUGE_ARC_LEN} ${GAUGE_ARC_LEN}`}
-            strokeDashoffset={dashOffset}
-            style={{ transition: revealed ? "stroke-dashoffset 1.1s ease-out" : "none" }}
-          />
-        </svg>
-      </div>
-
-      {/* Revealed stat or answer pills */}
-      <div style={{ textAlign: "center", minHeight: 70 }}>
-        {revealed ? (
-          <>
-            <div style={{ fontSize: 40, fontWeight: 800, color: "#00145E", lineHeight: 1 }}>
-              {GAUGE_VALUE}%
-            </div>
-            <div
-              style={{
-                fontSize: 11,
-                color: "#555",
-                lineHeight: 1.5,
-                margin: "5px auto 0",
-                maxWidth: 200,
-              }}
-            >
-              of commercial teams say data doesn&apos;t inform day-to-day operations
-            </div>
-            <div
-              style={{
-                fontSize: 11,
-                fontWeight: 700,
-                marginTop: 6,
-                color:
-                  selected !== null && ANSWERS[selected].correct ? "#00B8E0" : "#999",
-              }}
-            >
-              {selected !== null && ANSWERS[selected].correct
-                ? "That\u2019s right."
-                : "The actual number might surprise you."}
-            </div>
-          </>
-        ) : (
-          <div style={{ display: "flex", flexWrap: "wrap", gap: 6, justifyContent: "center" }}>
-            {ANSWERS.map((a, i) => (
-              <button
-                key={i}
-                onClick={() => handleAnswer(i)}
-                style={{
-                  padding: "6px 13px",
-                  borderRadius: 100,
-                  border: "1.5px solid rgba(0,20,94,0.18)",
-                  background: "white",
-                  color: "#00145E",
-                  fontSize: 11,
-                  fontWeight: 600,
-                  cursor: "pointer",
-                  fontFamily: "'Averta PE', sans-serif",
-                  animation: shaking === i ? "shake 0.4s ease-in-out" : "none",
-                }}
-              >
-                {a.label}
-              </button>
-            ))}
-          </div>
-        )}
-      </div>
-
-      <div style={{ fontSize: 9.5, color: "#bbb" }}>
+      <div style={{ fontSize: 11, color: "#bbb" }}>
         2026 SoPC · All Respondents (n=161)
       </div>
     </div>
@@ -285,6 +146,7 @@ function GaugeStat() {
 
 function BarChart() {
   const [animated, setAnimated] = useState(false);
+  const [hovered, setHovered] = useState<number | null>(null);
   const ref = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -305,19 +167,28 @@ function BarChart() {
 
   return (
     <div ref={ref} style={{ display: "flex", flexDirection: "column", gap: 10 }}>
-      <div style={{ fontSize: 13, fontWeight: 700, color: "#00145E", lineHeight: 1.4 }}>
-        Approved AI tools with governance across 2+ teams
+      <div style={{ fontSize: 15, fontWeight: 700, color: "#00145E", lineHeight: 1.4 }}>
+        Where does AI adoption stand by company size?
       </div>
       <div style={{ display: "flex", flexDirection: "column", gap: 12 }}>
-        {BAR_DATA.map((d) => (
-          <div key={d.label}>
+        {BAR_DATA.map((d, i) => (
+          <div
+            key={d.label}
+            style={{
+              opacity: hovered === null ? 1 : hovered === i ? 1 : 0.3,
+              transition: "opacity 0.18s",
+              cursor: "pointer",
+            }}
+            onMouseEnter={() => setHovered(i)}
+            onMouseLeave={() => setHovered(null)}
+          >
             <div style={{ display: "flex", justifyContent: "space-between", marginBottom: 5 }}>
-              <span style={{ fontSize: 11, fontWeight: 600, color: "#00145E" }}>
+              <span style={{ fontSize: 13, fontWeight: 600, color: "#00145E" }}>
                 {d.label}
               </span>
               <span
                 style={{
-                  fontSize: 11,
+                  fontSize: 13,
                   fontWeight: 700,
                   color: "#378ADD",
                   opacity: animated ? 1 : 0,
@@ -348,8 +219,156 @@ function BarChart() {
           </div>
         ))}
       </div>
-      <div style={{ fontSize: 9.5, color: "#bbb" }}>
+      <div style={{ fontSize: 11, color: "#bbb" }}>
         2026 SoPC · Company size segments
+      </div>
+    </div>
+  );
+}
+
+// ─── Viz 3: Data Maturity ─────────────────────────────────────────────────────
+
+function DataMaturity() {
+  const [hovered, setHovered] = useState<number | null>(null);
+  const STAGES = [
+    { label: "Using data to power AI use cases",     pct: 8.7,  color: "#0F6DFD" },
+    { label: "Data informs workflows & decisions",   pct: 32.3, color: "#378ADD" },
+    { label: "Accessible but rarely changes ops",    pct: 12.4, color: "#93c5fd" },
+    { label: "Ownership fragmented across systems",  pct: 46.6, color: "#e5e7eb" },
+  ];
+
+  return (
+    <div style={{ display: "flex", flexDirection: "column", gap: 10 }}>
+      <div style={{ fontSize: 15, fontWeight: 700, color: "#00145E", lineHeight: 1.4 }}>
+        Where does data maturity stand today?
+      </div>
+      <div style={{ fontSize: 12, color: "#555", lineHeight: 1.5, marginBottom: 4 }}>
+        How commercial teams describe their current data state
+      </div>
+      <div style={{ display: "flex", flexDirection: "column", gap: 10 }}>
+        {STAGES.map((s, i) => (
+          <div
+            key={s.label}
+            style={{
+              opacity: hovered === null ? 1 : hovered === i ? 1 : 0.3,
+              transition: "opacity 0.18s",
+              cursor: "pointer",
+            }}
+            onMouseEnter={() => setHovered(i)}
+            onMouseLeave={() => setHovered(null)}
+          >
+            <div style={{ display: "flex", justifyContent: "space-between", marginBottom: 4 }}>
+              <span style={{ fontSize: 12, color: "#00145E", fontWeight: 500, lineHeight: 1.4, maxWidth: "75%" }}>
+                {s.label}
+              </span>
+              <span style={{ fontSize: 13, fontWeight: 700, color: s.color, flexShrink: 0 }}>
+                {s.pct}%
+              </span>
+            </div>
+            <div style={{ background: "#EAF2FF", borderRadius: 100, height: 9, overflow: "hidden" }}>
+              <div style={{ background: s.color, height: "100%", borderRadius: 100, width: `${s.pct}%` }} />
+            </div>
+          </div>
+        ))}
+      </div>
+      <div style={{ fontSize: 11, color: "#bbb", marginTop: 4 }}>
+        2026 SoPC · All Respondents (n=161)
+      </div>
+    </div>
+  );
+}
+
+// ─── Viz 4: Start Rate ────────────────────────────────────────────────────────
+
+function StartRate() {
+  const [hovered, setHovered] = useState<number | null>(null); // 0 = start, 1 = no-start
+  const RATE = 67.5;
+  const CX = 80, CY = 80, R = 62;
+  const circumference = 2 * Math.PI * R;
+  const filled = (RATE / 100) * circumference;
+
+  const centerPct  = hovered === 1 ? "32.5%" : "67.5%";
+  const centerSub  = hovered === 1 ? "don't start" : "start therapy";
+
+  return (
+    <div style={{ display: "flex", flexDirection: "column", gap: 10 }}>
+      <div style={{ fontSize: 15, fontWeight: 700, color: "#00145E", lineHeight: 1.4 }}>
+        1 in 3 prescribed patients never start therapy
+      </div>
+      <div style={{ display: "flex", alignItems: "center", gap: 20, flexWrap: "wrap" }}>
+        <svg width={160} height={160} viewBox="0 0 160 160" style={{ flexShrink: 0 }}>
+          {/* Track — represents the no-start portion */}
+          <circle
+            cx={CX} cy={CY} r={R}
+            fill="none"
+            stroke="#EAF2FF"
+            strokeWidth={14}
+            style={{ cursor: "pointer", transition: "opacity 0.18s" }}
+            opacity={hovered === 0 ? 0.25 : 1}
+            onMouseEnter={() => setHovered(1)}
+            onMouseLeave={() => setHovered(null)}
+          />
+          {/* Fill — represents the start portion */}
+          <circle
+            cx={CX} cy={CY} r={R}
+            fill="none"
+            stroke="#0F6DFD"
+            strokeWidth={14}
+            strokeLinecap="round"
+            strokeDasharray={`${filled} ${circumference}`}
+            strokeDashoffset={circumference * 0.25}
+            transform={`rotate(-90 ${CX} ${CY})`}
+            style={{ cursor: "pointer", transition: "opacity 0.18s" }}
+            opacity={hovered === 1 ? 0.25 : 1}
+            onMouseEnter={() => setHovered(0)}
+            onMouseLeave={() => setHovered(null)}
+          />
+          {/* Center label */}
+          <text x={CX} y={CY - 6} textAnchor="middle" fontSize={22} fontWeight={800} fill="#00145E" fontFamily="Averta PE, sans-serif">
+            {centerPct}
+          </text>
+          <text x={CX} y={CY + 14} textAnchor="middle" fontSize={11} fill="#888" fontFamily="Averta PE, sans-serif">
+            {centerSub}
+          </text>
+        </svg>
+        <div style={{ display: "flex", flexDirection: "column", gap: 12 }}>
+          <div
+            style={{
+              display: "flex", alignItems: "center", gap: 8,
+              opacity: hovered === null ? 1 : hovered === 0 ? 1 : 0.3,
+              transition: "opacity 0.18s",
+              cursor: "pointer",
+            }}
+            onMouseEnter={() => setHovered(0)}
+            onMouseLeave={() => setHovered(null)}
+          >
+            <div style={{ width: 12, height: 12, borderRadius: "50%", background: "#0F6DFD", flexShrink: 0 }} />
+            <span style={{ fontSize: 12, color: "#555" }}>
+              <strong style={{ color: "#00145E" }}>67.5%</strong> start therapy (industry mean)
+            </span>
+          </div>
+          <div
+            style={{
+              display: "flex", alignItems: "center", gap: 8,
+              opacity: hovered === null ? 1 : hovered === 1 ? 1 : 0.3,
+              transition: "opacity 0.18s",
+              cursor: "pointer",
+            }}
+            onMouseEnter={() => setHovered(1)}
+            onMouseLeave={() => setHovered(null)}
+          >
+            <div style={{ width: 12, height: 12, borderRadius: "50%", background: "#EAF2FF", border: "1.5px solid #93c5fd", flexShrink: 0 }} />
+            <span style={{ fontSize: 12, color: "#555" }}>
+              <strong style={{ color: "#00145E" }}>32.5%</strong> never start despite being prescribed
+            </span>
+          </div>
+          <div style={{ fontSize: 11, color: "#aaa", lineHeight: 1.5, marginTop: 4 }}>
+            Median: 70% · Range varies significantly by company size and TA
+          </div>
+        </div>
+      </div>
+      <div style={{ fontSize: 11, color: "#bbb" }}>
+        2026 SoPC · All Respondents (n=161)
       </div>
     </div>
   );
@@ -361,21 +380,24 @@ export default function StatsShowcase() {
   return (
     <>
       <style>{`
-        @keyframes shake {
-          0%,100% { transform: translateX(0); }
-          20%      { transform: translateX(-5px); }
-          40%      { transform: translateX(5px); }
-          60%      { transform: translateX(-3px); }
-          80%      { transform: translateX(3px); }
+        .stats-grid {
+          display: grid;
+          grid-template-columns: repeat(4, 1fr);
+          gap: 16px;
+        }
+        @media (max-width: 1100px) {
+          .stats-grid { grid-template-columns: repeat(2, 1fr); }
+        }
+        @media (max-width: 600px) {
+          .stats-grid { grid-template-columns: 1fr; }
         }
       `}</style>
-
       <div style={{ background: "white", padding: "28px clamp(20px, 5vw, 72px) 8px" }}>
         {/* Section label */}
         <div style={{ display: "flex", alignItems: "center", gap: 10, marginBottom: 20 }}>
           <span
             style={{
-              fontSize: 11,
+              fontSize: 13,
               fontWeight: 700,
               letterSpacing: "0.1em",
               textTransform: "uppercase",
@@ -388,32 +410,34 @@ export default function StatsShowcase() {
           <span style={{ flex: 1, height: 1, background: "rgba(0,20,94,0.08)" }} />
         </div>
 
-        {/* Three cards */}
-        <div style={{ display: "flex", gap: 16, flexWrap: "wrap" }}>
-          {[<PieChart key="pie" />, <GaugeStat key="gauge" />, <BarChart key="bar" />].map(
-            (viz, i) => (
-              <div
-                key={i}
-                style={{
-                  flex: "1 1 280px",
-                  border: "1px solid rgba(0,20,94,0.09)",
-                  borderRadius: 20,
-                  padding: "20px 22px",
-                  background: "white",
-                  minWidth: 0,
-                }}
-              >
-                {viz}
-              </div>
-            )
-          )}
+        {/* 2×2 grid */}
+        <div className="stats-grid">
+          {[
+            <PieChart key="pie" />,
+            <BarChart key="bar" />,
+            <DataMaturity key="maturity" />,
+            <StartRate key="startrate" />,
+          ].map((viz, i) => (
+            <div
+              key={i}
+              style={{
+                border: "1px solid rgba(0,20,94,0.09)",
+                borderRadius: 20,
+                padding: "20px 22px",
+                background: "white",
+                minWidth: 0,
+              }}
+            >
+              {viz}
+            </div>
+          ))}
         </div>
 
         {/* Subtext */}
         <p
           style={{
             textAlign: "center",
-            fontSize: 12,
+            fontSize: 14,
             color: "#aaa",
             margin: "16px 0 8px",
             lineHeight: 1.5,

@@ -51,14 +51,14 @@ body {
   font-weight: 700;
   padding: 1px 8px;
   border-radius: 100px;
-  font-size: 12px;
+  font-size: 13px;
   margin: 0 2px;
 }
 
 /* Source attribution */
 .src {
   display: block;
-  font-size: 11px;
+  font-size: 13px;
   color: #bbb;
   margin-top: 10px;
   font-style: italic;
@@ -69,7 +69,7 @@ body {
 /* Contextual overlay note */
 .ctx-note {
   display: block;
-  font-size: 12px;
+  font-size: 13px;
   color: #334;
   margin-top: 10px;
   padding: 9px 12px;

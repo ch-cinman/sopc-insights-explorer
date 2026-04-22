@@ -262,23 +262,21 @@ export default function Explorer() {
         <a href="#" onClick={handleReportClick}>
           <button
             style={{
-              fontSize: 12,
-              fontWeight: 700,
-              color: "#00145E",
-              background: "none",
-              border: "1.5px solid #00145E",
+              fontSize: 13,
+              fontWeight: 600,
+              color: "white",
+              background: "#00145E",
+              border: "none",
               borderRadius: 5,
-              padding: "6px 16px",
+              padding: "9px 20px",
               cursor: "pointer",
               fontFamily: "'Averta PE', sans-serif",
             }}
             onMouseEnter={(e) => {
-              (e.currentTarget as HTMLButtonElement).style.background = "#00145E";
-              (e.currentTarget as HTMLButtonElement).style.color = "white";
+              (e.currentTarget as HTMLButtonElement).style.background = "#010C3A";
             }}
             onMouseLeave={(e) => {
-              (e.currentTarget as HTMLButtonElement).style.background = "none";
-              (e.currentTarget as HTMLButtonElement).style.color = "#00145E";
+              (e.currentTarget as HTMLButtonElement).style.background = "#00145E";
             }}
           >
             Download Full Report
@@ -297,7 +295,7 @@ export default function Explorer() {
       >
         <div
           style={{
-            fontSize: 11,
+            fontSize: 13,
             fontWeight: 700,
             letterSpacing: "0.12em",
             textTransform: "uppercase",
@@ -321,7 +319,7 @@ export default function Explorer() {
           that matter{" "}
           <em style={{ fontStyle: "normal", color: "#0F6DFD" }}>for your org</em>
         </h1>
-        <p style={{ fontSize: 13, color: "rgba(255,255,255,0.5)", lineHeight: 1.6 }}>
+        <p style={{ fontSize: 15, color: "rgba(255,255,255,0.75)", lineHeight: 1.6 }}>
           Select your profile to surface relevant findings from Courier Health&apos;s 2026 survey.
         </p>
       </div>
@@ -344,7 +342,7 @@ export default function Explorer() {
                   borderRadius: "50%",
                   background: "#0F6DFD",
                   color: "#00145E",
-                  fontSize: 11,
+                  fontSize: 13,
                   fontWeight: 800,
                   display: "flex",
                   alignItems: "center",
@@ -354,7 +352,7 @@ export default function Explorer() {
               >
                 1
               </div>
-              <span style={{ fontSize: 13, fontWeight: 600, color: "rgba(255,255,255,0.8)" }}>
+              <span style={{ fontSize: 15, fontWeight: 600, color: "rgba(255,255,255,0.8)" }}>
                 Company Size
               </span>
             </div>
@@ -371,7 +369,7 @@ export default function Explorer() {
                       : "1.5px solid rgba(255,255,255,0.2)",
                     background: companyType === value ? "#0F6DFD" : "transparent",
                     color: companyType === value ? "#00145E" : "rgba(255,255,255,0.8)",
-                    fontSize: 12,
+                    fontSize: 14,
                     fontWeight: 600,
                     cursor: "pointer",
                     fontFamily: "'Averta PE', sans-serif",
@@ -396,7 +394,7 @@ export default function Explorer() {
                   borderRadius: "50%",
                   background: "#0F6DFD",
                   color: "#00145E",
-                  fontSize: 11,
+                  fontSize: 13,
                   fontWeight: 800,
                   display: "flex",
                   alignItems: "center",
@@ -406,9 +404,9 @@ export default function Explorer() {
               >
                 2
               </div>
-              <span style={{ fontSize: 13, fontWeight: 600, color: "rgba(255,255,255,0.8)" }}>
+              <span style={{ fontSize: 15, fontWeight: 600, color: "rgba(255,255,255,0.8)" }}>
                 Therapeutic area{" "}
-                <span style={{ fontSize: 11, fontWeight: 500, color: "rgba(255,255,255,0.5)" }}>
+                <span style={{ fontSize: 15, fontWeight: 500, color: "rgba(255,255,255,0.5)" }}>
                   · optional
                 </span>
               </span>
@@ -426,7 +424,7 @@ export default function Explorer() {
                       : "1.5px solid rgba(255,255,255,0.2)",
                     background: ta === t ? "#E040FB" : "transparent",
                     color: ta === t ? "white" : "rgba(255,255,255,0.8)",
-                    fontSize: 12,
+                    fontSize: 14,
                     fontWeight: 600,
                     cursor: "pointer",
                     fontFamily: "'Averta PE', sans-serif",
@@ -451,7 +449,7 @@ export default function Explorer() {
                   borderRadius: "50%",
                   background: "#0F6DFD",
                   color: "#00145E",
-                  fontSize: 11,
+                  fontSize: 13,
                   fontWeight: 800,
                   display: "flex",
                   alignItems: "center",
@@ -461,9 +459,9 @@ export default function Explorer() {
               >
                 3
               </div>
-              <span style={{ fontSize: 13, fontWeight: 600, color: "rgba(255,255,255,0.8)" }}>
+              <span style={{ fontSize: 15, fontWeight: 600, color: "rgba(255,255,255,0.8)" }}>
                 Role focus{" "}
-                <span style={{ fontSize: 11, fontWeight: 500, color: "rgba(255,255,255,0.5)" }}>
+                <span style={{ fontSize: 15, fontWeight: 500, color: "rgba(255,255,255,0.5)" }}>
                   · optional
                 </span>
               </span>
@@ -481,7 +479,7 @@ export default function Explorer() {
                       : "1.5px solid rgba(255,255,255,0.2)",
                     background: role === r ? "rgba(255,255,255,0.18)" : "transparent",
                     color: "rgba(255,255,255,0.8)",
-                    fontSize: 12,
+                    fontSize: 14,
                     fontWeight: 600,
                     cursor: "pointer",
                     fontFamily: "'Averta PE', sans-serif",
@@ -505,7 +503,7 @@ export default function Explorer() {
               borderRadius: 5,
               padding: "12px 28px",
               fontFamily: "'Averta PE', sans-serif",
-              fontSize: 14,
+              fontSize: 16,
               fontWeight: 700,
               cursor: "pointer",
               display: "inline-flex",
@@ -554,7 +552,7 @@ export default function Explorer() {
               <circle cx="6" cy="6" r="4.5" stroke="#0F6DFD" strokeWidth="1.5" />
               <circle cx="6" cy="6" r="1.8" fill="#0F6DFD" />
             </svg>
-            <span style={{ fontSize: 12, fontWeight: 700, color: "#00145E" }}>
+            <span style={{ fontSize: 14, fontWeight: 700, color: "#00145E" }}>
               Insights Explorer
             </span>
             <div
@@ -571,7 +569,7 @@ export default function Explorer() {
               <div
                 style={{ width: 8, height: 8, borderRadius: "50%", background: "#0F6DFD" }}
               />
-              <span style={{ fontSize: 12, fontWeight: 600, color: "#00145E" }}>
+              <span style={{ fontSize: 14, fontWeight: 600, color: "#00145E" }}>
                 {getProfile(activeCompany, activeTa, activeRole)}
               </span>
             </div>
@@ -579,7 +577,7 @@ export default function Explorer() {
               onClick={resetChat}
               style={{
                 marginLeft: "auto",
-                fontSize: 12,
+                fontSize: 13,
                 color: "#999",
                 background: "none",
                 border: "none",
@@ -635,7 +633,7 @@ export default function Explorer() {
                   style={{
                     borderRadius: 16,
                     padding: "12px 16px",
-                    fontSize: 13,
+                    fontSize: 15,
                     lineHeight: 1.7,
                     background: msg.type === "bot" ? "white" : "#00145E",
                     color: msg.type === "bot" ? "#00145E" : "white",
@@ -710,7 +708,7 @@ export default function Explorer() {
           >
             <div
               style={{
-                fontSize: 11,
+                fontSize: 13,
                 fontWeight: 700,
                 letterSpacing: "0.1em",
                 textTransform: "uppercase",
@@ -728,7 +726,7 @@ export default function Explorer() {
               {allExhausted ? (
                 <div
                   style={{
-                    fontSize: 13,
+                    fontSize: 15,
                     color: "#aaa",
                     textAlign: "center",
                     padding: "20px 0",
@@ -753,7 +751,7 @@ export default function Explorer() {
                       border: "1px solid rgba(0,20,94,0.1)",
                       borderRadius: 10,
                       padding: "11px 16px",
-                      fontSize: 13,
+                      fontSize: 15,
                       fontWeight: 500,
                       color: "#00145E",
                       cursor: isTyping ? "default" : "pointer",
@@ -806,7 +804,7 @@ export default function Explorer() {
           gap: 8,
         }}
       >
-        <span style={{ fontSize: 11, color: "#bbb", lineHeight: 1.5 }}>
+        <span style={{ fontSize: 13, color: "#bbb", lineHeight: 1.5 }}>
           © 2026 Courier Health, Inc. · Based on survey of 162 biopharma commercial leaders
           across 87 companies.
           <br />
@@ -815,7 +813,7 @@ export default function Explorer() {
         <a href="#" onClick={handleReportClick}>
           <button
             style={{
-              fontSize: 12,
+              fontSize: 16,
               fontWeight: 700,
               color: "#00145E",
               textDecoration: "underline",
