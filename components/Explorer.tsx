@@ -58,7 +58,7 @@ const BOT_ICON = (
         y2="21.5"
         gradientUnits="userSpaceOnUse"
       >
-        <stop stopColor="#00D4FF" />
+        <stop stopColor="#0F6DFD" />
         <stop offset="1" stopColor="#E040FB" />
       </linearGradient>
     </defs>
@@ -199,14 +199,12 @@ export default function Explorer() {
   return (
     <div
       style={{
-        maxWidth: 900,
-        margin: "0 auto",
+        width: "100%",
         background: "white",
-        boxShadow: "0 0 60px rgba(10,23,68,0.12)",
         minHeight: "100vh",
         display: "flex",
         flexDirection: "column",
-        fontFamily: "'Plus Jakarta Sans', sans-serif",
+        fontFamily: "'Averta PE', sans-serif",
       }}
     >
       {/* Gradient bar */}
@@ -222,11 +220,11 @@ export default function Explorer() {
       <nav
         style={{
           background: "white",
-          padding: "14px 40px",
+          padding: "14px clamp(20px, 5vw, 72px)",
           display: "flex",
           alignItems: "center",
           justifyContent: "space-between",
-          borderBottom: "1px solid rgba(10,23,68,0.08)",
+          borderBottom: "1px solid rgba(0,20,94,0.08)",
           flexShrink: 0,
         }}
       >
@@ -237,7 +235,7 @@ export default function Explorer() {
             gap: 8,
             fontWeight: 800,
             fontSize: 15,
-            color: "#0A1744",
+            color: "#00145E",
           }}
         >
           <svg width="26" height="26" viewBox="0 0 26 26" fill="none">
@@ -254,7 +252,7 @@ export default function Explorer() {
                 y2="21.5"
                 gradientUnits="userSpaceOnUse"
               >
-                <stop stopColor="#00D4FF" />
+                <stop stopColor="#0F6DFD" />
                 <stop offset="1" stopColor="#E040FB" />
               </linearGradient>
             </defs>
@@ -266,21 +264,21 @@ export default function Explorer() {
             style={{
               fontSize: 12,
               fontWeight: 700,
-              color: "#0A1744",
+              color: "#00145E",
               background: "none",
-              border: "1.5px solid #0A1744",
-              borderRadius: 100,
+              border: "1.5px solid #00145E",
+              borderRadius: 5,
               padding: "6px 16px",
               cursor: "pointer",
-              fontFamily: "'Plus Jakarta Sans', sans-serif",
+              fontFamily: "'Averta PE', sans-serif",
             }}
             onMouseEnter={(e) => {
-              (e.currentTarget as HTMLButtonElement).style.background = "#0A1744";
+              (e.currentTarget as HTMLButtonElement).style.background = "#00145E";
               (e.currentTarget as HTMLButtonElement).style.color = "white";
             }}
             onMouseLeave={(e) => {
               (e.currentTarget as HTMLButtonElement).style.background = "none";
-              (e.currentTarget as HTMLButtonElement).style.color = "#0A1744";
+              (e.currentTarget as HTMLButtonElement).style.color = "#00145E";
             }}
           >
             Download Full Report
@@ -291,8 +289,8 @@ export default function Explorer() {
       {/* Hero */}
       <div
         style={{
-          background: "#0A1744",
-          padding: "44px 40px 38px",
+          background: "#00145E",
+          padding: "44px clamp(20px, 5vw, 72px) 38px",
           textAlign: "center",
           flexShrink: 0,
         }}
@@ -303,7 +301,7 @@ export default function Explorer() {
             fontWeight: 700,
             letterSpacing: "0.12em",
             textTransform: "uppercase",
-            color: "#00D4FF",
+            color: "#0F6DFD",
             marginBottom: 12,
           }}
         >
@@ -311,17 +309,17 @@ export default function Explorer() {
         </div>
         <h1
           style={{
-            fontSize: 28,
-            fontWeight: 800,
+            fontSize: 52.8,
+            fontWeight: 700,
             color: "white",
-            lineHeight: 1.2,
+            lineHeight: "64px",
             marginBottom: 8,
           }}
         >
           Find the benchmarks
           <br />
           that matter{" "}
-          <em style={{ fontStyle: "normal", color: "#00D4FF" }}>for your org</em>
+          <em style={{ fontStyle: "normal", color: "#0F6DFD" }}>for your org</em>
         </h1>
         <p style={{ fontSize: 13, color: "rgba(255,255,255,0.5)", lineHeight: 1.6 }}>
           Select your profile to surface relevant findings from Courier Health&apos;s 2026 survey.
@@ -333,7 +331,7 @@ export default function Explorer() {
 
       {/* Intake */}
       {view === "intake" && (
-        <div style={{ background: "#0A1744", padding: "8px 40px 40px", flexShrink: 0 }}>
+        <div style={{ background: "#00145E", padding: "8px clamp(20px, 5vw, 72px) 40px", flexShrink: 0 }}>
           <div style={{ height: 24 }} />
 
           {/* Step 1 — Company type */}
@@ -344,8 +342,8 @@ export default function Explorer() {
                   width: 22,
                   height: 22,
                   borderRadius: "50%",
-                  background: "#00D4FF",
-                  color: "#0A1744",
+                  background: "#0F6DFD",
+                  color: "#00145E",
                   fontSize: 11,
                   fontWeight: 800,
                   display: "flex",
@@ -369,14 +367,14 @@ export default function Explorer() {
                     padding: "7px 16px",
                     borderRadius: 100,
                     border: companyType === value
-                      ? "1.5px solid #00D4FF"
+                      ? "1.5px solid #0F6DFD"
                       : "1.5px solid rgba(255,255,255,0.2)",
-                    background: companyType === value ? "#00D4FF" : "transparent",
-                    color: companyType === value ? "#0A1744" : "rgba(255,255,255,0.8)",
+                    background: companyType === value ? "#0F6DFD" : "transparent",
+                    color: companyType === value ? "#00145E" : "rgba(255,255,255,0.8)",
                     fontSize: 12,
                     fontWeight: 600,
                     cursor: "pointer",
-                    fontFamily: "'Plus Jakarta Sans', sans-serif",
+                    fontFamily: "'Averta PE', sans-serif",
                     transition: "all 0.15s",
                   }}
                 >
@@ -396,8 +394,8 @@ export default function Explorer() {
                   width: 22,
                   height: 22,
                   borderRadius: "50%",
-                  background: "#00D4FF",
-                  color: "#0A1744",
+                  background: "#0F6DFD",
+                  color: "#00145E",
                   fontSize: 11,
                   fontWeight: 800,
                   display: "flex",
@@ -431,7 +429,7 @@ export default function Explorer() {
                     fontSize: 12,
                     fontWeight: 600,
                     cursor: "pointer",
-                    fontFamily: "'Plus Jakarta Sans', sans-serif",
+                    fontFamily: "'Averta PE', sans-serif",
                     transition: "all 0.15s",
                   }}
                 >
@@ -451,8 +449,8 @@ export default function Explorer() {
                   width: 22,
                   height: 22,
                   borderRadius: "50%",
-                  background: "#00D4FF",
-                  color: "#0A1744",
+                  background: "#0F6DFD",
+                  color: "#00145E",
                   fontSize: 11,
                   fontWeight: 800,
                   display: "flex",
@@ -486,7 +484,7 @@ export default function Explorer() {
                     fontSize: 12,
                     fontWeight: 600,
                     cursor: "pointer",
-                    fontFamily: "'Plus Jakarta Sans', sans-serif",
+                    fontFamily: "'Averta PE', sans-serif",
                     transition: "all 0.15s",
                   }}
                 >
@@ -501,12 +499,12 @@ export default function Explorer() {
             style={{
               marginLeft: 32,
               marginTop: 22,
-              background: "#00D4FF",
-              color: "#0A1744",
+              background: "#0F6DFD",
+              color: "white",
               border: "none",
-              borderRadius: 100,
+              borderRadius: 5,
               padding: "12px 28px",
-              fontFamily: "'Plus Jakarta Sans', sans-serif",
+              fontFamily: "'Averta PE', sans-serif",
               fontSize: 14,
               fontWeight: 700,
               cursor: "pointer",
@@ -516,10 +514,10 @@ export default function Explorer() {
               transition: "all 0.15s",
             }}
             onMouseEnter={(e) => {
-              (e.currentTarget as HTMLButtonElement).style.background = "white";
+              (e.currentTarget as HTMLButtonElement).style.background = "#0B5FE0";
             }}
             onMouseLeave={(e) => {
-              (e.currentTarget as HTMLButtonElement).style.background = "#00D4FF";
+              (e.currentTarget as HTMLButtonElement).style.background = "#0F6DFD";
             }}
           >
             <svg width="13" height="13" viewBox="0 0 13 13" fill="none">
@@ -543,8 +541,8 @@ export default function Explorer() {
           <div
             style={{
               background: "white",
-              padding: "12px 40px",
-              borderBottom: "1px solid rgba(10,23,68,0.08)",
+              padding: "12px clamp(20px, 5vw, 72px)",
+              borderBottom: "1px solid rgba(0,20,94,0.08)",
               display: "flex",
               alignItems: "center",
               gap: 10,
@@ -553,10 +551,10 @@ export default function Explorer() {
             }}
           >
             <svg width="12" height="12" viewBox="0 0 12 12" fill="none">
-              <circle cx="6" cy="6" r="4.5" stroke="#1A6FD4" strokeWidth="1.5" />
-              <circle cx="6" cy="6" r="1.8" fill="#1A6FD4" />
+              <circle cx="6" cy="6" r="4.5" stroke="#0F6DFD" strokeWidth="1.5" />
+              <circle cx="6" cy="6" r="1.8" fill="#0F6DFD" />
             </svg>
-            <span style={{ fontSize: 12, fontWeight: 700, color: "#0A1744" }}>
+            <span style={{ fontSize: 12, fontWeight: 700, color: "#00145E" }}>
               Insights Explorer
             </span>
             <div
@@ -564,16 +562,16 @@ export default function Explorer() {
                 display: "flex",
                 alignItems: "center",
                 gap: 6,
-                background: "#EEF4FF",
+                background: "#EAF2FF",
                 borderRadius: 100,
                 padding: "4px 12px 4px 8px",
                 marginLeft: 8,
               }}
             >
               <div
-                style={{ width: 8, height: 8, borderRadius: "50%", background: "#00D4FF" }}
+                style={{ width: 8, height: 8, borderRadius: "50%", background: "#0F6DFD" }}
               />
-              <span style={{ fontSize: 12, fontWeight: 600, color: "#0A1744" }}>
+              <span style={{ fontSize: 12, fontWeight: 600, color: "#00145E" }}>
                 {getProfile(activeCompany, activeTa, activeRole)}
               </span>
             </div>
@@ -587,7 +585,7 @@ export default function Explorer() {
                 border: "none",
                 cursor: "pointer",
                 textDecoration: "underline",
-                fontFamily: "'Plus Jakarta Sans', sans-serif",
+                fontFamily: "'Averta PE', sans-serif",
               }}
             >
               Change profile
@@ -597,7 +595,7 @@ export default function Explorer() {
           {/* Messages */}
           <div
             style={{
-              padding: "28px 40px 16px",
+              padding: "28px clamp(20px, 5vw, 72px) 16px",
               display: "flex",
               flexDirection: "column",
               gap: 16,
@@ -625,10 +623,10 @@ export default function Explorer() {
                     display: "flex",
                     alignItems: "center",
                     justifyContent: "center",
-                    background: msg.type === "bot" ? "#0A1744" : "#D8E8FF",
+                    background: msg.type === "bot" ? "#00145E" : "#D8E8FF",
                     fontSize: msg.type === "user" ? 11 : undefined,
                     fontWeight: msg.type === "user" ? 700 : undefined,
-                    color: msg.type === "user" ? "#0A1744" : undefined,
+                    color: msg.type === "user" ? "#00145E" : undefined,
                   }}
                 >
                   {msg.type === "bot" ? BOT_ICON : "You"}
@@ -639,9 +637,9 @@ export default function Explorer() {
                     padding: "12px 16px",
                     fontSize: 13,
                     lineHeight: 1.7,
-                    background: msg.type === "bot" ? "white" : "#0A1744",
-                    color: msg.type === "bot" ? "#0A1744" : "white",
-                    border: msg.type === "bot" ? "1px solid rgba(10,23,68,0.09)" : "none",
+                    background: msg.type === "bot" ? "white" : "#00145E",
+                    color: msg.type === "bot" ? "#00145E" : "white",
+                    border: msg.type === "bot" ? "1px solid rgba(0,20,94,0.09)" : "none",
                     borderBottomLeftRadius: msg.type === "bot" ? 4 : 16,
                     borderBottomRightRadius: msg.type === "user" ? 4 : 16,
                   }}
@@ -673,13 +671,13 @@ export default function Explorer() {
                     display: "flex",
                     alignItems: "center",
                     justifyContent: "center",
-                    background: "#0A1744",
+                    background: "#00145E",
                   }}
                 />
                 <div
                   style={{
                     background: "white",
-                    border: "1px solid rgba(10,23,68,0.09)",
+                    border: "1px solid rgba(0,20,94,0.09)",
                     borderRadius: 16,
                     borderBottomLeftRadius: 4,
                     padding: "12px 16px",
@@ -708,7 +706,7 @@ export default function Explorer() {
 
           {/* Question chips */}
           <div
-            style={{ padding: "12px 40px 24px", background: "#f8f9fd", flexShrink: 0 }}
+            style={{ padding: "12px clamp(20px, 5vw, 72px) 24px", background: "#f8f9fd", flexShrink: 0 }}
           >
             <div
               style={{
@@ -724,7 +722,7 @@ export default function Explorer() {
               }}
             >
               Ask about your segment
-              <span style={{ flex: 1, height: 1, background: "rgba(10,23,68,0.08)" }} />
+              <span style={{ flex: 1, height: 1, background: "rgba(0,20,94,0.08)" }} />
             </div>
             <div style={{ display: "flex", flexDirection: "column", gap: 7 }}>
               {allExhausted ? (
@@ -739,7 +737,7 @@ export default function Explorer() {
                 >
                   You&apos;ve explored all available findings for this profile.
                   <br />
-                  <a href="#" style={{ color: "#1A6FD4" }} onClick={handleReportClick}>
+                  <a href="#" style={{ color: "#0F6DFD" }} onClick={handleReportClick}>
                     Download the full report
                   </a>{" "}
                   to go deeper.
@@ -752,14 +750,14 @@ export default function Explorer() {
                     disabled={isTyping}
                     style={{
                       background: "white",
-                      border: "1px solid rgba(10,23,68,0.1)",
+                      border: "1px solid rgba(0,20,94,0.1)",
                       borderRadius: 10,
                       padding: "11px 16px",
                       fontSize: 13,
                       fontWeight: 500,
-                      color: "#0A1744",
+                      color: "#00145E",
                       cursor: isTyping ? "default" : "pointer",
-                      fontFamily: "'Plus Jakarta Sans', sans-serif",
+                      fontFamily: "'Averta PE', sans-serif",
                       textAlign: "left",
                       transition: "all 0.15s",
                       display: "flex",
@@ -770,16 +768,16 @@ export default function Explorer() {
                     }}
                     onMouseEnter={(e) => {
                       if (!isTyping) {
-                        (e.currentTarget as HTMLButtonElement).style.borderColor = "#1A6FD4";
-                        (e.currentTarget as HTMLButtonElement).style.background = "#EEF4FF";
-                        (e.currentTarget as HTMLButtonElement).style.color = "#1A6FD4";
+                        (e.currentTarget as HTMLButtonElement).style.borderColor = "#0F6DFD";
+                        (e.currentTarget as HTMLButtonElement).style.background = "#EAF2FF";
+                        (e.currentTarget as HTMLButtonElement).style.color = "#0F6DFD";
                       }
                     }}
                     onMouseLeave={(e) => {
                       (e.currentTarget as HTMLButtonElement).style.borderColor =
-                        "rgba(10,23,68,0.1)";
+                        "rgba(0,20,94,0.1)";
                       (e.currentTarget as HTMLButtonElement).style.background = "white";
-                      (e.currentTarget as HTMLButtonElement).style.color = "#0A1744";
+                      (e.currentTarget as HTMLButtonElement).style.color = "#00145E";
                     }}
                   >
                     <span>{q}</span>
@@ -798,8 +796,8 @@ export default function Explorer() {
       <footer
         style={{
           background: "white",
-          borderTop: "1px solid rgba(10,23,68,0.08)",
-          padding: "16px 40px",
+          borderTop: "1px solid rgba(0,20,94,0.08)",
+          padding: "16px clamp(20px, 5vw, 72px)",
           display: "flex",
           justifyContent: "space-between",
           alignItems: "center",
@@ -819,12 +817,12 @@ export default function Explorer() {
             style={{
               fontSize: 12,
               fontWeight: 700,
-              color: "#0A1744",
+              color: "#00145E",
               textDecoration: "underline",
               cursor: "pointer",
               background: "none",
               border: "none",
-              fontFamily: "'Plus Jakarta Sans', sans-serif",
+              fontFamily: "'Averta PE', sans-serif",
             }}
           >
             Download the Full Report →

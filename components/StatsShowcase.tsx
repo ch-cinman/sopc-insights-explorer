@@ -14,7 +14,7 @@ declare global {
 
 const PIE_DATA = [
   { label: "Data is fragmented across systems",    pct: 31.1, color: "#378ADD" },
-  { label: "Lack of confidence in data quality",   pct: 25.5, color: "#00D4FF" },
+  { label: "Lack of confidence in data quality",   pct: 25.5, color: "#0F6DFD" },
   { label: "Insights aren't timely or actionable", pct: 17.4, color: "#93c5fd" },
   { label: "Compliance or regulatory concerns",    pct: 9.9,  color: "#E040FB" },
   { label: "Unclear ownership or accountability",  pct: 9.3,  color: "#c084fc" },
@@ -67,7 +67,7 @@ function PieChart() {
 
   return (
     <div style={{ display: "flex", flexDirection: "column", gap: 10 }}>
-      <div style={{ fontSize: 13, fontWeight: 700, color: "#0A1744", lineHeight: 1.4 }}>
+      <div style={{ fontSize: 13, fontWeight: 700, color: "#00145E", lineHeight: 1.4 }}>
         What&apos;s the top challenge to acting on data?
       </div>
       <div style={{ display: "flex", gap: 14, alignItems: "flex-start" }}>
@@ -101,8 +101,8 @@ function PieChart() {
               textAnchor="middle"
               fontSize={13}
               fontWeight={800}
-              fill="#0A1744"
-              fontFamily="Plus Jakarta Sans, sans-serif"
+              fill="#00145E"
+              fontFamily="Averta PE, sans-serif"
             >
               {hov.pct}%
             </text>
@@ -135,7 +135,7 @@ function PieChart() {
                 }}
               />
               <div style={{ fontSize: 9.5, color: "#555", lineHeight: 1.4 }}>
-                <span style={{ fontWeight: 700, color: "#0A1744" }}>{d.pct}%</span>{" "}
+                <span style={{ fontWeight: 700, color: "#00145E" }}>{d.pct}%</span>{" "}
                 {d.label}
               </div>
             </div>
@@ -188,7 +188,7 @@ function GaugeStat() {
 
   return (
     <div style={{ display: "flex", flexDirection: "column", gap: 10 }}>
-      <div style={{ fontSize: 13, fontWeight: 700, color: "#0A1744", lineHeight: 1.4 }}>
+      <div style={{ fontSize: 13, fontWeight: 700, color: "#00145E", lineHeight: 1.4 }}>
         What % of biopharma companies say their data is fragmented or doesn&apos;t inform
         day-to-day operations?
       </div>
@@ -199,14 +199,14 @@ function GaugeStat() {
           <path
             d={trackPath}
             fill="none"
-            stroke="#EEF4FF"
+            stroke="#EAF2FF"
             strokeWidth={13}
             strokeLinecap="round"
           />
           <path
             d={trackPath}
             fill="none"
-            stroke="#00D4FF"
+            stroke="#0F6DFD"
             strokeWidth={13}
             strokeLinecap="round"
             strokeDasharray={`${GAUGE_ARC_LEN} ${GAUGE_ARC_LEN}`}
@@ -220,7 +220,7 @@ function GaugeStat() {
       <div style={{ textAlign: "center", minHeight: 70 }}>
         {revealed ? (
           <>
-            <div style={{ fontSize: 40, fontWeight: 800, color: "#0A1744", lineHeight: 1 }}>
+            <div style={{ fontSize: 40, fontWeight: 800, color: "#00145E", lineHeight: 1 }}>
               {GAUGE_VALUE}%
             </div>
             <div
@@ -257,13 +257,13 @@ function GaugeStat() {
                 style={{
                   padding: "6px 13px",
                   borderRadius: 100,
-                  border: "1.5px solid rgba(10,23,68,0.18)",
+                  border: "1.5px solid rgba(0,20,94,0.18)",
                   background: "white",
-                  color: "#0A1744",
+                  color: "#00145E",
                   fontSize: 11,
                   fontWeight: 600,
                   cursor: "pointer",
-                  fontFamily: "'Plus Jakarta Sans', sans-serif",
+                  fontFamily: "'Averta PE', sans-serif",
                   animation: shaking === i ? "shake 0.4s ease-in-out" : "none",
                 }}
               >
@@ -305,14 +305,14 @@ function BarChart() {
 
   return (
     <div ref={ref} style={{ display: "flex", flexDirection: "column", gap: 10 }}>
-      <div style={{ fontSize: 13, fontWeight: 700, color: "#0A1744", lineHeight: 1.4 }}>
+      <div style={{ fontSize: 13, fontWeight: 700, color: "#00145E", lineHeight: 1.4 }}>
         Approved AI tools with governance across 2+ teams
       </div>
       <div style={{ display: "flex", flexDirection: "column", gap: 12 }}>
         {BAR_DATA.map((d) => (
           <div key={d.label}>
             <div style={{ display: "flex", justifyContent: "space-between", marginBottom: 5 }}>
-              <span style={{ fontSize: 11, fontWeight: 600, color: "#0A1744" }}>
+              <span style={{ fontSize: 11, fontWeight: 600, color: "#00145E" }}>
                 {d.label}
               </span>
               <span
@@ -329,7 +329,7 @@ function BarChart() {
             </div>
             <div
               style={{
-                background: "#EEF4FF",
+                background: "#EAF2FF",
                 borderRadius: 100,
                 height: 10,
                 overflow: "hidden",
@@ -370,7 +370,7 @@ export default function StatsShowcase() {
         }
       `}</style>
 
-      <div style={{ background: "white", padding: "28px 40px 8px" }}>
+      <div style={{ background: "white", padding: "28px clamp(20px, 5vw, 72px) 8px" }}>
         {/* Section label */}
         <div style={{ display: "flex", alignItems: "center", gap: 10, marginBottom: 20 }}>
           <span
@@ -385,7 +385,7 @@ export default function StatsShowcase() {
           >
             By the numbers
           </span>
-          <span style={{ flex: 1, height: 1, background: "rgba(10,23,68,0.08)" }} />
+          <span style={{ flex: 1, height: 1, background: "rgba(0,20,94,0.08)" }} />
         </div>
 
         {/* Three cards */}
@@ -395,9 +395,9 @@ export default function StatsShowcase() {
               <div
                 key={i}
                 style={{
-                  flex: "1 1 220px",
-                  border: "1px solid rgba(10,23,68,0.09)",
-                  borderRadius: 14,
+                  flex: "1 1 280px",
+                  border: "1px solid rgba(0,20,94,0.09)",
+                  borderRadius: 20,
                   padding: "20px 22px",
                   background: "white",
                   minWidth: 0,

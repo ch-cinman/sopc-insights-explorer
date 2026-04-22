@@ -1,5 +1,35 @@
-@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap');
 @import "tailwindcss";
+
+@font-face {
+  font-family: 'Averta PE';
+  src: url('/fonts/AvertaStd-Regular.otf') format('opentype');
+  font-weight: 400;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Averta PE';
+  src: url('/fonts/AvertaStd-RegularItalic.otf') format('opentype');
+  font-weight: 400;
+  font-style: italic;
+}
+@font-face {
+  font-family: 'Averta PE';
+  src: url('/fonts/AvertaStd-Bold.otf') format('opentype');
+  font-weight: 700;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Averta PE';
+  src: url('/fonts/AvertaStd-BoldItalic.otf') format('opentype');
+  font-weight: 700;
+  font-style: italic;
+}
+
+:root {
+  --navy: #00145E;
+  --cta: #0F6DFD;
+  --light-blue: #EAF2FF;
+}
 
 * {
   box-sizing: border-box;
@@ -8,8 +38,8 @@
 }
 
 body {
-  font-family: 'Plus Jakarta Sans', sans-serif;
-  background: #f0f2f8;
+  font-family: 'Averta PE', sans-serif;
+  background: white;
   min-height: 100vh;
 }
 
@@ -33,7 +63,7 @@ body {
   margin-top: 10px;
   font-style: italic;
   padding-top: 8px;
-  border-top: 1px solid rgba(10, 23, 68, 0.06);
+  border-top: 1px solid rgba(0, 20, 94, 0.06);
 }
 
 /* Contextual overlay note */
