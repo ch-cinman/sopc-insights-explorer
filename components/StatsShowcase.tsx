@@ -13,12 +13,12 @@ declare global {
 // ─── Data ─────────────────────────────────────────────────────────────────────
 
 const PIE_DATA = [
-  { label: "Data is fragmented across systems",    pct: 31.1, color: "#378ADD" },
-  { label: "Lack of confidence in data quality",   pct: 25.5, color: "#0F6DFD" },
-  { label: "Insights aren't timely or actionable", pct: 17.4, color: "#93c5fd" },
-  { label: "Compliance or regulatory concerns",    pct: 9.9,  color: "#E040FB" },
-  { label: "Unclear ownership or accountability",  pct: 9.3,  color: "#c084fc" },
-  { label: "Other / not answered",                 pct: 6.8,  color: "#e5e7eb" },
+  { label: "Data is fragmented across systems",    pct: 31.1, color: "#2D80FF" },
+  { label: "Lack of confidence in data quality",   pct: 25.5, color: "#34C1FF" },
+  { label: "Insights aren't timely or actionable", pct: 17.4, color: "#96BFFF" },
+  { label: "Compliance or regulatory concerns",    pct: 9.9,  color: "#FD92FF" },
+  { label: "Unclear ownership or accountability",  pct: 9.3,  color: "#FEC9FF" },
+  { label: "Other / not answered",                 pct: 6.8,  color: "#E5E7EF" },
 ];
 
 const BAR_DATA = [
@@ -60,7 +60,7 @@ function PieChart() {
 
   return (
     <div style={{ display: "flex", flexDirection: "column", gap: 10 }}>
-      <div style={{ fontSize: 15, fontWeight: 700, color: "#00145E", lineHeight: 1.4 }}>
+      <div style={{ fontSize: 15, fontWeight: 700, color: "var(--navy)", lineHeight: 1.4 }}>
         What&apos;s the top challenge to acting on data?
       </div>
       <div style={{ display: "flex", gap: 14, alignItems: "flex-start", flexWrap: "wrap" }}>
@@ -94,7 +94,7 @@ function PieChart() {
               textAnchor="middle"
               fontSize={13}
               fontWeight={800}
-              fill="#00145E"
+              fill="var(--navy)"
               fontFamily="Averta PE, sans-serif"
             >
               {hov.pct}%
@@ -128,7 +128,7 @@ function PieChart() {
                 }}
               />
               <div style={{ fontSize: 12, color: "#555", lineHeight: 1.4 }}>
-                <span style={{ fontWeight: 700, color: "#00145E" }}>{d.pct}%</span>{" "}
+                <span style={{ fontWeight: 700, color: "var(--navy)" }}>{d.pct}%</span>{" "}
                 {d.label}
               </div>
             </div>
@@ -167,7 +167,7 @@ function BarChart() {
 
   return (
     <div ref={ref} style={{ display: "flex", flexDirection: "column", gap: 10 }}>
-      <div style={{ fontSize: 15, fontWeight: 700, color: "#00145E", lineHeight: 1.4 }}>
+      <div style={{ fontSize: 15, fontWeight: 700, color: "var(--navy)", lineHeight: 1.4 }}>
         Where does AI adoption stand by company size?
       </div>
       <div style={{ display: "flex", flexDirection: "column", gap: 12 }}>
@@ -183,14 +183,14 @@ function BarChart() {
             onMouseLeave={() => setHovered(null)}
           >
             <div style={{ display: "flex", justifyContent: "space-between", marginBottom: 5 }}>
-              <span style={{ fontSize: 13, fontWeight: 600, color: "#00145E" }}>
+              <span style={{ fontSize: 13, fontWeight: 600, color: "var(--navy)" }}>
                 {d.label}
               </span>
               <span
                 style={{
                   fontSize: 13,
                   fontWeight: 700,
-                  color: "#378ADD",
+                  color: "#34C1FF",
                   opacity: animated ? 1 : 0,
                   transition: "opacity 0.3s ease 0.85s",
                 }}
@@ -200,7 +200,7 @@ function BarChart() {
             </div>
             <div
               style={{
-                background: "#EAF2FF",
+                background: "var(--light-blue)",
                 borderRadius: 100,
                 height: 10,
                 overflow: "hidden",
@@ -208,7 +208,7 @@ function BarChart() {
             >
               <div
                 style={{
-                  background: "#378ADD",
+                  background: "var(--sky)",
                   height: "100%",
                   borderRadius: 100,
                   width: animated ? `${d.pct}%` : "0%",
@@ -231,15 +231,15 @@ function BarChart() {
 function DataMaturity() {
   const [hovered, setHovered] = useState<number | null>(null);
   const STAGES = [
-    { label: "Using data to power AI use cases",     pct: 8.7,  color: "#0F6DFD" },
-    { label: "Data informs workflows & decisions",   pct: 32.3, color: "#378ADD" },
-    { label: "Accessible but rarely changes ops",    pct: 12.4, color: "#93c5fd" },
-    { label: "Ownership fragmented across systems",  pct: 46.6, color: "#e5e7eb" },
+    { label: "Using data to power AI use cases",     pct: 8.7,  color: "#2D80FF" },
+    { label: "Data informs workflows & decisions",   pct: 32.3, color: "#34C1FF" },
+    { label: "Accessible but rarely changes ops",    pct: 12.4, color: "#96BFFF" },
+    { label: "Ownership fragmented across systems",  pct: 46.6, color: "#E5E7EF" },
   ];
 
   return (
     <div style={{ display: "flex", flexDirection: "column", gap: 10 }}>
-      <div style={{ fontSize: 15, fontWeight: 700, color: "#00145E", lineHeight: 1.4 }}>
+      <div style={{ fontSize: 15, fontWeight: 700, color: "var(--navy)", lineHeight: 1.4 }}>
         Where does data maturity stand today?
       </div>
       <div style={{ fontSize: 12, color: "#555", lineHeight: 1.5, marginBottom: 4 }}>
@@ -258,14 +258,14 @@ function DataMaturity() {
             onMouseLeave={() => setHovered(null)}
           >
             <div style={{ display: "flex", justifyContent: "space-between", marginBottom: 4 }}>
-              <span style={{ fontSize: 12, color: "#00145E", fontWeight: 500, lineHeight: 1.4, maxWidth: "75%" }}>
+              <span style={{ fontSize: 12, color: "var(--navy)", fontWeight: 500, lineHeight: 1.4, maxWidth: "75%" }}>
                 {s.label}
               </span>
               <span style={{ fontSize: 13, fontWeight: 700, color: s.color, flexShrink: 0 }}>
                 {s.pct}%
               </span>
             </div>
-            <div style={{ background: "#EAF2FF", borderRadius: 100, height: 9, overflow: "hidden" }}>
+            <div style={{ background: "var(--light-blue)", borderRadius: 100, height: 9, overflow: "hidden" }}>
               <div style={{ background: s.color, height: "100%", borderRadius: 100, width: `${s.pct}%` }} />
             </div>
           </div>
@@ -292,7 +292,7 @@ function StartRate() {
 
   return (
     <div style={{ display: "flex", flexDirection: "column", gap: 10 }}>
-      <div style={{ fontSize: 15, fontWeight: 700, color: "#00145E", lineHeight: 1.4 }}>
+      <div style={{ fontSize: 15, fontWeight: 700, color: "var(--navy)", lineHeight: 1.4 }}>
         1 in 3 prescribed patients never start therapy
       </div>
       <div style={{ display: "flex", alignItems: "center", gap: 20, flexWrap: "wrap" }}>
@@ -312,7 +312,7 @@ function StartRate() {
           <circle
             cx={CX} cy={CY} r={R}
             fill="none"
-            stroke="#0F6DFD"
+            stroke="var(--cta)"
             strokeWidth={14}
             strokeLinecap="round"
             strokeDasharray={`${filled} ${circumference}`}
@@ -324,7 +324,7 @@ function StartRate() {
             onMouseLeave={() => setHovered(null)}
           />
           {/* Center label */}
-          <text x={CX} y={CY - 6} textAnchor="middle" fontSize={22} fontWeight={800} fill="#00145E" fontFamily="Averta PE, sans-serif">
+          <text x={CX} y={CY - 6} textAnchor="middle" fontSize={22} fontWeight={800} fill="var(--navy)" fontFamily="Averta PE, sans-serif">
             {centerPct}
           </text>
           <text x={CX} y={CY + 14} textAnchor="middle" fontSize={11} fill="#888" fontFamily="Averta PE, sans-serif">
@@ -342,9 +342,9 @@ function StartRate() {
             onMouseEnter={() => setHovered(0)}
             onMouseLeave={() => setHovered(null)}
           >
-            <div style={{ width: 12, height: 12, borderRadius: "50%", background: "#0F6DFD", flexShrink: 0 }} />
+            <div style={{ width: 12, height: 12, borderRadius: "50%", background: "var(--cta)", flexShrink: 0 }} />
             <span style={{ fontSize: 12, color: "#555" }}>
-              <strong style={{ color: "#00145E" }}>67.5%</strong> start therapy (industry mean)
+              <strong style={{ color: "var(--navy)" }}>67.5%</strong> start therapy (industry mean)
             </span>
           </div>
           <div
@@ -357,9 +357,9 @@ function StartRate() {
             onMouseEnter={() => setHovered(1)}
             onMouseLeave={() => setHovered(null)}
           >
-            <div style={{ width: 12, height: 12, borderRadius: "50%", background: "#EAF2FF", border: "1.5px solid #93c5fd", flexShrink: 0 }} />
+            <div style={{ width: 12, height: 12, borderRadius: "50%", background: "var(--light-blue)", border: "1.5px solid var(--blue-50)", flexShrink: 0 }} />
             <span style={{ fontSize: 12, color: "#555" }}>
-              <strong style={{ color: "#00145E" }}>32.5%</strong> never start despite being prescribed
+              <strong style={{ color: "var(--navy)" }}>32.5%</strong> never start despite being prescribed
             </span>
           </div>
           <div style={{ fontSize: 11, color: "#aaa", lineHeight: 1.5, marginTop: 4 }}>

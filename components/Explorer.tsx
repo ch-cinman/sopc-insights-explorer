@@ -43,6 +43,29 @@ const ROLE_FOCUSES: RoleFocus[] = [
   "Executive",
 ];
 
+const STEP_CIRCLE: React.CSSProperties = {
+  width: 22,
+  height: 22,
+  borderRadius: "50%",
+  background: "var(--cta)",
+  color: "var(--navy)",
+  fontSize: 13,
+  fontWeight: 800,
+  display: "flex",
+  alignItems: "center",
+  justifyContent: "center",
+  flexShrink: 0,
+};
+
+const FILTER_BTN_BASE: React.CSSProperties = {
+  padding: "7px 16px",
+  borderRadius: 100,
+  fontSize: 14,
+  fontWeight: 600,
+  cursor: "pointer",
+  transition: "all 0.15s",
+};
+
 const BOT_ICON = (
   <svg width="14" height="14" viewBox="0 0 26 26" fill="none">
     <path
@@ -58,8 +81,8 @@ const BOT_ICON = (
         y2="21.5"
         gradientUnits="userSpaceOnUse"
       >
-        <stop stopColor="#0F6DFD" />
-        <stop offset="1" stopColor="#E040FB" />
+        <stop stopColor="#2D80FF" />
+        <stop offset="1" stopColor="#FD92FF" />
       </linearGradient>
     </defs>
   </svg>
@@ -204,14 +227,13 @@ export default function Explorer() {
         minHeight: "100vh",
         display: "flex",
         flexDirection: "column",
-        fontFamily: "'Averta PE', sans-serif",
       }}
     >
       {/* Gradient bar */}
       <div
         style={{
           height: 5,
-          background: "linear-gradient(90deg,#3B82F6,#8B5CF6 40%,#E040FB 70%,#F472B6)",
+          background: "linear-gradient(90deg,#2D80FF,#34C1FF 40%,#FD92FF 70%,#FEC9FF)",
           flexShrink: 0,
         }}
       />
@@ -235,29 +257,10 @@ export default function Explorer() {
             gap: 8,
             fontWeight: 800,
             fontSize: 15,
-            color: "#00145E",
+            color: "var(--navy)",
           }}
         >
-          <svg width="26" height="26" viewBox="0 0 26 26" fill="none">
-            <path
-              d="M13 21.5C13 21.5 3.5 15.5 3.5 9C3.5 6.5 5.5 4.5 8 4.5C10 4.5 11.5 5.5 13 7C14.5 5.5 16 4.5 18 4.5C20.5 4.5 22.5 6.5 22.5 9C22.5 15.5 13 21.5 13 21.5Z"
-              fill="url(#lg1)"
-            />
-            <defs>
-              <linearGradient
-                id="lg1"
-                x1="3.5"
-                y1="4.5"
-                x2="22.5"
-                y2="21.5"
-                gradientUnits="userSpaceOnUse"
-              >
-                <stop stopColor="#0F6DFD" />
-                <stop offset="1" stopColor="#E040FB" />
-              </linearGradient>
-            </defs>
-          </svg>
-          CourierHealth
+          <img src="/logo.avif" alt="Courier Health" style={{ height: 26, width: "auto" }} />
         </div>
         <a href="#" onClick={handleReportClick}>
           <button
@@ -265,18 +268,17 @@ export default function Explorer() {
               fontSize: 13,
               fontWeight: 600,
               color: "white",
-              background: "#00145E",
+              background: "var(--navy)",
               border: "none",
               borderRadius: 5,
               padding: "9px 20px",
               cursor: "pointer",
-              fontFamily: "'Averta PE', sans-serif",
             }}
             onMouseEnter={(e) => {
               (e.currentTarget as HTMLButtonElement).style.background = "#010C3A";
             }}
             onMouseLeave={(e) => {
-              (e.currentTarget as HTMLButtonElement).style.background = "#00145E";
+              (e.currentTarget as HTMLButtonElement).style.background = "var(--navy)";
             }}
           >
             Download Full Report
@@ -287,7 +289,7 @@ export default function Explorer() {
       {/* Hero */}
       <div
         style={{
-          background: "#00145E",
+          background: "var(--navy)",
           padding: "44px clamp(20px, 5vw, 72px) 38px",
           textAlign: "center",
           flexShrink: 0,
@@ -299,7 +301,7 @@ export default function Explorer() {
             fontWeight: 700,
             letterSpacing: "0.12em",
             textTransform: "uppercase",
-            color: "#0F6DFD",
+            color: "var(--cta)",
             marginBottom: 12,
           }}
         >
@@ -317,7 +319,7 @@ export default function Explorer() {
           Find the benchmarks
           <br />
           that matter{" "}
-          <em style={{ fontStyle: "normal", color: "#0F6DFD" }}>for your org</em>
+          <em style={{ fontStyle: "normal", color: "var(--cta)" }}>for your org</em>
         </h1>
         <p style={{ fontSize: 15, color: "rgba(255,255,255,0.75)", lineHeight: 1.6 }}>
           Select your profile to surface relevant findings from Courier Health&apos;s 2026 survey.
@@ -329,29 +331,13 @@ export default function Explorer() {
 
       {/* Intake */}
       {view === "intake" && (
-        <div style={{ background: "#00145E", padding: "8px clamp(20px, 5vw, 72px) 40px", flexShrink: 0 }}>
+        <div style={{ background: "var(--navy)", padding: "8px clamp(20px, 5vw, 72px) 40px", flexShrink: 0 }}>
           <div style={{ height: 24 }} />
 
           {/* Step 1 — Company type */}
           <div style={{ marginBottom: 16 }}>
             <div style={{ display: "flex", alignItems: "center", gap: 10, marginBottom: 10 }}>
-              <div
-                style={{
-                  width: 22,
-                  height: 22,
-                  borderRadius: "50%",
-                  background: "#0F6DFD",
-                  color: "#00145E",
-                  fontSize: 13,
-                  fontWeight: 800,
-                  display: "flex",
-                  alignItems: "center",
-                  justifyContent: "center",
-                  flexShrink: 0,
-                }}
-              >
-                1
-              </div>
+              <div style={STEP_CIRCLE}>1</div>
               <span style={{ fontSize: 15, fontWeight: 600, color: "rgba(255,255,255,0.8)" }}>
                 Company Size
               </span>
@@ -362,18 +348,12 @@ export default function Explorer() {
                   key={value}
                   onClick={() => setCompanyType(value)}
                   style={{
-                    padding: "7px 16px",
-                    borderRadius: 100,
+                    ...FILTER_BTN_BASE,
                     border: companyType === value
-                      ? "1.5px solid #0F6DFD"
+                      ? "1.5px solid var(--cta)"
                       : "1.5px solid rgba(255,255,255,0.2)",
-                    background: companyType === value ? "#0F6DFD" : "transparent",
-                    color: companyType === value ? "#00145E" : "rgba(255,255,255,0.8)",
-                    fontSize: 14,
-                    fontWeight: 600,
-                    cursor: "pointer",
-                    fontFamily: "'Averta PE', sans-serif",
-                    transition: "all 0.15s",
+                    background: companyType === value ? "var(--cta)" : "transparent",
+                    color: companyType === value ? "var(--navy)" : "rgba(255,255,255,0.8)",
                   }}
                 >
                   {label}
@@ -387,23 +367,7 @@ export default function Explorer() {
           {/* Step 2 — Therapeutic area */}
           <div style={{ marginBottom: 16 }}>
             <div style={{ display: "flex", alignItems: "center", gap: 10, marginBottom: 10 }}>
-              <div
-                style={{
-                  width: 22,
-                  height: 22,
-                  borderRadius: "50%",
-                  background: "#0F6DFD",
-                  color: "#00145E",
-                  fontSize: 13,
-                  fontWeight: 800,
-                  display: "flex",
-                  alignItems: "center",
-                  justifyContent: "center",
-                  flexShrink: 0,
-                }}
-              >
-                2
-              </div>
+              <div style={STEP_CIRCLE}>2</div>
               <span style={{ fontSize: 15, fontWeight: 600, color: "rgba(255,255,255,0.8)" }}>
                 Therapeutic area{" "}
                 <span style={{ fontSize: 15, fontWeight: 500, color: "rgba(255,255,255,0.5)" }}>
@@ -417,18 +381,12 @@ export default function Explorer() {
                   key={t}
                   onClick={() => setTa(ta === t ? "" : t)}
                   style={{
-                    padding: "7px 16px",
-                    borderRadius: 100,
+                    ...FILTER_BTN_BASE,
                     border: ta === t
-                      ? "1.5px solid #E040FB"
+                      ? "1.5px solid var(--pink)"
                       : "1.5px solid rgba(255,255,255,0.2)",
-                    background: ta === t ? "#E040FB" : "transparent",
-                    color: ta === t ? "white" : "rgba(255,255,255,0.8)",
-                    fontSize: 14,
-                    fontWeight: 600,
-                    cursor: "pointer",
-                    fontFamily: "'Averta PE', sans-serif",
-                    transition: "all 0.15s",
+                    background: ta === t ? "var(--pink)" : "transparent",
+                    color: ta === t ? "var(--navy)" : "rgba(255,255,255,0.8)",
                   }}
                 >
                   {t}
@@ -442,23 +400,7 @@ export default function Explorer() {
           {/* Step 3 — Role focus */}
           <div style={{ marginBottom: 16 }}>
             <div style={{ display: "flex", alignItems: "center", gap: 10, marginBottom: 10 }}>
-              <div
-                style={{
-                  width: 22,
-                  height: 22,
-                  borderRadius: "50%",
-                  background: "#0F6DFD",
-                  color: "#00145E",
-                  fontSize: 13,
-                  fontWeight: 800,
-                  display: "flex",
-                  alignItems: "center",
-                  justifyContent: "center",
-                  flexShrink: 0,
-                }}
-              >
-                3
-              </div>
+              <div style={STEP_CIRCLE}>3</div>
               <span style={{ fontSize: 15, fontWeight: 600, color: "rgba(255,255,255,0.8)" }}>
                 Role focus{" "}
                 <span style={{ fontSize: 15, fontWeight: 500, color: "rgba(255,255,255,0.5)" }}>
@@ -472,18 +414,12 @@ export default function Explorer() {
                   key={r}
                   onClick={() => setRole(role === r ? "" : r)}
                   style={{
-                    padding: "7px 16px",
-                    borderRadius: 100,
+                    ...FILTER_BTN_BASE,
                     border: role === r
                       ? "1.5px solid rgba(255,255,255,0.5)"
                       : "1.5px solid rgba(255,255,255,0.2)",
                     background: role === r ? "rgba(255,255,255,0.18)" : "transparent",
                     color: "rgba(255,255,255,0.8)",
-                    fontSize: 14,
-                    fontWeight: 600,
-                    cursor: "pointer",
-                    fontFamily: "'Averta PE', sans-serif",
-                    transition: "all 0.15s",
                   }}
                 >
                   {r}
@@ -497,12 +433,11 @@ export default function Explorer() {
             style={{
               marginLeft: 32,
               marginTop: 22,
-              background: "#0F6DFD",
+              background: "var(--cta)",
               color: "white",
               border: "none",
               borderRadius: 5,
               padding: "12px 28px",
-              fontFamily: "'Averta PE', sans-serif",
               fontSize: 16,
               fontWeight: 700,
               cursor: "pointer",
@@ -512,10 +447,10 @@ export default function Explorer() {
               transition: "all 0.15s",
             }}
             onMouseEnter={(e) => {
-              (e.currentTarget as HTMLButtonElement).style.background = "#0B5FE0";
+              (e.currentTarget as HTMLButtonElement).style.background = "#1A6CE8";
             }}
             onMouseLeave={(e) => {
-              (e.currentTarget as HTMLButtonElement).style.background = "#0F6DFD";
+              (e.currentTarget as HTMLButtonElement).style.background = "var(--cta)";
             }}
           >
             <svg width="13" height="13" viewBox="0 0 13 13" fill="none">
@@ -549,10 +484,10 @@ export default function Explorer() {
             }}
           >
             <svg width="12" height="12" viewBox="0 0 12 12" fill="none">
-              <circle cx="6" cy="6" r="4.5" stroke="#0F6DFD" strokeWidth="1.5" />
-              <circle cx="6" cy="6" r="1.8" fill="#0F6DFD" />
+              <circle cx="6" cy="6" r="4.5" stroke="var(--cta)" strokeWidth="1.5" />
+              <circle cx="6" cy="6" r="1.8" fill="var(--cta)" />
             </svg>
-            <span style={{ fontSize: 14, fontWeight: 700, color: "#00145E" }}>
+            <span style={{ fontSize: 14, fontWeight: 700, color: "var(--navy)" }}>
               Insights Explorer
             </span>
             <div
@@ -560,16 +495,16 @@ export default function Explorer() {
                 display: "flex",
                 alignItems: "center",
                 gap: 6,
-                background: "#EAF2FF",
+                background: "var(--light-blue)",
                 borderRadius: 100,
                 padding: "4px 12px 4px 8px",
                 marginLeft: 8,
               }}
             >
               <div
-                style={{ width: 8, height: 8, borderRadius: "50%", background: "#0F6DFD" }}
+                style={{ width: 8, height: 8, borderRadius: "50%", background: "var(--cta)" }}
               />
-              <span style={{ fontSize: 14, fontWeight: 600, color: "#00145E" }}>
+              <span style={{ fontSize: 14, fontWeight: 600, color: "var(--navy)" }}>
                 {getProfile(activeCompany, activeTa, activeRole)}
               </span>
             </div>
@@ -583,7 +518,6 @@ export default function Explorer() {
                 border: "none",
                 cursor: "pointer",
                 textDecoration: "underline",
-                fontFamily: "'Averta PE', sans-serif",
               }}
             >
               Change profile
@@ -621,10 +555,10 @@ export default function Explorer() {
                     display: "flex",
                     alignItems: "center",
                     justifyContent: "center",
-                    background: msg.type === "bot" ? "#00145E" : "#D8E8FF",
+                    background: msg.type === "bot" ? "var(--navy)" : "var(--blue-10)",
                     fontSize: msg.type === "user" ? 11 : undefined,
                     fontWeight: msg.type === "user" ? 700 : undefined,
-                    color: msg.type === "user" ? "#00145E" : undefined,
+                    color: msg.type === "user" ? "var(--navy)" : undefined,
                   }}
                 >
                   {msg.type === "bot" ? BOT_ICON : "You"}
@@ -635,8 +569,8 @@ export default function Explorer() {
                     padding: "12px 16px",
                     fontSize: 15,
                     lineHeight: 1.7,
-                    background: msg.type === "bot" ? "white" : "#00145E",
-                    color: msg.type === "bot" ? "#00145E" : "white",
+                    background: msg.type === "bot" ? "white" : "var(--navy)",
+                    color: msg.type === "bot" ? "var(--navy)" : "white",
                     border: msg.type === "bot" ? "1px solid rgba(0,20,94,0.09)" : "none",
                     borderBottomLeftRadius: msg.type === "bot" ? 4 : 16,
                     borderBottomRightRadius: msg.type === "user" ? 4 : 16,
@@ -669,7 +603,7 @@ export default function Explorer() {
                     display: "flex",
                     alignItems: "center",
                     justifyContent: "center",
-                    background: "#00145E",
+                    background: "var(--navy)",
                   }}
                 />
                 <div
@@ -735,7 +669,7 @@ export default function Explorer() {
                 >
                   You&apos;ve explored all available findings for this profile.
                   <br />
-                  <a href="#" style={{ color: "#0F6DFD" }} onClick={handleReportClick}>
+                  <a href="#" style={{ color: "var(--cta)" }} onClick={handleReportClick}>
                     Download the full report
                   </a>{" "}
                   to go deeper.
@@ -753,9 +687,8 @@ export default function Explorer() {
                       padding: "11px 16px",
                       fontSize: 15,
                       fontWeight: 500,
-                      color: "#00145E",
+                      color: "var(--navy)",
                       cursor: isTyping ? "default" : "pointer",
-                      fontFamily: "'Averta PE', sans-serif",
                       textAlign: "left",
                       transition: "all 0.15s",
                       display: "flex",
@@ -766,16 +699,16 @@ export default function Explorer() {
                     }}
                     onMouseEnter={(e) => {
                       if (!isTyping) {
-                        (e.currentTarget as HTMLButtonElement).style.borderColor = "#0F6DFD";
-                        (e.currentTarget as HTMLButtonElement).style.background = "#EAF2FF";
-                        (e.currentTarget as HTMLButtonElement).style.color = "#0F6DFD";
+                        (e.currentTarget as HTMLButtonElement).style.borderColor = "var(--cta)";
+                        (e.currentTarget as HTMLButtonElement).style.background = "var(--light-blue)";
+                        (e.currentTarget as HTMLButtonElement).style.color = "var(--cta)";
                       }
                     }}
                     onMouseLeave={(e) => {
                       (e.currentTarget as HTMLButtonElement).style.borderColor =
                         "rgba(0,20,94,0.1)";
                       (e.currentTarget as HTMLButtonElement).style.background = "white";
-                      (e.currentTarget as HTMLButtonElement).style.color = "#00145E";
+                      (e.currentTarget as HTMLButtonElement).style.color = "var(--navy)";
                     }}
                   >
                     <span>{q}</span>
@@ -815,12 +748,11 @@ export default function Explorer() {
             style={{
               fontSize: 16,
               fontWeight: 700,
-              color: "#00145E",
+              color: "var(--navy)",
               textDecoration: "underline",
               cursor: "pointer",
               background: "none",
               border: "none",
-              fontFamily: "'Averta PE', sans-serif",
             }}
           >
             Download the Full Report →

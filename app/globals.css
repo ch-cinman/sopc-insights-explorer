@@ -26,8 +26,32 @@
 }
 
 :root {
+  /* Brand palette — Navy */
   --navy: #00145E;
-  --cta: #0F6DFD;
+  --navy-50: #8089AE;
+  --navy-10: #E5E7EF;
+  /* Brand palette — Blue */
+  --blue: #2D80FF;
+  --blue-50: #96BFFF;
+  --blue-10: #EAF2FF;
+  /* Brand palette — Sky */
+  --sky: #34C1FF;
+  --sky-50: #99E0FF;
+  --sky-10: #EBF9FF;
+  /* Brand palette — Cyan */
+  --cyan: #34FFFF;
+  --cyan-50: #99FFFF;
+  --cyan-10: #EBFFFF;
+  /* Brand palette — Ice */
+  --ice: #B6FFFF;
+  --ice-50: #DBFFFF;
+  --ice-10: #F8FFFF;
+  /* Brand palette — Pink */
+  --pink: #FD92FF;
+  --pink-50: #FEC9FF;
+  --pink-10: #FFF4FF;
+  /* Semantic aliases */
+  --cta: #2D80FF;
   --light-blue: #EAF2FF;
 }
 
