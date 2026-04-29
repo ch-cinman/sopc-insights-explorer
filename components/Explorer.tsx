@@ -328,6 +328,10 @@ export default function Explorer() {
         <div style={{ background: "var(--navy)", padding: "8px clamp(20px, 5vw, 72px) 40px", flexShrink: 0 }}>
           <div style={{ height: 24 }} />
 
+          <div style={{ fontSize: 18, fontWeight: 700, color: "white", marginBottom: 24, lineHeight: 1.4 }}>
+            Select your profile below for benchmarks specific to your organization
+          </div>
+
           {/* Step 1 — Company type */}
           <div style={{ marginBottom: 16 }}>
             <div style={{ display: "flex", alignItems: "center", gap: 10, marginBottom: 10 }}>
@@ -426,10 +430,10 @@ export default function Explorer() {
                   style={{
                     ...FILTER_BTN_BASE,
                     border: role === r
-                      ? "1.5px solid rgba(255,255,255,0.5)"
+                      ? "1.5px solid var(--sky)"
                       : "1.5px solid rgba(255,255,255,0.2)",
-                    background: role === r ? "rgba(255,255,255,0.18)" : "transparent",
-                    color: "rgba(255,255,255,0.8)",
+                    background: role === r ? "var(--sky)" : "transparent",
+                    color: role === r ? "var(--navy)" : "rgba(255,255,255,0.8)",
                     display: "flex",
                     alignItems: "center",
                     gap: 6,
@@ -548,7 +552,7 @@ export default function Explorer() {
                 textDecoration: "underline",
               }}
             >
-              Change profile
+              Explore more findings
             </button>
           </div>
 

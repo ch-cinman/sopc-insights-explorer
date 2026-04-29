@@ -120,10 +120,10 @@ body {
   border-left-color: var(--pink);
 }
 
-/* Role overlay — navy-tint treatment (matches Team pill neutral) */
+/* Role overlay — sky treatment (matches Team selection color) */
 .ctx-note-role {
-  background: var(--navy-10);
-  border-left-color: var(--navy-50);
+  background: var(--sky-10);
+  border-left-color: var(--sky);
 }
 
 /* Chat view slide-up */

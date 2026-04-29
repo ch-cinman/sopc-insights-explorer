@@ -135,9 +135,6 @@ function PieChart() {
           ))}
         </div>
       </div>
-      <div style={{ fontSize: 11, color: "#bbb" }}>
-        2026 SoPC · All Respondents
-      </div>
     </div>
   );
 }
@@ -219,9 +216,6 @@ function BarChart() {
           </div>
         ))}
       </div>
-      <div style={{ fontSize: 11, color: "#bbb" }}>
-        2026 SoPC · Company size segments
-      </div>
     </div>
   );
 }
@@ -270,9 +264,6 @@ function DataMaturity() {
             </div>
           </div>
         ))}
-      </div>
-      <div style={{ fontSize: 11, color: "#bbb", marginTop: 4 }}>
-        2026 SoPC · All Respondents
       </div>
     </div>
   );
@@ -367,9 +358,6 @@ function StartRate() {
           </div>
         </div>
       </div>
-      <div style={{ fontSize: 11, color: "#bbb" }}>
-        2026 SoPC · All Respondents
-      </div>
     </div>
   );
 }
@@ -383,13 +371,6 @@ const CARD_INNER: React.CSSProperties = {
   height: "100%",
 };
 
-const SOURCE_LINE: React.CSSProperties = {
-  fontSize: 11,
-  color: "#bbb",
-  paddingTop: 8,
-  borderTop: "1px solid rgba(0,20,94,0.06)",
-  marginTop: "auto",
-};
 
 const CALLOUT: React.CSSProperties = {
   background: "var(--light-blue)",
@@ -421,7 +402,6 @@ function InsourcingCard() {
       <div style={CALLOUT}>
         Patient Services insourcing jumped from 48% to 54% in a single year — and the shift shows no signs of slowing.
       </div>
-      <div style={SOURCE_LINE}>2026 SoPC · All Respondents</div>
     </div>
   );
 }
@@ -444,7 +424,6 @@ function AIMaturityCard() {
           20% say use is informal — no enterprise strategy
         </span>
       </div>
-      <div style={SOURCE_LINE}>2026 SoPC · All Respondents</div>
     </div>
   );
 }
@@ -462,7 +441,6 @@ function DataTrustCard() {
       <div style={CALLOUT}>
         The top challenge isn&apos;t fragmentation — it&apos;s confidence. 1 in 4 respondents say they lack trust in the data they already have.
       </div>
-      <div style={SOURCE_LINE}>2026 SoPC · All Respondents</div>
     </div>
   );
 }
@@ -472,20 +450,19 @@ function PatientJourneyCard() {
     <div style={CARD_INNER}>
       <div style={{ display: "flex", gap: 0 }}>
         <div style={{ flex: 1, paddingRight: 16 }}>
-          <div style={{ fontSize: 36, fontWeight: 800, color: "var(--blue)", lineHeight: 1 }}>1 in 3</div>
-          <div style={{ fontSize: 13, color: "#555", marginTop: 5, lineHeight: 1.4 }}>prescribed patients never start therapy</div>
+          <div style={{ fontSize: 36, fontWeight: 800, color: "var(--cyan)", lineHeight: 1 }}>1 in 3</div>
+          <div style={{ fontSize: 14, fontWeight: 600, color: "var(--navy)", lineHeight: 1.45, marginTop: 6 }}>prescribed patients never start therapy</div>
         </div>
         <div style={{ width: 1, background: "rgba(0,20,94,0.08)", flexShrink: 0 }} />
         <div style={{ flex: 1, paddingLeft: 16 }}>
-          <div style={{ fontSize: 36, fontWeight: 800, color: "var(--pink)", lineHeight: 1 }}>4 in 10</div>
-          <div style={{ fontSize: 13, color: "#555", marginTop: 5, lineHeight: 1.4 }}>who start don&apos;t persist at 12 months</div>
+          <div style={{ fontSize: 36, fontWeight: 800, color: "var(--cyan)", lineHeight: 1 }}>4 in 10</div>
+          <div style={{ fontSize: 14, fontWeight: 600, color: "var(--navy)", lineHeight: 1.45, marginTop: 6 }}>who start don&apos;t persist at 12 months</div>
         </div>
       </div>
       <div style={DIVIDER} />
       <div style={CALLOUT}>
         Immunology &amp; Inflammatory is the hardest hit — 46.8% mean persistence, the lowest of any therapeutic area in the survey.
       </div>
-      <div style={SOURCE_LINE}>2026 SoPC · All Respondents</div>
     </div>
   );
 }
@@ -554,19 +531,6 @@ export default function StatsShowcase() {
           ))}
         </div>
 
-        {/* Subtext */}
-        <p
-          style={{
-            textAlign: "center",
-            fontSize: 14,
-            color: "#aaa",
-            margin: "16px 0 8px",
-            lineHeight: 1.5,
-          }}
-        >
-          These findings apply across all segments. Select your profile below for benchmarks
-          specific to your organization.
-        </p>
       </div>
     </>
   );
