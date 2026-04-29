@@ -65,25 +65,7 @@ const FILTER_BTN_BASE: React.CSSProperties = {
 };
 
 const BOT_ICON = (
-  <svg width="14" height="14" viewBox="0 0 26 26" fill="none">
-    <path
-      d="M13 21.5C13 21.5 3.5 15.5 3.5 9C3.5 6.5 5.5 4.5 8 4.5C10 4.5 11.5 5.5 13 7C14.5 5.5 16 4.5 18 4.5C20.5 4.5 22.5 6.5 22.5 9C22.5 15.5 13 21.5 13 21.5Z"
-      fill="url(#lgh)"
-    />
-    <defs>
-      <linearGradient
-        id="lgh"
-        x1="3.5"
-        y1="4.5"
-        x2="22.5"
-        y2="21.5"
-        gradientUnits="userSpaceOnUse"
-      >
-        <stop stopColor="#2D80FF" />
-        <stop offset="1" stopColor="#FD92FF" />
-      </linearGradient>
-    </defs>
-  </svg>
+  <img src="/favicon.ico" alt="" style={{ width: 15, height: 15, objectFit: "contain" }} />
 );
 
 interface Message {
@@ -137,6 +119,7 @@ export default function Explorer() {
 
   // Chat state
   const [view, setView] = useState<"intake" | "chat">("intake");
+  const [isExiting, setIsExiting] = useState(false);
   const [messages, setMessages] = useState<Message[]>([]);
   const [usedQuestions, setUsedQuestions] = useState<Set<string>>(new Set());
   const [isTyping, setIsTyping] = useState(false);
@@ -148,7 +131,6 @@ export default function Explorer() {
   const [activeRole, setActiveRole] = useState<RoleFocus | "">("");
 
   const messagesEndRef = useRef<HTMLDivElement>(null);
-  const chatContainerRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
@@ -160,28 +142,28 @@ export default function Explorer() {
       return;
     }
     setCompanySizeError(false);
-    setActiveCompany(companyType as CompanyType);
-    setActiveTa(ta);
-    setActiveRole(role);
-    setMessages([]);
-    setUsedQuestions(new Set());
-    setAllExhausted(false);
-
-    window.posthog?.capture("profile_selected", {
-      company_type: companyType,
-      therapeutic_area: ta || null,
-      role_focus: role || null,
-    });
-
-    setIsTyping(true);
-    setView("chat");
+    window.scrollTo({ top: 0, behavior: "smooth" });
+    setIsExiting(true);
     setTimeout(() => {
-      chatContainerRef.current?.scrollIntoView({ behavior: "smooth", block: "start" });
-    }, 20);
-    setTimeout(() => {
-      setIsTyping(false);
-      setMessages([{ type: "bot", html: OPENING[companyType as CompanyType] }]);
-    }, 1600);
+      setActiveCompany(companyType as CompanyType);
+      setActiveTa(ta);
+      setActiveRole(role);
+      setMessages([]);
+      setUsedQuestions(new Set());
+      setAllExhausted(false);
+      setIsExiting(false);
+      setIsTyping(true);
+      setView("chat");
+      window.posthog?.capture("profile_selected", {
+        company_type: companyType,
+        therapeutic_area: ta || null,
+        role_focus: role || null,
+      });
+      setTimeout(() => {
+        setIsTyping(false);
+        setMessages([{ type: "bot", html: OPENING[companyType as CompanyType] }]);
+      }, 1600);
+    }, 300);
   }
 
   function resetChat() {
@@ -306,6 +288,8 @@ export default function Explorer() {
           textAlign: "center",
           flexShrink: 0,
           display: view === "chat" ? "none" : undefined,
+          opacity: isExiting ? 0 : 1,
+          transition: "opacity 0.3s ease",
         }}
       >
         <div
@@ -337,7 +321,7 @@ export default function Explorer() {
       </div>
 
       {/* Stats showcase + intake */}
-      <div style={{ display: view === "chat" ? "none" : undefined }}>
+      <div style={{ display: view === "chat" ? "none" : undefined, opacity: isExiting ? 0 : 1, transition: "opacity 0.3s ease" }}>
         <StatsShowcase />
 
         {/* Intake */}
@@ -506,13 +490,12 @@ export default function Explorer() {
 
       {/* Chat area */}
       <div
-        ref={chatContainerRef}
         style={{
           display: view === "chat" ? "flex" : "none",
           flexDirection: "column",
           background: "#f8f9fd",
           flex: 1,
-          animation: view === "chat" ? "fadeIn 3s cubic-bezier(0.22, 1, 0.36, 1)" : undefined,
+          animation: view === "chat" ? "fadeIn 0.5s cubic-bezier(0.22, 1, 0.36, 1)" : undefined,
         }}
       >
           {/* Chat topbar */}
@@ -650,7 +633,9 @@ export default function Explorer() {
                     justifyContent: "center",
                     background: "var(--navy)",
                   }}
-                />
+                >
+                  <img src="/favicon.ico" alt="" style={{ width: 15, height: 15, objectFit: "contain" }} />
+                </div>
                 <div
                   style={{
                     background: "white",

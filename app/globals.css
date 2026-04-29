@@ -67,6 +67,17 @@ body {
   min-height: 100vh;
 }
 
+/* Segment label pill */
+.seg {
+  display: inline-block;
+  background: var(--navy);
+  color: white;
+  font-weight: 700;
+  padding: 2px 10px;
+  border-radius: 100px;
+  font-size: 13px;
+}
+
 /* Stat chip */
 .sc {
   display: inline-block;
