@@ -401,12 +401,12 @@ function PatientJourneyCard() {
     <div style={CARD_INNER}>
       <div style={{ display: "flex", gap: 0, minHeight: 130 }}>
         <div style={{ flex: 1, paddingRight: 16 }}>
-          <div style={{ fontSize: 64, fontWeight: 800, color: "var(--navy)", lineHeight: 1 }}>30%</div>
+          <div style={{ fontSize: 64, fontWeight: 800, color: "var(--sky)", lineHeight: 1 }}>30%</div>
           <div style={STAT_LABEL}>of patients never start their treatment</div>
         </div>
         <div style={{ width: 1, background: "rgba(0,20,94,0.08)", flexShrink: 0 }} />
         <div style={{ flex: 1, paddingLeft: 16 }}>
-          <div style={{ fontSize: 64, fontWeight: 800, color: "var(--navy)", lineHeight: 1 }}>66%</div>
+          <div style={{ fontSize: 64, fontWeight: 800, color: "var(--sky)", lineHeight: 1 }}>66%</div>
           <div style={STAT_LABEL}>discontinue by month 12</div>
         </div>
       </div>
@@ -422,7 +422,7 @@ function VisibilityCard() {
   return (
     <div style={CARD_INNER}>
       <div style={{ minHeight: 130 }}>
-        <div style={{ fontSize: 64, fontWeight: 800, color: "var(--sky)", lineHeight: 1 }}>1 in 4</div>
+        <div style={{ fontSize: 64, fontWeight: 800, color: "var(--blue)", lineHeight: 1 }}>1 in 4</div>
         <div style={STAT_LABEL}>respondents cite lack of visibility into patient and provider status as their top challenge</div>
       </div>
       <div style={DIVIDER} />
@@ -437,7 +437,7 @@ function AIScaleCard() {
   return (
     <div style={CARD_INNER}>
       <div style={{ minHeight: 130 }}>
-        <div style={{ fontSize: 64, fontWeight: 800, color: "var(--pink)", lineHeight: 1 }}>12%</div>
+        <div style={{ fontSize: 64, fontWeight: 800, color: "var(--sky)", lineHeight: 1 }}>12%</div>
         <div style={STAT_LABEL}>of biopharma companies report AI adoption at scale</div>
       </div>
       <div style={DIVIDER} />
@@ -536,11 +536,11 @@ function JourneyModal() {
       </div>
       <div style={{ display: "flex", gap: 24, marginTop: 16 }}>
         <div>
-          <div style={{ fontSize: 36, fontWeight: 800, color: "var(--navy)", lineHeight: 1 }}>30%</div>
+          <div style={{ fontSize: 36, fontWeight: 800, color: "var(--sky)", lineHeight: 1 }}>30%</div>
           <div style={{ fontSize: 13, color: "#555", marginTop: 4 }}>never start treatment</div>
         </div>
         <div>
-          <div style={{ fontSize: 36, fontWeight: 800, color: "var(--navy)", lineHeight: 1 }}>66%</div>
+          <div style={{ fontSize: 36, fontWeight: 800, color: "var(--sky)", lineHeight: 1 }}>66%</div>
           <div style={{ fontSize: 13, color: "#555", marginTop: 4 }}>discontinue by month 12</div>
         </div>
       </div>
