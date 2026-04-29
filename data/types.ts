@@ -9,8 +9,7 @@ export type TherapeuticArea =
 
 export type RoleFocus =
   | "Patient Services"
-  | "Market Access"
-  | "Field Access"
+  | "Access & Reimbursement"
   | "Commercial Ops & IT";
 
 export interface ResponseData {

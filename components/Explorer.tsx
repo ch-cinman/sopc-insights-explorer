@@ -37,8 +37,7 @@ const THERAPEUTIC_AREAS: TherapeuticArea[] = [
 
 const ROLE_FOCUSES: RoleFocus[] = [
   "Patient Services",
-  "Market Access",
-  "Field Access",
+  "Access & Reimbursement",
   "Commercial Ops & IT",
 ];
 
@@ -119,13 +118,12 @@ async function getChatResponse(
 
   const overlayData = OVERLAYS[companyType]?.[question];
   if (overlayData) {
-    let note = "";
     if (ta && ta !== "Other" && overlayData.ta?.[ta]) {
-      note = overlayData.ta[ta]!;
-    } else if (role && overlayData.role?.[role]) {
-      note = overlayData.role[role]!;
+      html += `<span class="ctx-note ctx-note-ta"><span style="font-weight:700;color:var(--navy)">${ta} context:</span> ${overlayData.ta[ta]}</span>`;
     }
-    if (note) html += `<span class="ctx-note">${note}</span>`;
+    if (role && overlayData.role?.[role]) {
+      html += `<span class="ctx-note ctx-note-role"><span style="font-weight:700;color:var(--navy)">${role} lens:</span> ${overlayData.role[role]}</span>`;
+    }
   }
   return html;
 }
