@@ -374,9 +374,132 @@ function StartRate() {
   );
 }
 
+// ─── Shared styles ────────────────────────────────────────────────────────────
+
+const CARD_INNER: React.CSSProperties = {
+  display: "flex",
+  flexDirection: "column",
+  gap: 12,
+  height: "100%",
+};
+
+const SOURCE_LINE: React.CSSProperties = {
+  fontSize: 11,
+  color: "#bbb",
+  paddingTop: 8,
+  borderTop: "1px solid rgba(0,20,94,0.06)",
+  marginTop: "auto",
+};
+
+const CALLOUT: React.CSSProperties = {
+  background: "var(--light-blue)",
+  borderLeft: "3px solid var(--blue)",
+  borderRadius: 8,
+  padding: "10px 12px",
+  fontSize: 13,
+  color: "var(--navy)",
+  lineHeight: 1.55,
+};
+
+const DIVIDER: React.CSSProperties = {
+  height: 1,
+  background: "rgba(0,20,94,0.08)",
+};
+
+// ─── New stat cards ───────────────────────────────────────────────────────────
+
+function InsourcingCard() {
+  return (
+    <div style={CARD_INNER}>
+      <div>
+        <div style={{ fontSize: 48, fontWeight: 800, color: "var(--blue)", lineHeight: 1 }}>83%</div>
+        <div style={{ fontSize: 14, fontWeight: 600, color: "var(--navy)", lineHeight: 1.45, marginTop: 6 }}>
+          of biopharma companies now manage Field Access &amp; Reimbursement internally.
+        </div>
+      </div>
+      <div style={DIVIDER} />
+      <div style={CALLOUT}>
+        Patient Services insourcing jumped from 48% to 54% in a single year — and the shift shows no signs of slowing.
+      </div>
+      <div style={SOURCE_LINE}>2026 SoPC · All Respondents</div>
+    </div>
+  );
+}
+
+function AIMaturityCard() {
+  return (
+    <div style={CARD_INNER}>
+      <div>
+        <div style={{ fontSize: 48, fontWeight: 800, color: "var(--sky)", lineHeight: 1 }}>83%</div>
+        <div style={{ fontSize: 14, fontWeight: 600, color: "var(--navy)", lineHeight: 1.45, marginTop: 6 }}>
+          are using AI in some capacity — up from 46.6% last year.
+        </div>
+      </div>
+      <div style={DIVIDER} />
+      <div style={{ display: "flex", gap: 8, flexWrap: "wrap" }}>
+        <span style={{ background: "var(--light-blue)", color: "var(--navy)", borderRadius: 100, padding: "5px 12px", fontSize: 12, fontWeight: 600 }}>
+          Only 12% have approved tools &amp; governance
+        </span>
+        <span style={{ background: "var(--pink-10)", color: "var(--navy)", borderRadius: 100, padding: "5px 12px", fontSize: 12, fontWeight: 600 }}>
+          20% say use is informal — no enterprise strategy
+        </span>
+      </div>
+      <div style={SOURCE_LINE}>2026 SoPC · All Respondents</div>
+    </div>
+  );
+}
+
+function DataTrustCard() {
+  return (
+    <div style={CARD_INNER}>
+      <div>
+        <div style={{ fontSize: 48, fontWeight: 800, color: "var(--pink)", lineHeight: 1 }}>58%</div>
+        <div style={{ fontSize: 14, fontWeight: 600, color: "var(--navy)", lineHeight: 1.45, marginTop: 6 }}>
+          are unable to access, connect, analyze, and act upon their data.
+        </div>
+      </div>
+      <div style={DIVIDER} />
+      <div style={CALLOUT}>
+        The top challenge isn&apos;t fragmentation — it&apos;s confidence. 1 in 4 respondents say they lack trust in the data they already have.
+      </div>
+      <div style={SOURCE_LINE}>2026 SoPC · All Respondents</div>
+    </div>
+  );
+}
+
+function PatientJourneyCard() {
+  return (
+    <div style={CARD_INNER}>
+      <div style={{ display: "flex", gap: 0 }}>
+        <div style={{ flex: 1, paddingRight: 16 }}>
+          <div style={{ fontSize: 36, fontWeight: 800, color: "var(--blue)", lineHeight: 1 }}>1 in 3</div>
+          <div style={{ fontSize: 13, color: "#555", marginTop: 5, lineHeight: 1.4 }}>prescribed patients never start therapy</div>
+        </div>
+        <div style={{ width: 1, background: "rgba(0,20,94,0.08)", flexShrink: 0 }} />
+        <div style={{ flex: 1, paddingLeft: 16 }}>
+          <div style={{ fontSize: 36, fontWeight: 800, color: "var(--pink)", lineHeight: 1 }}>4 in 10</div>
+          <div style={{ fontSize: 13, color: "#555", marginTop: 5, lineHeight: 1.4 }}>who start don&apos;t persist at 12 months</div>
+        </div>
+      </div>
+      <div style={DIVIDER} />
+      <div style={CALLOUT}>
+        Immunology &amp; Inflammatory is the hardest hit — 46.8% mean persistence, the lowest of any therapeutic area in the survey.
+      </div>
+      <div style={SOURCE_LINE}>2026 SoPC · All Respondents</div>
+    </div>
+  );
+}
+
 // ─── Main export ──────────────────────────────────────────────────────────────
 
 export default function StatsShowcase() {
+  const [useNewStats, setUseNewStats] = useState(true);
+
+  useEffect(() => {
+    const params = new URLSearchParams(window.location.search);
+    setUseNewStats(params.get("stats") !== "legacy");
+  }, []);
+
   return (
     <>
       <style>{`
@@ -410,14 +533,12 @@ export default function StatsShowcase() {
           <span style={{ flex: 1, height: 1, background: "rgba(0,20,94,0.08)" }} />
         </div>
 
-        {/* 2×2 grid */}
+        {/* Grid */}
         <div className="stats-grid">
-          {[
-            <PieChart key="pie" />,
-            <BarChart key="bar" />,
-            <DataMaturity key="maturity" />,
-            <StartRate key="startrate" />,
-          ].map((viz, i) => (
+          {(useNewStats
+            ? [<InsourcingCard key="i" />, <AIMaturityCard key="a" />, <DataTrustCard key="d" />, <PatientJourneyCard key="p" />]
+            : [<PieChart key="pie" />, <BarChart key="bar" />, <DataMaturity key="maturity" />, <StartRate key="startrate" />]
+          ).map((viz, i) => (
             <div
               key={i}
               style={{

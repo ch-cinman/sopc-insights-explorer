@@ -4,7 +4,7 @@ import { useState, useRef, useEffect } from "react";
 import type { CompanyType, TherapeuticArea, RoleFocus } from "@/data/types";
 import { RESPONSES } from "@/data/responses";
 import { OVERLAYS } from "@/data/overlays";
-import { QUESTIONS, OPENING } from "@/data/questions";
+import { QUESTIONS, OPENING, QUESTION_LABELS, QUESTION_LABELS_BY_SEGMENT } from "@/data/questions";
 import StatsShowcase from "@/components/StatsShowcase";
 
 // PostHog is accessed via window to keep import side-effect free in this component
@@ -741,7 +741,7 @@ export default function Explorer() {
                       (e.currentTarget as HTMLButtonElement).style.color = "var(--navy)";
                     }}
                   >
-                    <span>{q}</span>
+                    <span>{QUESTION_LABELS[activeRole]?.[q] ?? QUESTION_LABELS_BY_SEGMENT[activeCompany]?.[q] ?? q}</span>
                     <span style={{ fontSize: 16, color: "#ccc", flexShrink: 0, lineHeight: 1 }}>
                       +
                     </span>

@@ -1,4 +1,4 @@
-import type { QuestionsMap, OpeningMap } from "./types";
+import type { QuestionsMap, OpeningMap, CompanyType } from "./types";
 
 export const QUESTIONS: QuestionsMap = {
   "Emerging biotech": [
@@ -37,6 +37,37 @@ export const QUESTIONS: QuestionsMap = {
     "What does the survey say about patient access performance?",
     "How aligned are commercial and IT/Ops teams?"
   ]
+};
+
+export const QUESTION_LABELS_BY_SEGMENT: Record<CompanyType, Partial<Record<string, string>>> = {
+  "Emerging biotech": {
+    "What is the biggest data challenge for my segment?": "What is the biggest data challenge for emerging biotech?",
+  },
+  "Small biotech": {
+    "What is the biggest data challenge for my segment?": "What is the biggest data challenge for small biotech?",
+  },
+  "Mid-size pharma": {
+    "What is the biggest data challenge for my segment?": "What is the biggest data challenge for mid-size pharma?",
+  },
+  "Large pharma": {
+    "What is the biggest data challenge for my segment?": "What is the biggest data challenge for large pharma?",
+  },
+};
+
+export const QUESTION_LABELS: Partial<Record<string, Record<string, string>>> = {
+  "Access & Reimbursement": {
+    "What KPIs matter most to teams like mine?": "What KPIs matter most to access & reimbursement teams?",
+    "How are teams structured — internal vs. outsourced?": "How are access & reimbursement teams structured?",
+    "How aligned are commercial and IT/Ops teams?": "How aligned are access & reimbursement and IT/Ops teams?",
+  },
+  "Patient Services": {
+    "What KPIs matter most to teams like mine?": "What KPIs matter most to patient services teams?",
+    "How are teams structured — internal vs. outsourced?": "How are patient services teams structured?",
+  },
+  "Commercial Ops & IT": {
+    "What KPIs matter most to teams like mine?": "What KPIs matter most to commercial ops & IT teams?",
+    "How aligned are commercial and IT/Ops teams?": "How aligned is commercial ops & IT with the business?",
+  },
 };
 
 export const OPENING: OpeningMap = {
