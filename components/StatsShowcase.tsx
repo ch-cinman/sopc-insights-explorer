@@ -580,11 +580,11 @@ function VisibilityModal() {
   return (
     <div>
       <div style={{ fontSize: 18, fontWeight: 700, color: "var(--navy)", lineHeight: 1.3, paddingRight: 24 }}>
-        The data action gap
+        Why teams can&apos;t see what&apos;s happening
       </div>
       <div style={{ marginTop: 16 }}>
-        <div style={{ fontSize: 48, fontWeight: 800, color: "var(--blue)", lineHeight: 1 }}>58%</div>
-        <div style={{ fontSize: 14, color: "#555", marginTop: 6, lineHeight: 1.4 }}>are unable to access, connect, analyze, and act upon their data</div>
+        <div style={{ fontSize: 48, fontWeight: 800, color: "var(--blue)", lineHeight: 1 }}>1 in 4</div>
+        <div style={{ fontSize: 14, color: "#555", marginTop: 6, lineHeight: 1.4 }}>cite lack of visibility into patient and provider status as their top operational challenge</div>
       </div>
       <span style={MODAL_SUBHEAD}>Top challenge to acting on data — all respondents</span>
       <ModalBarChart
@@ -597,7 +597,7 @@ function VisibilityModal() {
           { label: "Unclear ownership or accountability", pct: 9.3 },
         ]}
       />
-      <span style={MODAL_SUBHEAD}>Data ownership fragmentation by company size</span>
+      <span style={MODAL_SUBHEAD}>Data ownership fragmentation by company size — a key driver of visibility gaps</span>
       <ModalBarChart
         color="var(--blue)"
         rows={[
@@ -608,7 +608,7 @@ function VisibilityModal() {
         ]}
       />
       <div style={MODAL_CALLOUT}>
-        Large pharma&apos;s scale creates its own fragmentation — despite the most infrastructure investment, it leads all segments on data ownership fragmentation.
+        The visibility gap isn&apos;t a tooling problem — it&apos;s a data architecture problem. When ownership is fragmented across teams and systems, no single function can see the full patient picture.
       </div>
       <span style={MODAL_SOURCE}>2026 SoPC · All Respondents</span>
     </div>
@@ -666,13 +666,16 @@ function KPIModal() {
   return (
     <div>
       <div style={{ fontSize: 18, fontWeight: 700, color: "var(--navy)", lineHeight: 1.3, paddingRight: 24 }}>
-        What teams are actually measured on
+        A measurement landscape that varies widely
       </div>
       <div style={{ marginTop: 16 }}>
         <div style={{ fontSize: 48, fontWeight: 800, color: "var(--blue)", lineHeight: 1 }}>14%</div>
         <div style={{ fontSize: 14, color: "#555", marginTop: 6, lineHeight: 1.4 }}>don&apos;t know how their teams are measured</div>
       </div>
-      <span style={MODAL_SUBHEAD}>Top KPIs cited across all respondents</span>
+      <p style={{ fontSize: 14, color: "#555", lineHeight: 1.6, marginTop: 12 }}>
+        But even among those who do know, there&apos;s no consensus on what matters most — KPI priorities shift significantly by company size, suggesting teams across the industry are optimizing for fundamentally different outcomes.
+      </p>
+      <span style={MODAL_SUBHEAD}>What the other 86% are measured on — industry-wide</span>
       <ModalBarChart
         color="var(--blue)"
         rows={[
@@ -684,7 +687,7 @@ function KPIModal() {
           { label: "Patient satisfaction/NPS", pct: 14.3 },
         ]}
       />
-      <span style={MODAL_SUBHEAD}>How KPI priorities shift by company size</span>
+      <span style={MODAL_SUBHEAD}>Top KPI by segment — no two segments agree</span>
       <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "8px 16px", marginTop: 10 }}>
         {[
           { company: "Small Biotech", kpi: "PA approval rate", pct: "39%" },
@@ -699,7 +702,7 @@ function KPIModal() {
         ))}
       </div>
       <div style={MODAL_CALLOUT}>
-        Large pharma prioritizes persistence at nearly double the industry rate — yet achieves the lowest persistence outcomes of any company size at 53.3% mean.
+        No two company sizes share the same top KPI. Small biotech leads on PA approval rate, large pharma on persistence, mid-size on time-to-start — teams across the industry are measuring success differently, making industry benchmarking harder and cross-segment learning less actionable.
       </div>
       <span style={MODAL_SOURCE}>2026 SoPC · All Respondents</span>
     </div>
