@@ -17,8 +17,8 @@ declare global {
 }
 
 const COMPANY_SIZE_OPTIONS: { label: string; value: CompanyType }[] = [
-  { label: "Small & Pre-Commercial", value: "Emerging biotech" },
-  { label: "Emerging", value: "Small biotech" },
+  { label: "Small & Pre-Commercial", value: "Small biotech" },
+  { label: "Emerging", value: "Emerging biotech" },
   { label: "Mid-Sized", value: "Mid-size pharma" },
   { label: "Large", value: "Large pharma" },
 ];
