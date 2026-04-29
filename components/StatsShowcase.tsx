@@ -399,7 +399,7 @@ const STAT_LABEL: React.CSSProperties = {
 function PatientJourneyCard() {
   return (
     <div style={CARD_INNER}>
-      <div style={{ display: "flex", gap: 0 }}>
+      <div style={{ display: "flex", gap: 0, minHeight: 130 }}>
         <div style={{ flex: 1, paddingRight: 16 }}>
           <div style={{ fontSize: 64, fontWeight: 800, color: "var(--navy)", lineHeight: 1 }}>30%</div>
           <div style={STAT_LABEL}>of patients never start their treatment</div>
@@ -421,7 +421,7 @@ function PatientJourneyCard() {
 function VisibilityCard() {
   return (
     <div style={CARD_INNER}>
-      <div>
+      <div style={{ minHeight: 130 }}>
         <div style={{ fontSize: 64, fontWeight: 800, color: "var(--sky)", lineHeight: 1 }}>1 in 4</div>
         <div style={STAT_LABEL}>respondents cite lack of visibility into patient and provider status as their top challenge</div>
       </div>
@@ -436,7 +436,7 @@ function VisibilityCard() {
 function AIScaleCard() {
   return (
     <div style={CARD_INNER}>
-      <div>
+      <div style={{ minHeight: 130 }}>
         <div style={{ fontSize: 64, fontWeight: 800, color: "var(--pink)", lineHeight: 1 }}>12%</div>
         <div style={STAT_LABEL}>of biopharma companies report AI adoption at scale</div>
       </div>
@@ -451,7 +451,7 @@ function AIScaleCard() {
 function KPIAwarenessCard() {
   return (
     <div style={CARD_INNER}>
-      <div>
+      <div style={{ minHeight: 130 }}>
         <div style={{ fontSize: 64, fontWeight: 800, color: "var(--blue)", lineHeight: 1 }}>14%</div>
         <div style={STAT_LABEL}>of respondents don&apos;t know how their teams are measured</div>
       </div>
