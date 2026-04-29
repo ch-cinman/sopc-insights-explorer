@@ -583,7 +583,7 @@ function VisibilityModal() {
         The data action gap
       </div>
       <div style={{ marginTop: 16 }}>
-        <div style={{ fontSize: 48, fontWeight: 800, color: "var(--sky)", lineHeight: 1 }}>58%</div>
+        <div style={{ fontSize: 48, fontWeight: 800, color: "var(--blue)", lineHeight: 1 }}>58%</div>
         <div style={{ fontSize: 14, color: "#555", marginTop: 6, lineHeight: 1.4 }}>are unable to access, connect, analyze, and act upon their data</div>
       </div>
       <span style={MODAL_SUBHEAD}>Top challenge to acting on data — all respondents</span>
@@ -622,7 +622,7 @@ function AIModal() {
         AI adoption across biopharma
       </div>
       <div style={{ marginTop: 16 }}>
-        <div style={{ fontSize: 48, fontWeight: 800, color: "var(--pink)", lineHeight: 1 }}>12%</div>
+        <div style={{ fontSize: 48, fontWeight: 800, color: "var(--sky)", lineHeight: 1 }}>12%</div>
         <div style={{ fontSize: 14, color: "#555", marginTop: 6, lineHeight: 1.4 }}>have approved tools, governance, and adoption across 2+ teams</div>
       </div>
       <span style={MODAL_SUBHEAD}>AI adoption at scale by company size</span>
@@ -717,6 +717,19 @@ export default function StatsShowcase() {
     setUseNewStats(params.get("stats") !== "legacy");
   }, []);
 
+  // Scroll lock
+  useEffect(() => {
+    document.body.style.overflow = activeModal ? "hidden" : "";
+    return () => { document.body.style.overflow = ""; };
+  }, [activeModal]);
+
+  // Escape to close
+  useEffect(() => {
+    const handler = (e: KeyboardEvent) => { if (e.key === "Escape") setActiveModal(null); };
+    document.addEventListener("keydown", handler);
+    return () => document.removeEventListener("keydown", handler);
+  }, []);
+
   return (
     <>
       <style>{`
@@ -730,6 +743,17 @@ export default function StatsShowcase() {
         }
         @media (max-width: 600px) {
           .stats-grid { grid-template-columns: 1fr; }
+        }
+        .stat-card-clickable {
+          transition: box-shadow 0.15s ease, border-color 0.15s ease, transform 0.15s ease;
+        }
+        .stat-card-clickable:hover {
+          box-shadow: 0 4px 20px rgba(0,20,94,0.1);
+          border-color: rgba(0,20,94,0.22) !important;
+          transform: translateY(-2px);
+        }
+        .stat-card-clickable:hover .card-expand-icon {
+          color: var(--navy-50) !important;
         }
       `}</style>
       <div style={{ background: "white", padding: "28px clamp(20px, 5vw, 72px) 8px" }}>
@@ -761,6 +785,7 @@ export default function StatsShowcase() {
             ].map(({ viz, modal }, i) => (
               <div
                 key={i}
+                className="stat-card-clickable"
                 onClick={() => setActiveModal(modal)}
                 style={{
                   border: "1px solid rgba(0,20,94,0.09)",
@@ -772,7 +797,7 @@ export default function StatsShowcase() {
                   position: "relative",
                 }}
               >
-                <span style={{ position: "absolute", top: 12, right: 14, fontSize: 11, color: "#ccc" }}>↗</span>
+                <span className="card-expand-icon" style={{ position: "absolute", top: 12, right: 14, fontSize: 13, color: "#ccc", fontWeight: 700 }}>↗</span>
                 {viz}
               </div>
             ))
@@ -816,10 +841,14 @@ export default function StatsShowcase() {
               onClick={() => setActiveModal(null)}
               style={{
                 position: "absolute", top: 16, right: 16,
-                background: "none", border: "none", fontSize: 20,
-                cursor: "pointer", color: "#999", lineHeight: 1,
+                background: "none", border: "none",
+                cursor: "pointer", color: "#999",
+                display: "flex", alignItems: "center", gap: 6,
+                fontSize: 13, fontWeight: 600, lineHeight: 1,
               }}
-            >✕</button>
+            >
+              Close <span style={{ fontSize: 22, fontWeight: 400, lineHeight: 1 }}>✕</span>
+            </button>
             {activeModal === "journey" && <JourneyModal />}
             {activeModal === "visibility" && <VisibilityModal />}
             {activeModal === "ai" && <AIModal />}
