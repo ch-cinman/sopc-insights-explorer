@@ -843,11 +843,12 @@ export default function StatsShowcase() {
                 position: "absolute", top: 16, right: 16,
                 background: "none", border: "none",
                 cursor: "pointer", color: "#999",
-                display: "flex", alignItems: "center", gap: 6,
-                fontSize: 13, fontWeight: 600, lineHeight: 1,
+                display: "flex", alignItems: "center", gap: 5,
+                padding: 0,
               }}
             >
-              Close <span style={{ fontSize: 22, fontWeight: 400, lineHeight: 1 }}>✕</span>
+              <span style={{ fontSize: 13, fontWeight: 600, lineHeight: 1, verticalAlign: "middle" }}>Close</span>
+              <span style={{ fontSize: 20, fontWeight: 400, lineHeight: 1, verticalAlign: "middle" }}>✕</span>
             </button>
             {activeModal === "journey" && <JourneyModal />}
             {activeModal === "visibility" && <VisibilityModal />}
