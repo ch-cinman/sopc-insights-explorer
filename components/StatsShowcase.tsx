@@ -371,12 +371,27 @@ const CARD_INNER: React.CSSProperties = {
   height: "100%",
 };
 
-const SOURCE_LINE: React.CSSProperties = {
-  fontSize: 11,
-  color: "#bbb",
-  marginTop: "auto",
-  paddingTop: 8,
-  borderTop: "1px solid rgba(0,20,94,0.06)",
+const CALLOUT: React.CSSProperties = {
+  background: "var(--light-blue)",
+  borderLeft: "3px solid var(--blue)",
+  borderRadius: 8,
+  padding: "10px 12px",
+  fontSize: 13,
+  color: "var(--navy)",
+  lineHeight: 1.55,
+};
+
+const DIVIDER: React.CSSProperties = {
+  height: 1,
+  background: "rgba(0,20,94,0.08)",
+};
+
+const STAT_LABEL: React.CSSProperties = {
+  fontSize: 14,
+  fontWeight: 600,
+  color: "var(--navy)",
+  lineHeight: 1.45,
+  marginTop: 6,
 };
 
 // ─── New stat cards ───────────────────────────────────────────────────────────
@@ -387,19 +402,18 @@ function PatientJourneyCard() {
       <div style={{ display: "flex", gap: 0 }}>
         <div style={{ flex: 1, paddingRight: 16 }}>
           <div style={{ fontSize: 64, fontWeight: 800, color: "var(--blue)", lineHeight: 1 }}>30%</div>
-          <div style={{ fontSize: 13, fontWeight: 600, color: "#555", lineHeight: 1.4, marginTop: 4 }}>of patients never start their treatment</div>
+          <div style={STAT_LABEL}>of patients never start their treatment</div>
         </div>
         <div style={{ width: 1, background: "rgba(0,20,94,0.08)", flexShrink: 0 }} />
         <div style={{ flex: 1, paddingLeft: 16 }}>
-          <div style={{ fontSize: 64, fontWeight: 800, color: "var(--pink)", lineHeight: 1 }}>66%</div>
-          <div style={{ fontSize: 13, fontWeight: 600, color: "#555", lineHeight: 1.4, marginTop: 4 }}>discontinue by month 12</div>
+          <div style={{ fontSize: 64, fontWeight: 800, color: "var(--blue)", lineHeight: 1 }}>66%</div>
+          <div style={STAT_LABEL}>discontinue by month 12</div>
         </div>
       </div>
-      <div style={{ height: 1, background: "rgba(0,20,94,0.08)" }} />
-      <div style={{ fontSize: 13, color: "#777", lineHeight: 1.5 }}>
+      <div style={DIVIDER} />
+      <div style={CALLOUT}>
         The patient journey has two distinct failure points — access friction at the start, and engagement gaps over time.
       </div>
-      <div style={SOURCE_LINE}>2026 SoPC · All Respondents</div>
     </div>
   );
 }
@@ -408,13 +422,13 @@ function VisibilityCard() {
   return (
     <div style={CARD_INNER}>
       <div>
-        <div style={{ fontSize: 64, fontWeight: 800, color: "var(--blue)", lineHeight: 1 }}>1 in 4</div>
-        <div style={{ fontSize: 13, fontWeight: 600, color: "#555", lineHeight: 1.4, marginTop: 4 }}>respondents cite lack of visibility into patient and provider status as their top challenge</div>
+        <div style={{ fontSize: 64, fontWeight: 800, color: "var(--sky)", lineHeight: 1 }}>1 in 4</div>
+        <div style={STAT_LABEL}>respondents cite lack of visibility into patient and provider status as their top challenge</div>
       </div>
-      <div style={{ fontSize: 13, color: "#777", lineHeight: 1.5 }}>
+      <div style={DIVIDER} />
+      <div style={CALLOUT}>
         Teams can&apos;t intervene on what they can&apos;t see — and most don&apos;t have a clear picture of where patients are getting stuck.
       </div>
-      <div style={SOURCE_LINE}>2026 SoPC · All Respondents</div>
     </div>
   );
 }
@@ -425,12 +439,12 @@ function AIScaleCard() {
       <div>
         <div style={{ fontSize: 16, fontWeight: 600, color: "var(--navy)", lineHeight: 1 }}>Only</div>
         <div style={{ fontSize: 64, fontWeight: 800, color: "var(--pink)", lineHeight: 1 }}>12%</div>
-        <div style={{ fontSize: 13, fontWeight: 600, color: "#555", lineHeight: 1.4, marginTop: 4 }}>of biopharma companies report AI adoption at scale</div>
+        <div style={STAT_LABEL}>of biopharma companies report AI adoption at scale</div>
       </div>
-      <div style={{ fontSize: 13, color: "#777", lineHeight: 1.5 }}>
+      <div style={DIVIDER} />
+      <div style={CALLOUT}>
         Despite 83% using AI in some capacity, approved tools with cross-team governance remain the exception — not the rule.
       </div>
-      <div style={SOURCE_LINE}>2026 SoPC · All Respondents</div>
     </div>
   );
 }
@@ -439,13 +453,13 @@ function KPIAwarenessCard() {
   return (
     <div style={CARD_INNER}>
       <div>
-        <div style={{ fontSize: 64, fontWeight: 800, color: "var(--sky)", lineHeight: 1 }}>14%</div>
-        <div style={{ fontSize: 13, fontWeight: 600, color: "#555", lineHeight: 1.4, marginTop: 4 }}>of respondents don&apos;t know how their teams are measured</div>
+        <div style={{ fontSize: 64, fontWeight: 800, color: "var(--navy)", lineHeight: 1 }}>14%</div>
+        <div style={STAT_LABEL}>of respondents don&apos;t know how their teams are measured</div>
       </div>
-      <div style={{ fontSize: 13, color: "#777", lineHeight: 1.5 }}>
+      <div style={DIVIDER} />
+      <div style={CALLOUT}>
         Without shared KPI clarity, even aligned teams risk optimizing for different outcomes.
       </div>
-      <div style={SOURCE_LINE}>2026 SoPC · All Respondents</div>
     </div>
   );
 }
