@@ -622,7 +622,6 @@ function AIModal() {
         AI adoption across biopharma
       </div>
       <div style={{ marginTop: 16 }}>
-        <div style={{ fontSize: 14, fontWeight: 600, color: "var(--navy)", lineHeight: 1 }}>Only</div>
         <div style={{ fontSize: 48, fontWeight: 800, color: "var(--pink)", lineHeight: 1 }}>12%</div>
         <div style={{ fontSize: 14, color: "#555", marginTop: 6, lineHeight: 1.4 }}>have approved tools, governance, and adoption across 2+ teams</div>
       </div>
