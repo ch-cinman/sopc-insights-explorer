@@ -450,12 +450,12 @@ function PatientJourneyCard() {
     <div style={CARD_INNER}>
       <div style={{ display: "flex", gap: 0 }}>
         <div style={{ flex: 1, paddingRight: 16 }}>
-          <div style={{ fontSize: 36, fontWeight: 800, color: "var(--cyan)", lineHeight: 1 }}>1 in 3</div>
+          <div style={{ fontSize: 36, fontWeight: 800, color: "var(--navy)", lineHeight: 1 }}>1 in 3</div>
           <div style={{ fontSize: 14, fontWeight: 600, color: "var(--navy)", lineHeight: 1.45, marginTop: 6 }}>prescribed patients never start therapy</div>
         </div>
         <div style={{ width: 1, background: "rgba(0,20,94,0.08)", flexShrink: 0 }} />
         <div style={{ flex: 1, paddingLeft: 16 }}>
-          <div style={{ fontSize: 36, fontWeight: 800, color: "var(--cyan)", lineHeight: 1 }}>4 in 10</div>
+          <div style={{ fontSize: 36, fontWeight: 800, color: "var(--navy)", lineHeight: 1 }}>4 in 10</div>
           <div style={{ fontSize: 14, fontWeight: 600, color: "var(--navy)", lineHeight: 1.45, marginTop: 6 }}>who start don&apos;t persist at 12 months</div>
         </div>
       </div>
