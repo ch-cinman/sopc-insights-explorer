@@ -60,7 +60,7 @@ function PieChart() {
 
   return (
     <div style={{ display: "flex", flexDirection: "column", gap: 10 }}>
-      <div style={{ fontSize: 15, fontWeight: 700, color: "var(--navy)", lineHeight: 1.4 }}>
+      <div style={{ fontSize: 15, fontWeight: 700, color: "var(--navy-50)", lineHeight: 1.4 }}>
         What&apos;s the top challenge to acting on data?
       </div>
       <div style={{ display: "flex", gap: 14, alignItems: "flex-start", flexWrap: "wrap" }}>
@@ -128,7 +128,7 @@ function PieChart() {
                 }}
               />
               <div style={{ fontSize: 12, color: "#555", lineHeight: 1.4 }}>
-                <span style={{ fontWeight: 700, color: "var(--navy)" }}>{d.pct}%</span>{" "}
+                <span style={{ fontWeight: 700, color: "var(--navy-50)" }}>{d.pct}%</span>{" "}
                 {d.label}
               </div>
             </div>
@@ -164,7 +164,7 @@ function BarChart() {
 
   return (
     <div ref={ref} style={{ display: "flex", flexDirection: "column", gap: 10 }}>
-      <div style={{ fontSize: 15, fontWeight: 700, color: "var(--navy)", lineHeight: 1.4 }}>
+      <div style={{ fontSize: 15, fontWeight: 700, color: "var(--navy-50)", lineHeight: 1.4 }}>
         Where does AI adoption stand by company size?
       </div>
       <div style={{ display: "flex", flexDirection: "column", gap: 12 }}>
@@ -180,7 +180,7 @@ function BarChart() {
             onMouseLeave={() => setHovered(null)}
           >
             <div style={{ display: "flex", justifyContent: "space-between", marginBottom: 5 }}>
-              <span style={{ fontSize: 13, fontWeight: 600, color: "var(--navy)" }}>
+              <span style={{ fontSize: 13, fontWeight: 600, color: "var(--navy-50)" }}>
                 {d.label}
               </span>
               <span
@@ -233,7 +233,7 @@ function DataMaturity() {
 
   return (
     <div style={{ display: "flex", flexDirection: "column", gap: 10 }}>
-      <div style={{ fontSize: 15, fontWeight: 700, color: "var(--navy)", lineHeight: 1.4 }}>
+      <div style={{ fontSize: 15, fontWeight: 700, color: "var(--navy-50)", lineHeight: 1.4 }}>
         Where does data maturity stand today?
       </div>
       <div style={{ fontSize: 12, color: "#555", lineHeight: 1.5, marginBottom: 4 }}>
@@ -252,7 +252,7 @@ function DataMaturity() {
             onMouseLeave={() => setHovered(null)}
           >
             <div style={{ display: "flex", justifyContent: "space-between", marginBottom: 4 }}>
-              <span style={{ fontSize: 12, color: "var(--navy)", fontWeight: 500, lineHeight: 1.4, maxWidth: "75%" }}>
+              <span style={{ fontSize: 12, color: "var(--navy-50)", fontWeight: 500, lineHeight: 1.4, maxWidth: "75%" }}>
                 {s.label}
               </span>
               <span style={{ fontSize: 13, fontWeight: 700, color: s.color, flexShrink: 0 }}>
@@ -283,7 +283,7 @@ function StartRate() {
 
   return (
     <div style={{ display: "flex", flexDirection: "column", gap: 10 }}>
-      <div style={{ fontSize: 15, fontWeight: 700, color: "var(--navy)", lineHeight: 1.4 }}>
+      <div style={{ fontSize: 15, fontWeight: 700, color: "var(--navy-50)", lineHeight: 1.4 }}>
         1 in 3 prescribed patients never start therapy
       </div>
       <div style={{ display: "flex", alignItems: "center", gap: 20, flexWrap: "wrap" }}>
@@ -335,7 +335,7 @@ function StartRate() {
           >
             <div style={{ width: 12, height: 12, borderRadius: "50%", background: "var(--cta)", flexShrink: 0 }} />
             <span style={{ fontSize: 12, color: "#555" }}>
-              <strong style={{ color: "var(--navy)" }}>67.5%</strong> start therapy (industry mean)
+              <strong style={{ color: "var(--navy-50)" }}>67.5%</strong> start therapy (industry mean)
             </span>
           </div>
           <div
@@ -350,7 +350,7 @@ function StartRate() {
           >
             <div style={{ width: 12, height: 12, borderRadius: "50%", background: "var(--light-blue)", border: "1.5px solid var(--blue-50)", flexShrink: 0 }} />
             <span style={{ fontSize: 12, color: "#555" }}>
-              <strong style={{ color: "var(--navy)" }}>32.5%</strong> never start despite being prescribed
+              <strong style={{ color: "var(--navy-50)" }}>32.5%</strong> never start despite being prescribed
             </span>
           </div>
           <div style={{ fontSize: 11, color: "#aaa", lineHeight: 1.5, marginTop: 4 }}>
@@ -378,7 +378,7 @@ const CALLOUT: React.CSSProperties = {
   borderRadius: 8,
   padding: "10px 12px",
   fontSize: 13,
-  color: "var(--navy)",
+  color: "var(--navy-50)",
   lineHeight: 1.55,
 };
 
@@ -394,7 +394,7 @@ function InsourcingCard() {
     <div style={CARD_INNER}>
       <div>
         <div style={{ fontSize: 48, fontWeight: 800, color: "var(--blue)", lineHeight: 1 }}>83%</div>
-        <div style={{ fontSize: 14, fontWeight: 600, color: "var(--navy)", lineHeight: 1.45, marginTop: 6 }}>
+        <div style={{ fontSize: 14, fontWeight: 600, color: "var(--navy-50)", lineHeight: 1.45, marginTop: 6 }}>
           of biopharma companies now manage Field Access &amp; Reimbursement internally.
         </div>
       </div>
@@ -411,16 +411,16 @@ function AIMaturityCard() {
     <div style={CARD_INNER}>
       <div>
         <div style={{ fontSize: 48, fontWeight: 800, color: "var(--sky)", lineHeight: 1 }}>83%</div>
-        <div style={{ fontSize: 14, fontWeight: 600, color: "var(--navy)", lineHeight: 1.45, marginTop: 6 }}>
+        <div style={{ fontSize: 14, fontWeight: 600, color: "var(--navy-50)", lineHeight: 1.45, marginTop: 6 }}>
           are using AI in some capacity — up from 46.6% last year.
         </div>
       </div>
       <div style={DIVIDER} />
       <div style={{ display: "flex", gap: 8, flexWrap: "wrap" }}>
-        <span style={{ background: "var(--light-blue)", color: "var(--navy)", borderRadius: 100, padding: "5px 12px", fontSize: 12, fontWeight: 600 }}>
+        <span style={{ background: "var(--light-blue)", color: "var(--navy-50)", borderRadius: 100, padding: "5px 12px", fontSize: 12, fontWeight: 600 }}>
           Only 12% have approved tools &amp; governance
         </span>
-        <span style={{ background: "var(--pink-10)", color: "var(--navy)", borderRadius: 100, padding: "5px 12px", fontSize: 12, fontWeight: 600 }}>
+        <span style={{ background: "var(--pink-10)", color: "var(--navy-50)", borderRadius: 100, padding: "5px 12px", fontSize: 12, fontWeight: 600 }}>
           20% say use is informal — no enterprise strategy
         </span>
       </div>
@@ -433,7 +433,7 @@ function DataTrustCard() {
     <div style={CARD_INNER}>
       <div>
         <div style={{ fontSize: 48, fontWeight: 800, color: "var(--pink)", lineHeight: 1 }}>58%</div>
-        <div style={{ fontSize: 14, fontWeight: 600, color: "var(--navy)", lineHeight: 1.45, marginTop: 6 }}>
+        <div style={{ fontSize: 14, fontWeight: 600, color: "var(--navy-50)", lineHeight: 1.45, marginTop: 6 }}>
           are unable to access, connect, analyze, and act upon their data.
         </div>
       </div>
@@ -450,13 +450,13 @@ function PatientJourneyCard() {
     <div style={CARD_INNER}>
       <div style={{ display: "flex", gap: 0 }}>
         <div style={{ flex: 1, paddingRight: 16 }}>
-          <div style={{ fontSize: 36, fontWeight: 800, color: "var(--navy)", lineHeight: 1 }}>1 in 3</div>
-          <div style={{ fontSize: 14, fontWeight: 600, color: "var(--navy)", lineHeight: 1.45, marginTop: 6 }}>prescribed patients never start therapy</div>
+          <div style={{ fontSize: 36, fontWeight: 800, color: "var(--navy-50)", lineHeight: 1 }}>1 in 3</div>
+          <div style={{ fontSize: 14, fontWeight: 600, color: "var(--navy-50)", lineHeight: 1.45, marginTop: 6 }}>prescribed patients never start therapy</div>
         </div>
         <div style={{ width: 1, background: "rgba(0,20,94,0.08)", flexShrink: 0 }} />
         <div style={{ flex: 1, paddingLeft: 16 }}>
-          <div style={{ fontSize: 36, fontWeight: 800, color: "var(--navy)", lineHeight: 1 }}>4 in 10</div>
-          <div style={{ fontSize: 14, fontWeight: 600, color: "var(--navy)", lineHeight: 1.45, marginTop: 6 }}>who start don&apos;t persist at 12 months</div>
+          <div style={{ fontSize: 36, fontWeight: 800, color: "var(--navy-50)", lineHeight: 1 }}>4 in 10</div>
+          <div style={{ fontSize: 14, fontWeight: 600, color: "var(--navy-50)", lineHeight: 1.45, marginTop: 6 }}>who start don&apos;t persist at 12 months</div>
         </div>
       </div>
       <div style={DIVIDER} />
