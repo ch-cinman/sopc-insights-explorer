@@ -536,11 +536,11 @@ function JourneyModal() {
       </div>
       <div style={{ display: "flex", gap: 24, marginTop: 16 }}>
         <div>
-          <div style={{ fontSize: 36, fontWeight: 800, color: "var(--blue)", lineHeight: 1 }}>30%</div>
+          <div style={{ fontSize: 36, fontWeight: 800, color: "var(--navy)", lineHeight: 1 }}>30%</div>
           <div style={{ fontSize: 13, color: "#555", marginTop: 4 }}>never start treatment</div>
         </div>
         <div>
-          <div style={{ fontSize: 36, fontWeight: 800, color: "var(--pink)", lineHeight: 1 }}>66%</div>
+          <div style={{ fontSize: 36, fontWeight: 800, color: "var(--navy)", lineHeight: 1 }}>66%</div>
           <div style={{ fontSize: 13, color: "#555", marginTop: 4 }}>discontinue by month 12</div>
         </div>
       </div>
@@ -583,7 +583,7 @@ function VisibilityModal() {
         The data action gap
       </div>
       <div style={{ marginTop: 16 }}>
-        <div style={{ fontSize: 48, fontWeight: 800, color: "var(--pink)", lineHeight: 1 }}>58%</div>
+        <div style={{ fontSize: 48, fontWeight: 800, color: "var(--sky)", lineHeight: 1 }}>58%</div>
         <div style={{ fontSize: 14, color: "#555", marginTop: 6, lineHeight: 1.4 }}>are unable to access, connect, analyze, and act upon their data</div>
       </div>
       <span style={MODAL_SUBHEAD}>Top challenge to acting on data — all respondents</span>
@@ -670,7 +670,7 @@ function KPIModal() {
         What teams are actually measured on
       </div>
       <div style={{ marginTop: 16 }}>
-        <div style={{ fontSize: 48, fontWeight: 800, color: "var(--sky)", lineHeight: 1 }}>14%</div>
+        <div style={{ fontSize: 48, fontWeight: 800, color: "var(--blue)", lineHeight: 1 }}>14%</div>
         <div style={{ fontSize: 14, color: "#555", marginTop: 6, lineHeight: 1.4 }}>don&apos;t know how their teams are measured</div>
       </div>
       <span style={MODAL_SUBHEAD}>Top KPIs cited across all respondents</span>
