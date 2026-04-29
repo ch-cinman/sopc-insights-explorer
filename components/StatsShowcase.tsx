@@ -463,10 +463,255 @@ function KPIAwarenessCard() {
   );
 }
 
+// ─── Modal helpers & content ──────────────────────────────────────────────────
+
+const MODAL_CALLOUT: React.CSSProperties = {
+  background: "var(--light-blue)",
+  borderLeft: "3px solid var(--blue)",
+  borderRadius: 8,
+  padding: "10px 12px",
+  fontSize: 13,
+  color: "var(--navy)",
+  lineHeight: 1.55,
+  marginTop: 16,
+};
+
+const MODAL_SUBHEAD: React.CSSProperties = {
+  fontSize: 12,
+  fontWeight: 700,
+  letterSpacing: "0.08em",
+  textTransform: "uppercase",
+  color: "#999",
+  marginTop: 20,
+  marginBottom: 0,
+  display: "block",
+};
+
+const MODAL_SOURCE: React.CSSProperties = {
+  fontSize: 11,
+  color: "#bbb",
+  marginTop: 16,
+  paddingTop: 8,
+  borderTop: "1px solid rgba(0,20,94,0.06)",
+  display: "block",
+};
+
+function ModalBarChart({ rows, color, meanPct, meanLabel }: {
+  rows: { label: string; pct: number }[];
+  color: string;
+  meanPct?: number;
+  meanLabel?: string;
+}) {
+  return (
+    <div style={{ display: "flex", flexDirection: "column", gap: 10, marginTop: 10 }}>
+      {rows.map((r) => (
+        <div key={r.label}>
+          <div style={{ display: "flex", justifyContent: "space-between", marginBottom: 4 }}>
+            <span style={{ fontSize: 13, color: "var(--navy)", fontWeight: 500, lineHeight: 1.3, maxWidth: "78%" }}>{r.label}</span>
+            <span style={{ fontSize: 13, fontWeight: 700, color, flexShrink: 0 }}>{r.pct}%</span>
+          </div>
+          <div style={{ background: "var(--light-blue)", borderRadius: 100, height: 8, overflow: "hidden", position: "relative" }}>
+            <div style={{ background: color, height: "100%", borderRadius: 100, width: `${r.pct}%` }} />
+            {meanPct !== undefined && (
+              <div style={{ position: "absolute", top: 0, bottom: 0, left: `${meanPct}%`, borderLeft: "1.5px dashed #999" }} />
+            )}
+          </div>
+        </div>
+      ))}
+      {meanLabel && (
+        <div style={{ fontSize: 11, color: "#aaa", display: "flex", alignItems: "center", gap: 6 }}>
+          <div style={{ width: 14, borderTop: "1.5px dashed #aaa", flexShrink: 0 }} />
+          {meanLabel}
+        </div>
+      )}
+    </div>
+  );
+}
+
+function JourneyModal() {
+  return (
+    <div>
+      <div style={{ fontSize: 18, fontWeight: 700, color: "var(--navy)", lineHeight: 1.3, paddingRight: 24 }}>
+        Breaking down patient access performance
+      </div>
+      <div style={{ display: "flex", gap: 24, marginTop: 16 }}>
+        <div>
+          <div style={{ fontSize: 36, fontWeight: 800, color: "var(--blue)", lineHeight: 1 }}>30%</div>
+          <div style={{ fontSize: 13, color: "#555", marginTop: 4 }}>never start treatment</div>
+        </div>
+        <div>
+          <div style={{ fontSize: 36, fontWeight: 800, color: "var(--pink)", lineHeight: 1 }}>66%</div>
+          <div style={{ fontSize: 13, color: "#555", marginTop: 4 }}>discontinue by month 12</div>
+        </div>
+      </div>
+      <span style={MODAL_SUBHEAD}>Mean start rate by company size</span>
+      <ModalBarChart
+        color="var(--blue)"
+        meanPct={67.5}
+        meanLabel="Industry mean 67.5%"
+        rows={[
+          { label: "Emerging Biotech", pct: 71.3 },
+          { label: "Large Pharma", pct: 68.0 },
+          { label: "Mid-Size Pharma", pct: 67.2 },
+          { label: "Small Biotech", pct: 62.6 },
+        ]}
+      />
+      <span style={MODAL_SUBHEAD}>Mean 12-month persistence by therapeutic area</span>
+      <ModalBarChart
+        color="var(--pink)"
+        rows={[
+          { label: "Cardiovascular & Metabolic", pct: 75.6 },
+          { label: "Ultra-Rare", pct: 67.0 },
+          { label: "Rare", pct: 65.7 },
+          { label: "Neurology & CNS", pct: 62.8 },
+          { label: "Oncology", pct: 59.7 },
+          { label: "Immunology & Inflammatory", pct: 46.8 },
+        ]}
+      />
+      <div style={MODAL_CALLOUT}>
+        Immunology &amp; Inflammatory is the hardest hit on both metrics — lowest start rate (60.3%) and lowest persistence (46.8%) of any therapeutic area.
+      </div>
+      <span style={MODAL_SOURCE}>2026 SoPC · All Respondents</span>
+    </div>
+  );
+}
+
+function VisibilityModal() {
+  return (
+    <div>
+      <div style={{ fontSize: 18, fontWeight: 700, color: "var(--navy)", lineHeight: 1.3, paddingRight: 24 }}>
+        The data action gap
+      </div>
+      <div style={{ marginTop: 16 }}>
+        <div style={{ fontSize: 48, fontWeight: 800, color: "var(--pink)", lineHeight: 1 }}>58%</div>
+        <div style={{ fontSize: 14, color: "#555", marginTop: 6, lineHeight: 1.4 }}>are unable to access, connect, analyze, and act upon their data</div>
+      </div>
+      <span style={MODAL_SUBHEAD}>Top challenge to acting on data — all respondents</span>
+      <ModalBarChart
+        color="var(--sky)"
+        rows={[
+          { label: "Data is fragmented across systems", pct: 31.1 },
+          { label: "Lack of confidence in data quality", pct: 25.5 },
+          { label: "Insights aren't timely or actionable", pct: 17.4 },
+          { label: "Compliance or regulatory concerns", pct: 9.9 },
+          { label: "Unclear ownership or accountability", pct: 9.3 },
+        ]}
+      />
+      <span style={MODAL_SUBHEAD}>Data ownership fragmentation by company size</span>
+      <ModalBarChart
+        color="var(--blue)"
+        rows={[
+          { label: "Large Pharma", pct: 58.6 },
+          { label: "Emerging Biotech", pct: 51.1 },
+          { label: "Small Biotech", pct: 39.0 },
+          { label: "Mid-Size Pharma", pct: 38.8 },
+        ]}
+      />
+      <div style={MODAL_CALLOUT}>
+        Large pharma&apos;s scale creates its own fragmentation — despite the most infrastructure investment, it leads all segments on data ownership fragmentation.
+      </div>
+      <span style={MODAL_SOURCE}>2026 SoPC · All Respondents</span>
+    </div>
+  );
+}
+
+function AIModal() {
+  return (
+    <div>
+      <div style={{ fontSize: 18, fontWeight: 700, color: "var(--navy)", lineHeight: 1.3, paddingRight: 24 }}>
+        AI adoption across biopharma
+      </div>
+      <div style={{ marginTop: 16 }}>
+        <div style={{ fontSize: 14, fontWeight: 600, color: "var(--navy)", lineHeight: 1 }}>Only</div>
+        <div style={{ fontSize: 48, fontWeight: 800, color: "var(--pink)", lineHeight: 1 }}>12%</div>
+        <div style={{ fontSize: 14, color: "#555", marginTop: 6, lineHeight: 1.4 }}>have approved tools, governance, and adoption across 2+ teams</div>
+      </div>
+      <span style={MODAL_SUBHEAD}>AI adoption at scale by company size</span>
+      <ModalBarChart
+        color="var(--blue)"
+        rows={[
+          { label: "Large Pharma", pct: 31.0 },
+          { label: "Mid-Size Pharma", pct: 16.3 },
+          { label: "Emerging Biotech", pct: 6.7 },
+          { label: "Small Biotech", pct: 2.4 },
+        ]}
+      />
+      <span style={MODAL_SUBHEAD}>Top AI use cases — among those using AI</span>
+      <ModalBarChart
+        color="var(--sky)"
+        rows={[
+          { label: "Automating routine tasks", pct: 65.2 },
+          { label: "Recommending actions", pct: 58.4 },
+          { label: "Highlighting risks", pct: 21.1 },
+          { label: "Executing complex actions with human oversight", pct: 19.3 },
+        ]}
+      />
+      <span style={MODAL_SUBHEAD}>Top barriers to AI adoption</span>
+      <ModalBarChart
+        color="var(--pink)"
+        rows={[
+          { label: "Security and compliance concerns", pct: 31.1 },
+          { label: "Lack a clear use case", pct: 19.9 },
+          { label: "No major barriers", pct: 18.0 },
+        ]}
+      />
+      <div style={MODAL_CALLOUT}>
+        The gap between AI intent and AI deployment is a governance problem, not a capability one — most barriers trace back to unclear ownership and compliance uncertainty.
+      </div>
+      <span style={MODAL_SOURCE}>2026 SoPC · All Respondents</span>
+    </div>
+  );
+}
+
+function KPIModal() {
+  return (
+    <div>
+      <div style={{ fontSize: 18, fontWeight: 700, color: "var(--navy)", lineHeight: 1.3, paddingRight: 24 }}>
+        What teams are actually measured on
+      </div>
+      <div style={{ marginTop: 16 }}>
+        <div style={{ fontSize: 48, fontWeight: 800, color: "var(--sky)", lineHeight: 1 }}>14%</div>
+        <div style={{ fontSize: 14, color: "#555", marginTop: 6, lineHeight: 1.4 }}>don&apos;t know how their teams are measured</div>
+      </div>
+      <span style={MODAL_SUBHEAD}>Top KPIs cited across all respondents</span>
+      <ModalBarChart
+        color="var(--blue)"
+        rows={[
+          { label: "Time-to-start", pct: 42.2 },
+          { label: "12-month persistence", pct: 39.1 },
+          { label: "Time in each milestone (BV/PA/appeals)", pct: 32.3 },
+          { label: "PA approval rate", pct: 31.1 },
+          { label: "Start rate", pct: 25.5 },
+          { label: "Patient satisfaction/NPS", pct: 14.3 },
+        ]}
+      />
+      <span style={MODAL_SUBHEAD}>How KPI priorities shift by company size</span>
+      <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "8px 16px", marginTop: 10 }}>
+        {[
+          { company: "Small Biotech", kpi: "PA approval rate", pct: "39%" },
+          { company: "Emerging Biotech", kpi: "12-month persistence", pct: "42.2%" },
+          { company: "Mid-Size Pharma", kpi: "Time-to-start", pct: "42.9%" },
+          { company: "Large Pharma", kpi: "12-month persistence", pct: "58.6%" },
+        ].map(({ company, kpi, pct }) => (
+          <div key={company} style={{ fontSize: 13, color: "var(--navy)", lineHeight: 1.5 }}>
+            <div style={{ fontSize: 11, fontWeight: 700, color: "#999", textTransform: "uppercase", letterSpacing: "0.06em", marginBottom: 2 }}>{company}</div>
+            <div>{kpi} <span style={{ fontWeight: 700 }}>({pct})</span></div>
+          </div>
+        ))}
+      </div>
+      <div style={MODAL_CALLOUT}>
+        Large pharma prioritizes persistence at nearly double the industry rate — yet achieves the lowest persistence outcomes of any company size at 53.3% mean.
+      </div>
+      <span style={MODAL_SOURCE}>2026 SoPC · All Respondents</span>
+    </div>
+  );
+}
+
 // ─── Main export ──────────────────────────────────────────────────────────────
 
 export default function StatsShowcase() {
   const [useNewStats, setUseNewStats] = useState(true);
+  const [activeModal, setActiveModal] = useState<string | null>(null);
 
   useEffect(() => {
     const params = new URLSearchParams(window.location.search);
@@ -508,26 +753,81 @@ export default function StatsShowcase() {
 
         {/* Grid */}
         <div className="stats-grid">
-          {(useNewStats
-            ? [<PatientJourneyCard key="pj" />, <VisibilityCard key="v" />, <AIScaleCard key="ai" />, <KPIAwarenessCard key="kpi" />]
-            : [<PieChart key="pie" />, <BarChart key="bar" />, <DataMaturity key="maturity" />, <StartRate key="startrate" />]
-          ).map((viz, i) => (
-            <div
-              key={i}
-              style={{
-                border: "1px solid rgba(0,20,94,0.09)",
-                borderRadius: 20,
-                padding: "20px 22px",
-                background: "white",
-                minWidth: 0,
-              }}
-            >
-              {viz}
-            </div>
-          ))}
+          {useNewStats ? (
+            [
+              { viz: <PatientJourneyCard key="pj" />, modal: "journey" },
+              { viz: <VisibilityCard key="v" />,      modal: "visibility" },
+              { viz: <AIScaleCard key="ai" />,        modal: "ai" },
+              { viz: <KPIAwarenessCard key="kpi" />,  modal: "kpi" },
+            ].map(({ viz, modal }, i) => (
+              <div
+                key={i}
+                onClick={() => setActiveModal(modal)}
+                style={{
+                  border: "1px solid rgba(0,20,94,0.09)",
+                  borderRadius: 20,
+                  padding: "20px 22px",
+                  background: "white",
+                  minWidth: 0,
+                  cursor: "pointer",
+                  position: "relative",
+                }}
+              >
+                <span style={{ position: "absolute", top: 12, right: 14, fontSize: 11, color: "#ccc" }}>↗</span>
+                {viz}
+              </div>
+            ))
+          ) : (
+            [<PieChart key="pie" />, <BarChart key="bar" />, <DataMaturity key="maturity" />, <StartRate key="startrate" />].map((viz, i) => (
+              <div
+                key={i}
+                style={{
+                  border: "1px solid rgba(0,20,94,0.09)",
+                  borderRadius: 20,
+                  padding: "20px 22px",
+                  background: "white",
+                  minWidth: 0,
+                }}
+              >
+                {viz}
+              </div>
+            ))
+          )}
         </div>
-
       </div>
+
+      {activeModal && (
+        <div
+          onClick={() => setActiveModal(null)}
+          style={{
+            position: "fixed", inset: 0, background: "rgba(0,20,94,0.45)",
+            display: "flex", alignItems: "center", justifyContent: "center",
+            zIndex: 1000, padding: "20px",
+          }}
+        >
+          <div
+            onClick={(e) => e.stopPropagation()}
+            style={{
+              background: "white", borderRadius: 20, padding: "32px",
+              maxWidth: 560, width: "100%", maxHeight: "85vh",
+              overflowY: "auto", position: "relative",
+            }}
+          >
+            <button
+              onClick={() => setActiveModal(null)}
+              style={{
+                position: "absolute", top: 16, right: 16,
+                background: "none", border: "none", fontSize: 20,
+                cursor: "pointer", color: "#999", lineHeight: 1,
+              }}
+            >✕</button>
+            {activeModal === "journey" && <JourneyModal />}
+            {activeModal === "visibility" && <VisibilityModal />}
+            {activeModal === "ai" && <AIModal />}
+            {activeModal === "kpi" && <KPIModal />}
+          </div>
+        </div>
+      )}
     </>
   );
 }
