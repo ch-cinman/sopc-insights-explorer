@@ -437,7 +437,6 @@ function AIScaleCard() {
   return (
     <div style={CARD_INNER}>
       <div>
-        <div style={{ fontSize: 16, fontWeight: 600, color: "var(--navy)", lineHeight: 1 }}>Only</div>
         <div style={{ fontSize: 64, fontWeight: 800, color: "var(--pink)", lineHeight: 1 }}>12%</div>
         <div style={STAT_LABEL}>of biopharma companies report AI adoption at scale</div>
       </div>
