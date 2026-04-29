@@ -17,7 +17,7 @@ declare global {
 }
 
 const COMPANY_SIZE_OPTIONS: { label: string; value: CompanyType }[] = [
-  { label: "Small/Pre-commercial", value: "Emerging biotech" },
+  { label: "Small & Pre-Commercial", value: "Emerging biotech" },
   { label: "Emerging", value: "Small biotech" },
   { label: "Mid-Sized", value: "Mid-size pharma" },
   { label: "Large", value: "Large pharma" },
@@ -32,15 +32,14 @@ const THERAPEUTIC_AREAS: TherapeuticArea[] = [
   "Immunology & Inflammatory",
   "Cardiovascular & Metabolic",
   "Neurology & CNS",
-  "All / Other",
+  "Other",
 ];
 
 const ROLE_FOCUSES: RoleFocus[] = [
   "Patient Services",
   "Market Access",
   "Field Access",
-  "Commercial Ops / IT",
-  "Executive",
+  "Commercial Ops & IT",
 ];
 
 const STEP_CIRCLE: React.CSSProperties = {
@@ -121,7 +120,7 @@ async function getChatResponse(
   const overlayData = OVERLAYS[companyType]?.[question];
   if (overlayData) {
     let note = "";
-    if (ta && ta !== "All / Other" && overlayData.ta?.[ta]) {
+    if (ta && ta !== "Other" && overlayData.ta?.[ta]) {
       note = overlayData.ta[ta]!;
     } else if (role && overlayData.role?.[role]) {
       note = overlayData.role[role]!;
@@ -133,7 +132,8 @@ async function getChatResponse(
 
 export default function Explorer() {
   // Intake state
-  const [companyType, setCompanyType] = useState<CompanyType>("Emerging biotech");
+  const [companyType, setCompanyType] = useState<CompanyType | ("")>("");
+  const [companySizeError, setCompanySizeError] = useState(false);
   const [ta, setTa] = useState<TherapeuticArea | "">("");
   const [role, setRole] = useState<RoleFocus | "">("");
 
@@ -145,7 +145,7 @@ export default function Explorer() {
   const [allExhausted, setAllExhausted] = useState(false);
 
   // Locked profile — set when entering chat, not changed mid-session
-  const [activeCompany, setActiveCompany] = useState<CompanyType>("Emerging biotech");
+  const [activeCompany, setActiveCompany] = useState<CompanyType>("Emerging biotech" as CompanyType);
   const [activeTa, setActiveTa] = useState<TherapeuticArea | "">("");
   const [activeRole, setActiveRole] = useState<RoleFocus | "">("");
 
@@ -156,10 +156,15 @@ export default function Explorer() {
   }, [messages, isTyping]);
 
   function startChat() {
-    setActiveCompany(companyType);
+    if (!companyType) {
+      setCompanySizeError(true);
+      return;
+    }
+    setCompanySizeError(false);
+    setActiveCompany(companyType as CompanyType);
     setActiveTa(ta);
     setActiveRole(role);
-    setMessages([{ type: "bot", html: OPENING[companyType] }]);
+    setMessages([{ type: "bot", html: OPENING[companyType as CompanyType] }]);
     setUsedQuestions(new Set());
     setAllExhausted(false);
     setIsTyping(false);
@@ -321,9 +326,6 @@ export default function Explorer() {
           that matter{" "}
           <em style={{ fontStyle: "normal", color: "var(--cta)" }}>for your org</em>
         </h1>
-        <p style={{ fontSize: 15, color: "rgba(255,255,255,0.75)", lineHeight: 1.6 }}>
-          Select your profile to surface relevant findings from Courier Health&apos;s 2026 survey.
-        </p>
       </div>
 
       {/* Stats showcase */}
@@ -346,7 +348,7 @@ export default function Explorer() {
               {COMPANY_SIZE_OPTIONS.map(({ label, value }) => (
                 <button
                   key={value}
-                  onClick={() => setCompanyType(value)}
+                  onClick={() => { setCompanyType(value); setCompanySizeError(false); }}
                   style={{
                     ...FILTER_BTN_BASE,
                     border: companyType === value
@@ -360,6 +362,11 @@ export default function Explorer() {
                 </button>
               ))}
             </div>
+            {companySizeError && (
+              <p style={{ paddingLeft: 32, marginTop: 8, fontSize: 13, color: "#FF7B7B", fontWeight: 500 }}>
+                Please select a Company Size
+              </p>
+            )}
           </div>
 
           <div style={{ height: 1, background: "rgba(255,255,255,0.1)", margin: "16px 0" }} />
@@ -369,7 +376,7 @@ export default function Explorer() {
             <div style={{ display: "flex", alignItems: "center", gap: 10, marginBottom: 10 }}>
               <div style={STEP_CIRCLE}>2</div>
               <span style={{ fontSize: 15, fontWeight: 600, color: "rgba(255,255,255,0.8)" }}>
-                Therapeutic area{" "}
+                Therapeutic Area{" "}
                 <span style={{ fontSize: 15, fontWeight: 500, color: "rgba(255,255,255,0.5)" }}>
                   · optional
                 </span>
@@ -387,8 +394,19 @@ export default function Explorer() {
                       : "1.5px solid rgba(255,255,255,0.2)",
                     background: ta === t ? "var(--pink)" : "transparent",
                     color: ta === t ? "var(--navy)" : "rgba(255,255,255,0.8)",
+                    display: "flex",
+                    alignItems: "center",
+                    gap: 6,
                   }}
                 >
+                  {ta === t && (
+                    <span
+                      onClick={(e) => { e.stopPropagation(); setTa(""); }}
+                      style={{ fontSize: 15, lineHeight: 1, opacity: 0.7, fontWeight: 700 }}
+                    >
+                      ✕
+                    </span>
+                  )}
                   {t}
                 </button>
               ))}
@@ -402,7 +420,7 @@ export default function Explorer() {
             <div style={{ display: "flex", alignItems: "center", gap: 10, marginBottom: 10 }}>
               <div style={STEP_CIRCLE}>3</div>
               <span style={{ fontSize: 15, fontWeight: 600, color: "rgba(255,255,255,0.8)" }}>
-                Role focus{" "}
+                Team{" "}
                 <span style={{ fontSize: 15, fontWeight: 500, color: "rgba(255,255,255,0.5)" }}>
                   · optional
                 </span>
@@ -420,8 +438,19 @@ export default function Explorer() {
                       : "1.5px solid rgba(255,255,255,0.2)",
                     background: role === r ? "rgba(255,255,255,0.18)" : "transparent",
                     color: "rgba(255,255,255,0.8)",
+                    display: "flex",
+                    alignItems: "center",
+                    gap: 6,
                   }}
                 >
+                  {role === r && (
+                    <span
+                      onClick={(e) => { e.stopPropagation(); setRole(""); }}
+                      style={{ fontSize: 15, lineHeight: 1, opacity: 0.7, fontWeight: 700 }}
+                    >
+                      ✕
+                    </span>
+                  )}
                   {r}
                 </button>
               ))}
@@ -738,8 +767,7 @@ export default function Explorer() {
         }}
       >
         <span style={{ fontSize: 13, color: "#bbb", lineHeight: 1.5 }}>
-          © 2026 Courier Health, Inc. · Based on survey of 162 biopharma commercial leaders
-          across 87 companies.
+          © 2026 Courier Health, Inc.
           <br />
           This tool surfaces research findings only. No product recommendations are made.
         </span>

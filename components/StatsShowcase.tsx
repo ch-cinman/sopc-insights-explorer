@@ -136,7 +136,7 @@ function PieChart() {
         </div>
       </div>
       <div style={{ fontSize: 11, color: "#bbb" }}>
-        2026 SoPC · All Respondents (n=161)
+        2026 SoPC · All Respondents
       </div>
     </div>
   );
@@ -272,7 +272,7 @@ function DataMaturity() {
         ))}
       </div>
       <div style={{ fontSize: 11, color: "#bbb", marginTop: 4 }}>
-        2026 SoPC · All Respondents (n=161)
+        2026 SoPC · All Respondents
       </div>
     </div>
   );
@@ -368,7 +368,7 @@ function StartRate() {
         </div>
       </div>
       <div style={{ fontSize: 11, color: "#bbb" }}>
-        2026 SoPC · All Respondents (n=161)
+        2026 SoPC · All Respondents
       </div>
     </div>
   );

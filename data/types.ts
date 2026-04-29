@@ -5,14 +5,13 @@ export type TherapeuticArea =
   | "Immunology & Inflammatory"
   | "Cardiovascular & Metabolic"
   | "Neurology & CNS"
-  | "All / Other";
+  | "Other";
 
 export type RoleFocus =
   | "Patient Services"
   | "Market Access"
   | "Field Access"
-  | "Commercial Ops / IT"
-  | "Executive";
+  | "Commercial Ops & IT";
 
 export interface ResponseData {
   core: string;

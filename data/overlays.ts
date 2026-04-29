@@ -13,7 +13,7 @@ export const OVERLAYS: OverlaysMap = {
         "Market Access": "For market access leaders, fragmented data most often surfaces as an inability to see payer coverage changes and PA approval rates in real time — forcing teams to act on lagging information.",
         "Patient Services": "Patient services teams feel this as a disconnect between HUB case updates and SP fulfillment data — making it difficult to intervene proactively when patients are at risk of not starting.",
         "Field Access": "FRMs report that data fragmentation forces manual reconciliation across HUB portals, SP reports, and CRM entries — consuming time that should go toward provider relationships.",
-        "Commercial Ops / IT": "From an IT and ops perspective, the survey found compliance and regulatory concerns are the second-highest data challenge at 27.3% for this function — reflecting the burden of managing governance across fragmented systems."
+        "Commercial Ops & IT": "From an IT and ops perspective, the survey found compliance and regulatory concerns are the second-highest data challenge at 27.3% for this function — reflecting the burden of managing governance across fragmented systems."
       }
     },
     "How does AI adoption compare across company sizes?": {
@@ -24,8 +24,7 @@ export const OVERLAYS: OverlaysMap = {
         "Cardiovascular & Metabolic": "Cardiovascular teams are among the most AI-active in pilot programs, with 37.5% actively piloting — and notably, 31.2% report no major adoption barriers, the highest barrier-free rate of any TA."
       },
       role: {
-        "Commercial Ops / IT": "IT and Ops leaders across all sizes cite lack of a clear use case as their top AI barrier at 40.9% — higher than any other function, and a structural challenge that falls squarely on this team to resolve.",
-        "Executive": "Executive sponsors at emerging biotechs face a real tension: 28.9% of the segment has no formal AI tools in place at all, meaning executive investment decisions are often being made before the organizational infrastructure to absorb them exists.",
+        "Commercial Ops & IT": "IT and Ops leaders across all sizes cite lack of a clear use case as their top AI barrier at 40.9% — higher than any other function, and a structural challenge that falls squarely on this team to resolve.",
         "Market Access": "Market access teams are among the most interested in AI for action recommendation, but at emerging companies the path to deployment is blocked by alignment gaps — 38% of all emerging biotech respondents cite stakeholder misalignment as their top technology barrier."
       }
     },
@@ -40,7 +39,7 @@ export const OVERLAYS: OverlaysMap = {
         "Patient Services": "Patient services leaders weight 12-month persistence and start rate most heavily. The industry mean persistence rate is 57.3% — with meaningful variation across TAs — suggesting significant room for improvement regardless of segment.",
         "Market Access": "Market access leaders prioritize PA approval rate and time in each milestone — reflecting the function's focus on the access funnel rather than downstream patient behavior.",
         "Field Access": "FRMs tend to anchor on time-to-start as the primary measure of field impact — at 42.2% across all respondents, it remains the most cited KPI industry-wide.",
-        "Commercial Ops / IT": "IT/Ops respondents believe time-to-start is their business counterparts' most important KPI at 68.2% — notably higher than business respondents actually cited it (38.7%), revealing a perception gap around what commercial teams value most."
+        "Commercial Ops & IT": "IT/Ops respondents believe time-to-start is their business counterparts' most important KPI at 68.2% — notably higher than business respondents actually cited it (38.7%), revealing a perception gap around what commercial teams value most."
       }
     },
     "How are teams structured — internal vs. outsourced?": {
@@ -65,7 +64,7 @@ export const OVERLAYS: OverlaysMap = {
       role: {
         "Patient Services": "Patient services teams show stronger emphasis on patient education and direct-to-patient programs than other roles — consistent with their ownership of the patient experience after therapy initiation.",
         "Market Access": "Market access leaders weight payer dynamics above the segment average, reflecting their primary responsibility for navigating formulary and coverage challenges — particularly relevant in competitive TA categories.",
-        "Commercial Ops / IT": "IT and Ops respondents rank patient education as their top investment area at 54.5% — notably higher than business respondents (30.7%), suggesting IT sees patient-facing digital tools as the most addressable investment opportunity."
+        "Commercial Ops & IT": "IT and Ops respondents rank patient education as their top investment area at 54.5% — notably higher than business respondents (30.7%), suggesting IT sees patient-facing digital tools as the most addressable investment opportunity."
       }
     },
     "What does the survey say about patient access performance?": {
@@ -88,8 +87,7 @@ export const OVERLAYS: OverlaysMap = {
         "Neurology & CNS": "CNS has the highest rate of limited alignment at 12.5% — suggesting functional silos are more pronounced in this TA, possibly reflecting the longer commercial timelines and more complex payer environments for neurological conditions."
       },
       role: {
-        "Commercial Ops / IT": "IT and Ops respondents describe alignment with business counterparts similarly to how business describes it with IT — most are mostly or somewhat aligned, with few on either extreme. The gap is in depth of shared context, not in stated goals.",
-        "Executive": "For executive leaders, the alignment question has board-level implications: misalignment between commercial and IT/Ops functions is one of the top barriers to technology deployment, and it's a leadership problem as much as an operational one."
+        "Commercial Ops & IT": "IT and Ops respondents describe alignment with business counterparts similarly to how business describes it with IT — most are mostly or somewhat aligned, with few on either extreme. The gap is in depth of shared context, not in stated goals.",
       }
     }
   },
@@ -104,7 +102,7 @@ export const OVERLAYS: OverlaysMap = {
       },
       role: {
         "Market Access": "For market access leaders, small biotech's 12.2% compliance and regulatory data concern — notably above average — reflects the heightened scrutiny that comes with lean legal infrastructure. The same fragmented ownership affecting 39% of the segment also creates audit exposure when data governance is distributed across systems without centralized oversight.",
-        "Commercial Ops / IT": "Small biotech's 12.2% compliance concern rate around data is notably above average and most acutely felt by IT and ops functions. When data systems are fragmented and governance resources are thin, the burden of maintaining compliant data handling across systems falls disproportionately on this team.",
+        "Commercial Ops & IT": "Small biotech's 12.2% compliance concern rate around data is notably above average and most acutely felt by IT and ops functions. When data systems are fragmented and governance resources are thin, the burden of maintaining compliant data handling across systems falls disproportionately on this team.",
         "Patient Services": "Small biotech's 19.5% low data quality confidence rate is particularly consequential for patient services functions, where intervention decisions depend on accurate case status data. When quality is uncertain, proactive outreach becomes reactive — teams wait for problems to surface rather than addressing them upstream."
       }
     },
@@ -115,8 +113,7 @@ export const OVERLAYS: OverlaysMap = {
         "Neurology & CNS": "CNS programs have a natural long-horizon use case for AI in patient journey monitoring, but small biotech's 2.4% approved-tools rate and 34.1% informal-only posture mean structured deployment remains far off for most. The gap between the opportunity and the current state is among the widest in the survey."
       },
       role: {
-        "Executive": "With 51.2% of small biotech not using AI at all, executives face a fundamentally different decision than large pharma peers — not how to govern AI deployment, but whether to make the initial investment. The 31.7% security and compliance barrier suggests that even when interest exists, risk tolerance is the primary gating factor.",
-        "Commercial Ops / IT": "For IT and ops leaders at small biotech, the 2.4% rate of approved AI tools with cross-team governance reflects not just current state but the difficulty of the path ahead — building an AI governance framework is a significant infrastructure investment for a small team without dedicated compliance or legal AI resources.",
+        "Commercial Ops & IT": "For IT and ops leaders at small biotech, the 2.4% rate of approved AI tools with cross-team governance reflects not just current state but the difficulty of the path ahead — building an AI governance framework is a significant infrastructure investment for a small team without dedicated compliance or legal AI resources.",
         "Market Access": "Small biotech's top AI adoption barrier is security and compliance at 31.7% — a constraint that may be especially limiting for market access use cases like payer database integration and formulary monitoring, which require handling sensitive coverage data. The barrier isn't capability; it's risk governance capacity."
       }
     },
@@ -131,7 +128,7 @@ export const OVERLAYS: OverlaysMap = {
         "Market Access": "PA approval rate as the top KPI at 39% is a direct reflection of market access function priorities at small biotech — where a high denial rate can threaten program viability. The 62.6% mean start rate, however, suggests the actual results still lag the 67.5% industry average, meaning PA conversion is a real operational gap, not just a measurement preference.",
         "Patient Services": "Small biotech's 31.7% prioritization of 12-month persistence as a KPI is the lowest of any segment — an orientation that may under-represent what patient services teams actually need to manage. Patient services leaders own adherence and engagement through the therapy lifecycle, and measurement frameworks that underweight persistence put this function at risk of being under-resourced.",
         "Field Access": "For field access leaders at small biotech, the absence of time-to-start as the top KPI — unlike most segments — reflects a different commercial model. Where the prescriber universe is tight and access obstacles are often payer-driven rather than field-driven, PA approval rate is a more direct measure of program health than time-to-start.",
-        "Commercial Ops / IT": "Small biotech's KPI priority structure — PA approval rate first, start rate third, persistence lowest — likely doesn't match the IT perception gap identified across the industry, where IT teams tend to assume time-to-start dominates business priorities. At small biotech, payer-focused metrics are the central measure of program success, and IT reporting and analytics should be designed to reflect that."
+        "Commercial Ops & IT": "Small biotech's KPI priority structure — PA approval rate first, start rate third, persistence lowest — likely doesn't match the IT perception gap identified across the industry, where IT teams tend to assume time-to-start dominates business priorities. At small biotech, payer-focused metrics are the central measure of program success, and IT reporting and analytics should be designed to reflect that."
       }
     },
     "How are teams structured — internal vs. outsourced?": {
@@ -144,7 +141,6 @@ export const OVERLAYS: OverlaysMap = {
       role: {
         "Field Access": "For field access leaders, small biotech's 90.2% internal FRM rate — above the 83.2% industry average — reflects strong organizational commitment to insourcing this function. The essentially binary structure (no mixed models) means the field access team operates with clear ownership and accountability that hybrid models complicate.",
         "Patient Services": "Small biotech's 34.1% fully external patient services rate is the highest of any company size — meaning roughly a third of the segment is managing this function through vendors. The 14.6% who cite a satisfactory current setup suggests the choice is often deliberate, but it creates coordination overhead and data visibility challenges that pure-insource models don't face.",
-        "Executive": "The deliberate choice to maintain 34.1% of patient services externally — with 14.6% citing a setup that simply works — represents a structural bet that outsourced patient services can deliver adequate outcomes. For small biotech executives, the governance question is whether actual start rate and persistence data is being tracked rigorously enough to validate that bet over time."
       }
     },
     "Where is investment going in 2026?": {
@@ -156,7 +152,7 @@ export const OVERLAYS: OverlaysMap = {
       },
       role: {
         "Market Access": "Small biotech's 31.7% payer dynamics investment is above average and reflects market access function priorities — but the gap between that priority and the segment's dominant provider education focus at 53.7% may create tension. Market access teams may find that budget flows to HCP engagement over payer strategy, particularly in early-launch commercial environments.",
-        "Commercial Ops / IT": "Small biotech's 22% AI investment — the lowest of any segment against a 37.9% industry average — is the central challenge for IT and ops leaders who may see automation potential but can't build the investment case. Provider education and payer dynamics absorb budget that IT might otherwise deploy toward technology infrastructure.",
+        "Commercial Ops & IT": "Small biotech's 22% AI investment — the lowest of any segment against a 37.9% industry average — is the central challenge for IT and ops leaders who may see automation potential but can't build the investment case. Provider education and payer dynamics absorb budget that IT might otherwise deploy toward technology infrastructure.",
         "Patient Services": "Small biotech's investment profile — 53.7% provider education, 31.7% payer dynamics — allocates relatively little to patient-facing programs. Patient services leaders in this segment typically operate with less investment support than peers at larger organizations, where direct-to-patient programs and patient education receive more dedicated budget and organizational priority."
       }
     },
@@ -179,8 +175,7 @@ export const OVERLAYS: OverlaysMap = {
         "Immunology & Inflammatory": "Small biotech's strong 31.7% full-alignment rate is a genuine advantage — but immunology's operational complexity can still create friction even when goals are shared. PA workflows that span commercial, market access, and IT teams have more coordination failure points than simpler reimbursement models, and alignment on objectives doesn't guarantee coordinated execution."
       },
       role: {
-        "Executive": "Small biotech's 31.7% full-alignment rate — the highest of any company size — is a function of organizational scale and leadership proximity. For executives, maintaining this advantage requires staying close to operations as the organization grows. It's a genuine asset that erodes as headcount increases and direct communication paths lengthen.",
-        "Commercial Ops / IT": "The conditions that produce small biotech's 31.7% full-alignment rate — small teams, shared leadership, direct communication — create a different IT/commercial dynamic than larger organizations. The risk is informal coordination that doesn't scale: as data infrastructure grows and team size increases, the alignment that exists today needs to be formalized before it breaks down.",
+        "Commercial Ops & IT": "The conditions that produce small biotech's 31.7% full-alignment rate — small teams, shared leadership, direct communication — create a different IT/commercial dynamic than larger organizations. The risk is informal coordination that doesn't scale: as data infrastructure grows and team size increases, the alignment that exists today needs to be formalized before it breaks down.",
         "Market Access": "Small biotech's strong alignment creates favorable conditions for market access teams — when commercial, medical, and IT functions are aligned on goals, the cross-functional work of formulary strategy and payer engagement encounters less internal friction. The 7.3% limited-alignment rate confirms this advantage holds for the large majority of the segment."
       }
     }
@@ -196,7 +191,7 @@ export const OVERLAYS: OverlaysMap = {
       },
       role: {
         "Market Access": "Mid-size pharma's 24.5% data quality confidence challenge maps directly onto market access operations — payer coverage data that can't be trusted forces market access leaders to verify coverage status manually, slowing response times on formulary changes and PA decisions at exactly the moments when speed matters most.",
-        "Commercial Ops / IT": "For IT and ops leaders, mid-size pharma's data quality confidence challenge at 24.5% — the highest of any company size — is the defining problem to solve. Unlike fragmentation, which is an infrastructure question, quality confidence is a data governance challenge that falls squarely on IT through validation frameworks, audit processes, and source-of-truth architecture decisions.",
+        "Commercial Ops & IT": "For IT and ops leaders, mid-size pharma's data quality confidence challenge at 24.5% — the highest of any company size — is the defining problem to solve. Unlike fragmentation, which is an infrastructure question, quality confidence is a data governance challenge that falls squarely on IT through validation frameworks, audit processes, and source-of-truth architecture decisions.",
         "Patient Services": "Mid-size pharma's 38.8% fragmented data ownership creates a specific challenge for patient services teams who need accurate case status to intervene proactively. The 24.5% quality confidence gap means that even when data exists and is accessible, teams can't always act on it — an especially costly limitation in patient services, where delayed intervention translates directly to missed starts and early dropout."
       }
     },
@@ -208,8 +203,7 @@ export const OVERLAYS: OverlaysMap = {
         "Cardiovascular & Metabolic": "Mid-size pharma's 22.4% actively piloting rate and 16.3% approved deployment represent meaningful AI activity for CV programs. Cardiovascular's high patient volumes make automation for routine tasks economically attractive, though the 26.5% security/compliance barrier may create friction for programs handling large volumes of payer and prescription data."
       },
       role: {
-        "Commercial Ops / IT": "Mid-size pharma's evenly split barriers — 26.5% security/compliance and 26.5% no clear use case — put IT and ops leaders at the center of both blockers simultaneously. Security governance is an IT infrastructure responsibility; use case definition requires IT to translate commercial needs into buildable specifications. The parallel pressure on both tracks defines the IT challenge in this segment.",
-        "Executive": "Mid-size pharma's 16.3% approved deployment rate — second only to large pharma's 31% — puts executives in an active governance role. The 75.5% action recommendation use case requires both commercial and IT leadership buy-in on what decisions AI should influence, making executive alignment the primary determinant of whether deployed tools generate actual commercial value.",
+        "Commercial Ops & IT": "Mid-size pharma's evenly split barriers — 26.5% security/compliance and 26.5% no clear use case — put IT and ops leaders at the center of both blockers simultaneously. Security governance is an IT infrastructure responsibility; use case definition requires IT to translate commercial needs into buildable specifications. The parallel pressure on both tracks defines the IT challenge in this segment.",
         "Market Access": "Mid-size pharma's action recommendation use case at 75.5% is highly relevant to market access — formulary monitoring, coverage change alerting, and PA workflow prioritization are among the most actionable AI applications for this function. The 22.4% piloting rate suggests some market access teams are already working in this space, even if enterprise-wide deployment lags."
       }
     },
@@ -224,7 +218,7 @@ export const OVERLAYS: OverlaysMap = {
         "Market Access": "Mid-size pharma's emphasis on PA approval rate and time in milestone at 34.7% each reflects the access-funnel orientation that market access leaders drive. The 67.2% mean start rate — essentially at the industry average of 67.5% — provides limited cushion against payer or competitive headwinds, making consistent funnel management a commercial priority.",
         "Patient Services": "Mid-size pharma's 30.6% persistence prioritization — below the 39.1% industry average — may create downstream friction for patient services teams who own the post-initiation engagement that drives long-term retention. When executive priorities concentrate upstream on starts and PA, investment and headcount for downstream patient support tend to follow rather than lead.",
         "Field Access": "Mid-size pharma's time-to-start emphasis at 42.9% — the highest of any segment — creates a clear field performance mandate. For FRM leaders, this KPI weight means the organization holds field teams more accountable for front-end access timing than for downstream retention, shaping both how field performance is measured and how field resources are deployed.",
-        "Commercial Ops / IT": "Mid-size pharma's KPI structure — time-to-start first, PA approval and milestone timing at 34.7% each — should inform how IT designs reporting and analytics infrastructure. The 30.6% persistence weighting suggests dashboards that over-index on retention measurement may be misaligned with what commercial leaders in this segment actually prioritize."
+        "Commercial Ops & IT": "Mid-size pharma's KPI structure — time-to-start first, PA approval and milestone timing at 34.7% each — should inform how IT designs reporting and analytics infrastructure. The 30.6% persistence weighting suggests dashboards that over-index on retention measurement may be misaligned with what commercial leaders in this segment actually prioritize."
       }
     },
     "How are teams structured — internal vs. outsourced?": {
@@ -237,7 +231,6 @@ export const OVERLAYS: OverlaysMap = {
       role: {
         "Field Access": "Mid-size pharma's 75.5% internal FRM rate — below the 83.2% industry average — indicates more structural flexibility in field access than most peers. For FRM leaders, the 14.3% mixed model rate likely reflects deliberate product-specific decisions rather than an aspirational gap, and managing hybrid performance standards is an operational reality that fully-insourced segments don't face.",
         "Patient Services": "Mid-size pharma's 63.3% internal patient services rate is the strongest of any company size — a meaningful structural advantage for patient services leaders who need operational control over case management, benefits investigation, and adherence programs. The 14.3% fully external rate suggests the remaining outsourced subset is a deliberate brand-level choice rather than a resource constraint.",
-        "Executive": "Mid-size pharma's combination of lower internal field access (75.5%) and higher internal patient services (63.3%) reflects a portfolio-driven structure where different product types have different field needs while patient support has been standardized internally. Executives should regularly evaluate whether this structure reflects current commercial strategy or has been inherited from earlier build decisions."
       }
     },
     "Where is investment going in 2026?": {
@@ -248,7 +241,7 @@ export const OVERLAYS: OverlaysMap = {
         "Cardiovascular & Metabolic": "Mid-size pharma's 30.6% direct-to-patient investment is particularly relevant in CV, where larger patient populations make scalable digital engagement economically viable. Combined with the 46.9% AI priority, mid-size pharma CV teams appear to be building patient-engagement infrastructure that goes beyond traditional field models — a meaningful differentiator in a competitive TA."
       },
       role: {
-        "Commercial Ops / IT": "Mid-size pharma's 46.9% AI investment rate — well above the 37.9% industry average — gives IT leaders in this segment a mandate that smaller companies don't have. The challenge is converting investment intent into production-ready tools while managing the 26.5% security/compliance barrier and the 26.5% no-clear-use-case constraint that are slowing deployment simultaneously.",
+        "Commercial Ops & IT": "Mid-size pharma's 46.9% AI investment rate — well above the 37.9% industry average — gives IT leaders in this segment a mandate that smaller companies don't have. The challenge is converting investment intent into production-ready tools while managing the 26.5% security/compliance barrier and the 26.5% no-clear-use-case constraint that are slowing deployment simultaneously.",
         "Market Access": "Mid-size pharma's 18.4% payer dynamics investment — below average — may create a gap for market access leaders who need formulary and coverage infrastructure investment to remain commercially competitive. As AI absorbs an increasing share of the technology budget at 46.9%, market access teams may need to make an explicit case for payer-facing investment to remain adequately funded.",
         "Patient Services": "Mid-size pharma's 30.6% DTP investment priority gives patient services teams more direct-to-patient infrastructure budget than the industry average. This investment level positions patient services leaders to build digital engagement programs and adherence support tools that smaller organizations can't fund at the same scale or sophistication."
       }
@@ -273,8 +266,7 @@ export const OVERLAYS: OverlaysMap = {
         "Neurology & CNS": "Mid-size pharma's alignment challenges at 14.3% fully aligned are a structural risk for CNS programs, where long product lifecycles require sustained cross-functional coordination. In a TA where the patient journey spans years, alignment gaps between commercial and IT teams compound over time — making early-stage coordination failures more costly than in acute-treatment categories."
       },
       role: {
-        "Commercial Ops / IT": "Mid-size pharma's 14.3% full-alignment rate — combined with 14.3% citing unclear ownership as a top data challenge — creates a self-reinforcing cycle for IT and ops leaders. When accountability is unclear, data governance suffers; when governance suffers, commercial teams lose confidence in IT outputs; when confidence erodes, alignment deteriorates further. Breaking this cycle requires explicit ownership agreements, not just better communication.",
-        "Executive": "Mid-size pharma's 14.3% full-alignment rate is the lowest of any company size, and it has direct commercial consequences: the alignment gap helps explain why technology investment stalls at this segment even when AI adoption intent and budget are both present. For executives, this is an organizational design problem — ambiguity in ownership and accountability at the commercial/IT interface is not self-correcting.",
+        "Commercial Ops & IT": "Mid-size pharma's 14.3% full-alignment rate — combined with 14.3% citing unclear ownership as a top data challenge — creates a self-reinforcing cycle for IT and ops leaders. When accountability is unclear, data governance suffers; when governance suffers, commercial teams lose confidence in IT outputs; when confidence erodes, alignment deteriorates further. Breaking this cycle requires explicit ownership agreements, not just better communication.",
         "Market Access": "Mid-size pharma's alignment gap creates specific friction for market access teams, who need IT support for payer database integration, formulary monitoring, and PA workflow automation. When only 14.3% report full alignment, market access leaders may find themselves competing with other commercial functions for IT prioritization and build capacity without clear criteria for how decisions get made."
       }
     }
@@ -290,7 +282,7 @@ export const OVERLAYS: OverlaysMap = {
       },
       role: {
         "Market Access": "Large pharma's 24.1% insights timeliness challenge is the most direct market access data problem in the survey. Payer coverage changes, formulary updates, and PA approval rate shifts require real-time data to act on — and when that information arrives slowly, market access leaders are forced to make coverage strategy decisions on intelligence that may already be outdated.",
-        "Commercial Ops / IT": "Large pharma's 58.6% data ownership fragmentation — the highest of any company size — is fundamentally an IT architecture governance problem. Scale creates fragmentation as brand teams, franchises, and geographies build separate data stacks over time; solving it requires a cross-enterprise data strategy that most large pharma organizations haven't yet fully executed despite significant infrastructure investment.",
+        "Commercial Ops & IT": "Large pharma's 58.6% data ownership fragmentation — the highest of any company size — is fundamentally an IT architecture governance problem. Scale creates fragmentation as brand teams, franchises, and geographies build separate data stacks over time; solving it requires a cross-enterprise data strategy that most large pharma organizations haven't yet fully executed despite significant infrastructure investment.",
         "Patient Services": "Large pharma's 58.6% fragmented ownership means patient services teams frequently operate without a complete picture of individual patient status. When HUB case data, SP fulfillment records, and field interaction logs are owned by separate organizational units, the proactive intervention that patient services is supposed to deliver becomes reactive by default — teams respond to problems rather than preventing them.",
         "Field Access": "Large pharma's 24.1% insights timeliness gap creates a direct field performance constraint. Reimbursement decisions and case escalation responses depend on current coverage status and PA outcome data — when those signals arrive with a lag, FRMs are intervening based on yesterday's information while patient access situations continue to evolve."
       }
@@ -303,8 +295,7 @@ export const OVERLAYS: OverlaysMap = {
         "Cardiovascular & Metabolic": "For large pharma CV programs, the 31% approved AI deployment rate combined with 82.8% task automation creates efficiency infrastructure that smaller competitors can't match. At the patient volumes typical of large pharma cardiovascular portfolios, automated routine task handling — coverage verification, refill monitoring, claims tracking — compounds into meaningful operational advantage over time."
       },
       role: {
-        "Executive": "Large pharma's 51.7% security and compliance barrier — significantly higher than all other segments — is a governance risk tolerance problem, not a capability gap. For executive leaders, the challenge is setting AI deployment standards that protect against regulatory exposure without blocking use cases with clear commercial value and manageable risk profiles. The bottleneck is decision criteria, not technical infrastructure.",
-        "Commercial Ops / IT": "Large pharma's 51.7% security and compliance barrier is the primary IT constraint on AI deployment at this segment. With 31% already having approved tools in production, IT teams simultaneously manage deployed systems, evaluate new use cases, and maintain compliance standards — all without established regulatory precedent on AI-specific requirements in commercial pharma applications.",
+        "Commercial Ops & IT": "Large pharma's 51.7% security and compliance barrier is the primary IT constraint on AI deployment at this segment. With 31% already having approved tools in production, IT teams simultaneously manage deployed systems, evaluate new use cases, and maintain compliance standards — all without established regulatory precedent on AI-specific requirements in commercial pharma applications.",
         "Market Access": "Large pharma's task automation focus at 82.8% has natural market access applications — coverage monitoring, PA workflow management, and formulary change alerting are all high-volume, structured processes that benefit from automation. The 31% approved deployment rate means some market access tools are already live, but the 51.7% compliance barrier may be slowing deployment of the payer-data-intensive applications that market access teams need most."
       }
     },
@@ -319,7 +310,6 @@ export const OVERLAYS: OverlaysMap = {
         "Patient Services": "Large pharma's 53.3% mean persistence — with a median of 50% — is the central challenge for patient services leaders. Despite measuring persistence more intensively than any other segment at 58.6%, large pharma is achieving the lowest retention outcomes of any company size. Patient services teams here face the most acute version of the measurement-to-performance gap in the survey.",
         "Market Access": "Large pharma's dual emphasis on persistence (58.6%) and time-to-start (55.2%) creates a broader KPI mandate than other segments face. With both the initiation and long-term retention phases as organizational priorities, market access leaders need to own the access funnel from BV through sustained formulary management — a scope that requires deeper cross-functional coordination than front-funnel-only accountability.",
         "Field Access": "Large pharma's 55.2% time-to-start prioritization — high by any benchmark — means FRM leaders operate under strong organizational pressure on front-end access speed. Combined with the 58.6% persistence priority, field access teams at large pharma face accountability for both ends of the patient journey in a way that smaller-segment FRM leaders typically don't — a broader mandate that requires both initiation and adherence support capabilities.",
-        "Executive": "Large pharma's 53.3% mean persistence — the lowest of any company size — against the segment's 58.6% persistence measurement intensity is the most striking finding in the KPI data. For executive leaders, the gap between measurement priority and actual outcome is the clearest signal that current patient support investments are not delivering expected retention returns, and that the problem may be structural rather than incremental."
       }
     },
     "How are teams structured — internal vs. outsourced?": {
@@ -332,7 +322,6 @@ export const OVERLAYS: OverlaysMap = {
       role: {
         "Field Access": "Large pharma's 72.4% internal field access rate — the lowest of any company size — represents the most distributed FRM model in the survey. For field access leaders, managing a structure with 13.8% external and 13.8% mixed components requires governance frameworks that maintain consistent performance standards, data reporting, and accountability across internal teams and vendor-managed operations simultaneously.",
         "Patient Services": "Large pharma is the only segment below 50% internal patient services at 48.3%. For patient services leaders, operating with 31% mixed and 20.7% fully external means the majority of patient-facing work is happening outside direct organizational control. Vendor oversight, data integration standards, and performance monitoring become the primary management levers rather than direct team leadership.",
-        "Executive": "Large pharma's distributed structure — 72.4% internal field access, 48.3% internal patient services — reflects portfolio complexity more than outsourcing preference. For executives, the strategic question is whether this structure is actively managed to optimize performance by product type, or whether it represents accumulated historical decisions that haven't been systematically reviewed against current commercial strategy and patient access outcomes."
       }
     },
     "Where is investment going in 2026?": {
@@ -343,7 +332,7 @@ export const OVERLAYS: OverlaysMap = {
         "Cardiovascular & Metabolic": "Large pharma's 37.9% DTP investment — tied with payer dynamics — reflects the economic logic of cardiovascular programs at scale. High patient volumes in CV make per-patient DTP costs tractable, and direct-to-patient engagement infrastructure in CV creates persistent adherence support that should sustain the long-term retention large pharma explicitly prioritizes as its top KPI."
       },
       role: {
-        "Commercial Ops / IT": "Large pharma's 44.8% AI investment rate gives IT leaders significant organizational mandate and budget. The challenge is converting that investment into approved, production-ready tools — navigating governance requirements and security reviews that slow deployment even when funding is clearly allocated. Investment authorization and deployment authorization are two separate hurdles at this segment.",
+        "Commercial Ops & IT": "Large pharma's 44.8% AI investment rate gives IT leaders significant organizational mandate and budget. The challenge is converting that investment into approved, production-ready tools — navigating governance requirements and security reviews that slow deployment even when funding is clearly allocated. Investment authorization and deployment authorization are two separate hurdles at this segment.",
         "Market Access": "Large pharma's 37.9% payer dynamics investment — tied as the second-highest priority — gives market access leaders stronger budget support than peers at smaller organizations. At the patient volumes typical of large pharma programs, formulary position decisions have outsized commercial impact, and the segment's investment allocation reflects that strategic reality more explicitly than any other segment in the survey.",
         "Patient Services": "Large pharma's 37.9% DTP program investment creates the most substantial patient services infrastructure budget of any segment. For patient services leaders, this enables digital engagement programs, adherence support tools, and patient community initiatives that smaller organizations can't fund at scale. The investment is present; the challenge — given the segment's 53.3% mean persistence — is ensuring it translates into measurable retention improvement."
       }
@@ -359,7 +348,6 @@ export const OVERLAYS: OverlaysMap = {
         "Patient Services": "Large pharma's mean persistence of 53.3% — the lowest of any company size — with a median of 50% is the defining performance challenge for patient services leaders in this segment. The combination of the industry's largest patient support investment and its worst persistence outcomes suggests the current patient services model at scale is not translating investment into retention at the expected rate.",
         "Market Access": "Large pharma's near-average start rate of 68% — against the 67.5% industry mean — means roughly 1 in 3 prescribed patients still doesn't start therapy. For market access leaders managing large formulary footprints and high patient volumes, even marginal improvements in start rate represent significant commercial value. At large pharma scale, a 1-point improvement in start rate affects a meaningfully larger number of patients than at any other segment.",
         "Field Access": "Large pharma's 68% mean start rate is consistent with the industry average, but the segment's 53.3% mean persistence — the lowest in the survey — suggests the field performance gap isn't at the front of the funnel. For FRM leaders, this data indicates a patient journey breakdown occurring after initiation rather than during the access process — pointing to post-start support infrastructure rather than field access execution as the primary intervention opportunity.",
-        "Executive": "Large pharma's combination of a near-average 68% start rate and the segment's 53.3% mean persistence — with a median of only 50% — is the most significant performance finding for executive leaders. Despite the highest AI adoption rates, largest teams, and greatest DTP investment, large pharma patients are least likely to remain on therapy at 12 months. The persistence underperformance is a systemic gap between program design and actual patient retention outcomes."
       }
     },
     "How aligned are commercial and IT/Ops teams?": {
@@ -369,8 +357,7 @@ export const OVERLAYS: OverlaysMap = {
         "Neurology & CNS": "Large pharma's alignment challenges at 10.3% fully aligned are significant for CNS programs, where long product lifecycles require sustained cross-functional coordination over years. In a TA where commercial strategy must evolve with shifting payer landscapes and patient population dynamics, misalignment between commercial vision and IT execution capacity becomes a compounding drag on program performance over time."
       },
       role: {
-        "Executive": "Large pharma's 10.3% full-alignment rate — the lowest of any company size — combined with the highest limited-alignment rate of any segment is the most consequential finding for executive leaders. At this organization size, functional silos aren't just coordination friction — for 10.3% reporting limited alignment, they represent genuine operational breakdown. The alignment gap may be why only 6.9% of large pharma respondents report actually using data to power AI use cases despite having the most mature deployment infrastructure.",
-        "Commercial Ops / IT": "Large pharma's 31% somewhat-aligned and 10.3% limited-alignment rates represent the functional reality that IT leaders navigate daily at this segment. With governance decisions spanning multiple brands, franchises, and geographies, IT leaders at large pharma face a coordination problem that smaller organizations resolve through proximity — and that large pharma must solve through explicit process design and organizational structure.",
+        "Commercial Ops & IT": "Large pharma's 31% somewhat-aligned and 10.3% limited-alignment rates represent the functional reality that IT leaders navigate daily at this segment. With governance decisions spanning multiple brands, franchises, and geographies, IT leaders at large pharma face a coordination problem that smaller organizations resolve through proximity — and that large pharma must solve through explicit process design and organizational structure.",
         "Market Access": "Large pharma's alignment gap — 10.3% fully aligned, 31% somewhat aligned — creates direct friction for market access teams that need IT to prioritize payer data infrastructure and PA workflow automation. When alignment is weak across the organization, market access competes for IT resources against every other commercial function without clear prioritization criteria, slowing the development of the tools that market access teams need most."
       }
     }
