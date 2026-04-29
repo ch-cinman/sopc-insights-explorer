@@ -162,10 +162,10 @@ export default function Explorer() {
     setActiveCompany(companyType as CompanyType);
     setActiveTa(ta);
     setActiveRole(role);
-    setMessages([{ type: "bot", html: OPENING[companyType as CompanyType] }]);
+    setMessages([]);
     setUsedQuestions(new Set());
     setAllExhausted(false);
-    setIsTyping(false);
+    setIsTyping(true);
     setView("chat");
 
     window.posthog?.capture("profile_selected", {
@@ -173,6 +173,11 @@ export default function Explorer() {
       therapeutic_area: ta || null,
       role_focus: role || null,
     });
+
+    setTimeout(() => {
+      setIsTyping(false);
+      setMessages([{ type: "bot", html: OPENING[companyType as CompanyType] }]);
+    }, 900);
   }
 
   function resetChat() {
@@ -489,14 +494,14 @@ export default function Explorer() {
                 strokeLinejoin="round"
               />
             </svg>
-            Explore my benchmarks
+            Explore My Benchmarks
           </button>
         </div>
       )}
 
       {/* Chat area */}
       {view === "chat" && (
-        <div style={{ display: "flex", flexDirection: "column", background: "#f8f9fd", flex: 1 }}>
+        <div style={{ display: "flex", flexDirection: "column", background: "#f8f9fd", flex: 1, animation: "fadeIn 0.35s ease" }}>
           {/* Chat topbar */}
           <div
             style={{
