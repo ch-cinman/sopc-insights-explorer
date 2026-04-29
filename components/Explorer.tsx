@@ -148,6 +148,7 @@ export default function Explorer() {
   const [activeRole, setActiveRole] = useState<RoleFocus | "">("");
 
   const messagesEndRef = useRef<HTMLDivElement>(null);
+  const chatContainerRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
@@ -165,8 +166,6 @@ export default function Explorer() {
     setMessages([]);
     setUsedQuestions(new Set());
     setAllExhausted(false);
-    setIsTyping(true);
-    setView("chat");
 
     window.posthog?.capture("profile_selected", {
       company_type: companyType,
@@ -174,10 +173,15 @@ export default function Explorer() {
       role_focus: role || null,
     });
 
+    setIsTyping(true);
+    setView("chat");
+    setTimeout(() => {
+      chatContainerRef.current?.scrollIntoView({ behavior: "smooth", block: "start" });
+    }, 20);
     setTimeout(() => {
       setIsTyping(false);
       setMessages([{ type: "bot", html: OPENING[companyType as CompanyType] }]);
-    }, 900);
+    }, 1600);
   }
 
   function resetChat() {
@@ -301,6 +305,7 @@ export default function Explorer() {
           padding: "44px clamp(20px, 5vw, 72px) 38px",
           textAlign: "center",
           flexShrink: 0,
+          display: view === "chat" ? "none" : undefined,
         }}
       >
         <div
@@ -331,11 +336,11 @@ export default function Explorer() {
         </h1>
       </div>
 
-      {/* Stats showcase */}
-      {view === "intake" && <StatsShowcase />}
+      {/* Stats showcase + intake */}
+      <div style={{ display: view === "chat" ? "none" : undefined }}>
+        <StatsShowcase />
 
-      {/* Intake */}
-      {view === "intake" && (
+        {/* Intake */}
         <div style={{ background: "var(--navy)", padding: "8px clamp(20px, 5vw, 72px) 40px", flexShrink: 0 }}>
           <div style={{ height: 24 }} />
 
@@ -497,11 +502,19 @@ export default function Explorer() {
             Explore My Benchmarks
           </button>
         </div>
-      )}
+      </div>
 
       {/* Chat area */}
-      {view === "chat" && (
-        <div style={{ display: "flex", flexDirection: "column", background: "#f8f9fd", flex: 1, animation: "fadeIn 0.35s ease" }}>
+      <div
+        ref={chatContainerRef}
+        style={{
+          display: view === "chat" ? "flex" : "none",
+          flexDirection: "column",
+          background: "#f8f9fd",
+          flex: 1,
+          animation: view === "chat" ? "fadeIn 3s cubic-bezier(0.22, 1, 0.36, 1)" : undefined,
+        }}
+      >
           {/* Chat topbar */}
           <div
             style={{
@@ -752,8 +765,7 @@ export default function Explorer() {
               )}
             </div>
           </div>
-        </div>
-      )}
+      </div>
 
       {/* Footer */}
       <footer
