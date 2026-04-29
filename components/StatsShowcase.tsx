@@ -401,12 +401,12 @@ function PatientJourneyCard() {
     <div style={CARD_INNER}>
       <div style={{ display: "flex", gap: 0 }}>
         <div style={{ flex: 1, paddingRight: 16 }}>
-          <div style={{ fontSize: 64, fontWeight: 800, color: "var(--blue)", lineHeight: 1 }}>30%</div>
+          <div style={{ fontSize: 64, fontWeight: 800, color: "var(--navy)", lineHeight: 1 }}>30%</div>
           <div style={STAT_LABEL}>of patients never start their treatment</div>
         </div>
         <div style={{ width: 1, background: "rgba(0,20,94,0.08)", flexShrink: 0 }} />
         <div style={{ flex: 1, paddingLeft: 16 }}>
-          <div style={{ fontSize: 64, fontWeight: 800, color: "var(--blue)", lineHeight: 1 }}>66%</div>
+          <div style={{ fontSize: 64, fontWeight: 800, color: "var(--navy)", lineHeight: 1 }}>66%</div>
           <div style={STAT_LABEL}>discontinue by month 12</div>
         </div>
       </div>
@@ -453,7 +453,7 @@ function KPIAwarenessCard() {
   return (
     <div style={CARD_INNER}>
       <div>
-        <div style={{ fontSize: 64, fontWeight: 800, color: "var(--navy)", lineHeight: 1 }}>14%</div>
+        <div style={{ fontSize: 64, fontWeight: 800, color: "var(--blue)", lineHeight: 1 }}>14%</div>
         <div style={STAT_LABEL}>of respondents don&apos;t know how their teams are measured</div>
       </div>
       <div style={DIVIDER} />
